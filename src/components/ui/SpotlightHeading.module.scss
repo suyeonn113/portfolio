@@ -1,0 +1,48 @@
+.heading {
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-opacity: 0;
+  --spotlight-color: var(--daiso-red, #b72a2d);
+  --spotlight-size: clamp(160px, 14vw, 240px);
+
+  position: relative;
+  isolation: isolate;
+}
+
+.heading[data-tone="light"] {
+  --spotlight-color: #ffd0d2;
+}
+
+.base,
+.spotlight {
+  display: block;
+}
+
+.base {
+  position: relative;
+  z-index: 1;
+}
+
+.spotlight {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  color: transparent;
+  background: radial-gradient(
+    circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y),
+    var(--spotlight-color) 0 62%,
+    transparent 62% 100%
+  );
+  background-clip: text;
+  opacity: var(--spotlight-opacity);
+  transition: opacity 180ms ease;
+  -webkit-background-clip: text;
+  will-change: opacity;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .spotlight {
+    display: none;
+  }
+}

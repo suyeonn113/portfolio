@@ -1,3 +1,5 @@
+import Link from "next/link";
+import LinkArrowIcon from "@/components/ui/LinkArrowIcon";
 import styles from "./Hero.module.scss";
 
 const projectNames = [
@@ -42,7 +44,10 @@ export default function Hero() {
           </ul>
         </div>
         <div className={styles.contactCell}>
-          <a href="#contact">LET&apos;S TALK&nbsp;&nbsp;↗</a>
+          <Link href="/resume">
+            VIEW RESUME
+            <LinkArrowIcon direction="right" className={styles.resumeIcon} />
+          </Link>
         </div>
       </div>
     </section>

@@ -10,8 +10,22 @@
   width: 100%;
   min-height: tokens.$header-height;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding-inline: tokens.$page-gutter;
+}
+
+.wordmark {
+  @include mixins.section-label;
+
+  flex: 0 0 auto;
+  color: tokens.$color-black;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.wordmark:focus-visible {
+  outline: 2px solid tokens.$color-black;
+  outline-offset: 4px;
 }
 
 .controls {

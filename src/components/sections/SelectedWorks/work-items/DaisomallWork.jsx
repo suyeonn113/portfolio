@@ -1,5 +1,7 @@
 import { projectBySlug } from "@/data/projects";
+import LinkArrowIcon from "@/components/ui/LinkArrowIcon";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../SelectedWorks.module.scss";
 
 const project = projectBySlug.daisomall;
@@ -56,11 +58,17 @@ function ProjectCopy({ project: item }) {
       <p className={styles.summary}>{item.summary}</p>
       <p className={styles.tech}>{item.tech.join(" · ")}</p>
       <div className={styles.projectLinks}>
+        <Link href="/works/daisomall">
+          View case study
+          <LinkArrowIcon direction="right" className={styles.linkIcon} />
+        </Link>
         <a href={item.url} target="_blank" rel="noreferrer">
-          Visit live site ↗
+          Visit live site
+          <LinkArrowIcon className={styles.linkIcon} />
         </a>
         <a href={item.githubUrl} target="_blank" rel="noreferrer">
-          View GitHub ↗
+          View GitHub
+          <LinkArrowIcon className={styles.linkIcon} />
         </a>
       </div>
     </div>

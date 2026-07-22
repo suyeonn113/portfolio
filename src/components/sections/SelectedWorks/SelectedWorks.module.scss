@@ -131,8 +131,21 @@
 }
 
 .projectLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   border-bottom: tokens.$line-width solid currentColor;
   padding-bottom: 5px;
+}
+
+.linkIcon {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
 }
 
 .projectImage {
@@ -155,10 +168,10 @@
 .iosStatus {
   position: relative;
   display: flex;
-  height: 32px;
+  height: 36px;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 12px;
+  padding-inline: clamp(14px, 4.5%, 18px);
   color: #111113;
   background: rgba(248, 248, 248, 0.96);
 }
@@ -171,7 +184,7 @@
 
 .dynamicIsland {
   position: absolute;
-  top: 7px;
+  top: 9px;
   left: 50%;
   width: 48px;
   height: 14px;
@@ -227,11 +240,11 @@
 
 .iosToolbar {
   display: grid;
-  min-height: 42px;
+  min-height: 48px;
   grid-template-columns: 22px minmax(0, 1fr) 22px 22px;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
-  padding: 6px 10px;
+  padding: 8px clamp(14px, 4.5%, 18px) 10px;
   color: #151519;
   background: rgba(248, 248, 250, 0.97);
 }
@@ -304,7 +317,6 @@
   padding: 10px;
   color: #171719;
   background: #ffffff;
-  border: 2px solid #b70711;
   box-shadow: 16px 18px 0 rgba(91, 0, 7, 0.28);
   transform: translate(-50%, -50%) rotate(1.2deg);
   transition: transform tokens.$duration-interaction ease;

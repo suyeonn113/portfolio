@@ -75,6 +75,10 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
+      <a className={styles.wordmark} href="#top" aria-label="홈으로 이동">
+        SUYEONN
+      </a>
+
       <div className={styles.controls}>
         <button
           className={styles.controlButton}
