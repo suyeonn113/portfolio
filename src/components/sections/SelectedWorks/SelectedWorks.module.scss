@@ -12,14 +12,15 @@
   align-items: end;
   justify-content: space-between;
   min-height: 190px;
-  padding: 58px tokens.$page-gutter 36px;
-  border-bottom: 1px solid tokens.$color-line;
+  padding-block: tokens.$section-heading-padding-block;
+  padding-inline: tokens.$page-gutter;
+  border-bottom: tokens.$line-width solid tokens.$color-line;
 }
 
 .heading h2 {
-  font-size: clamp(2rem, 2.4vw, 3rem);
-  font-weight: 450;
-  letter-spacing: -0.045em;
+  font-size: tokens.$font-size-section-heading;
+  font-weight: tokens.$font-weight-book;
+  letter-spacing: tokens.$tracking-display;
 }
 
 .heading p,
@@ -36,7 +37,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: clamp(650px, 48vw, 900px);
-  border-bottom: 1px solid tokens.$color-line;
+  background: var(--project-color);
 }
 
 .visual,
@@ -55,7 +56,8 @@
   align-items: flex-start;
   justify-content: center;
   padding: clamp(48px, 7vw, 132px);
-  background: tokens.$color-white;
+  color: var(--project-ink);
+  background: var(--project-color);
 }
 
 .workTitle {
@@ -67,282 +69,400 @@
 .workTitle > span,
 .workTitle p,
 .tech,
-.copy a {
+.projectLinks a {
   @include mixins.section-label;
 }
 
 .workTitle h3 {
-  font-size: clamp(1.5rem, 2vw, 2.5rem);
-  font-weight: 500;
+  font-size: tokens.$font-size-section-title;
+  font-weight: tokens.$font-weight-medium;
   line-height: 1;
   letter-spacing: -0.04em;
 }
 
-.workTitle p {
-  margin-top: 9px;
-  color: tokens.$color-muted;
+.projectTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.projectBadge {
+  @include mixins.section-label;
+
+  padding: 4px 7px;
+  border: tokens.$line-width solid currentColor;
+  border-radius: tokens.$radius-chip;
   text-transform: none;
 }
 
+.workTitle p {
+  margin-top: 9px;
+  color: inherit;
+  opacity: 0.68;
+  text-transform: none;
+}
+
+.projectRole {
+  max-width: 46ch;
+  opacity: 0.72;
+  word-break: keep-all;
+}
+
 .summary {
-  max-width: 440px;
+  max-width: 500px;
   margin-top: clamp(42px, 5vw, 82px);
   font-size: clamp(0.9rem, 1.05vw, 1.125rem);
-  line-height: 1.75;
+  line-height: tokens.$line-height-readable;
 }
 
 .tech {
   margin-top: 28px;
-  color: tokens.$color-muted;
+  color: inherit;
   line-height: 1.8;
+  opacity: 0.68;
 }
 
-.copy a {
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: clamp(64px, 8vw, 128px);
-  border-bottom: 1px solid currentColor;
+}
+
+.projectLinks a {
+  border-bottom: tokens.$line-width solid currentColor;
   padding-bottom: 5px;
 }
 
-.daisoVisual {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  grid-template-rows: 1fr 0.34fr;
-  gap: 1px;
-  padding: clamp(26px, 3vw, 58px);
-  background: #f3efed;
+.projectImage {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.daisoLead {
+.previewFrame {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border: tokens.$line-width solid rgba(9, 9, 11, 0.18);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(9, 9, 11, 0.16);
+  transition: transform tokens.$duration-interaction ease;
+}
+
+.iosStatus {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  height: 32px;
+  align-items: center;
   justify-content: space-between;
-  padding: clamp(24px, 3vw, 56px);
-  color: #ffffff;
-  background: #e53935;
+  padding-inline: 12px;
+  color: #111113;
+  background: rgba(248, 248, 248, 0.96);
 }
 
-.daisoLead span,
-.daisoLead strong {
+.iosStatus time {
+  font-size: 0.55rem;
+  font-weight: tokens.$font-weight-medium;
+  letter-spacing: 0.01em;
+}
+
+.dynamicIsland {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 48px;
+  height: 14px;
+  border-radius: 999px;
+  background: #09090b;
+  transform: translateX(-50%);
+}
+
+.iosSignals {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.iosSignals svg {
+  display: block;
+  overflow: visible;
+  color: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.iosSignals svg:nth-child(1) {
+  width: 15px;
+  height: 10px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.iosSignals svg:nth-child(2) {
+  width: 15px;
+  height: 10px;
+}
+
+.iosSignals svg:nth-child(3) {
+  width: 22px;
+  height: 10px;
+}
+
+.previewScreen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-block: tokens.$line-width solid #e3e3e6;
+  background: #ffffff;
+}
+
+.previewImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.iosToolbar {
+  display: grid;
+  min-height: 42px;
+  grid-template-columns: 22px minmax(0, 1fr) 22px 22px;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 10px;
+  color: #151519;
+  background: rgba(248, 248, 250, 0.97);
+}
+
+.iosToolbar strong {
+  overflow: hidden;
+  padding: 6px 10px;
+  border-radius: 11px;
+  background: #eaeaee;
+  font-size: 0.52rem;
+  font-weight: tokens.$font-weight-medium;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iosBack,
+.iosShare,
+.iosTabs {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+}
+
+.iosBack svg,
+.iosShare svg,
+.iosTabs svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.iosShare {
+  justify-self: center;
+}
+
+.iosTabs {
+  justify-self: end;
+}
+
+.visual:hover .previewFrame {
+  transform: translateY(-4px);
+}
+
+.visual:hover .projectImage {
+  transform: scale(1.018);
+}
+
+.daisoVisual {
+  color: #ffffff;
+  background: #c90b16 url("/images/projects/backgrounds/daisomall-artwork-v2.png") center / cover no-repeat;
+}
+
+.airNav,
+.fragCaption {
   @include mixins.section-label;
 }
 
-.daisoLead strong {
-  font-size: clamp(1.6rem, 2.8vw, 3.5rem);
+.daisoCatalog {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(84%, 780px);
+  padding: 10px;
+  color: #171719;
+  background: #ffffff;
+  border: 2px solid #b70711;
+  box-shadow: 16px 18px 0 rgba(91, 0, 7, 0.28);
+  transform: translate(-50%, -50%) rotate(1.2deg);
+  transition: transform tokens.$duration-interaction ease;
 }
 
-.daisoTiles {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
+.daisoCatalogTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 2px 10px;
+  font-size: clamp(0.48rem, 0.7vw, 0.66rem);
+  letter-spacing: 0.12em;
 }
 
-.daisoTiles span {
+.daisoCatalogScreen,
+.youthScreen {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
   background: #ffffff;
 }
 
-.daisoTiles span:nth-child(3n) {
-  background: #f2c8c5;
+.daisoCatalogScreen {
+  aspect-ratio: 1428 / 1500;
 }
 
-.daisoProducts {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
+.youthScreen {
+  aspect-ratio: 1408 / 1490;
+  border: 8px solid #ffffff;
+  box-shadow: 0 12px 28px rgba(69, 45, 24, 0.18);
 }
 
-.daisoProducts span {
-  background: #ffffff;
+.youthScreen .previewImage {
+  object-fit: cover;
+  object-position: center top;
 }
 
-.daisoProducts span::after {
-  display: block;
-  width: 38%;
-  aspect-ratio: 1;
-  margin: 24% auto 0;
-  background: #ded8d4;
-  border-radius: 50%;
-  content: "";
+.daisoVisual:hover .daisoCatalog {
+  transform: translate(-50%, calc(-50% - 5px)) rotate(0);
 }
 
 .airVisual {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding: clamp(26px, 3vw, 56px);
-  color: #063f39;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(13, 126, 116, 0.28)),
-    #9adbd5;
+  color: #ffffff;
+  background: #9bded8 url("/images/projects/backgrounds/airseoul-artwork-v2.png") center / cover no-repeat;
 }
 
 .airNav {
+  position: absolute;
+  z-index: 3;
+  top: clamp(24px, 3vw, 48px);
+  right: clamp(24px, 3vw, 48px);
+  left: clamp(24px, 3vw, 48px);
   display: flex;
   justify-content: space-between;
-  font-size: 0.6875rem;
+  color: #063f39;
 }
 
-.airDestination {
-  align-self: center;
-}
-
-.airDestination span,
-.airDestination p {
-  @include mixins.section-label;
-}
-
-.airDestination strong {
-  display: block;
-  margin-block: 10px;
-  font-size: clamp(4.5rem, 8vw, 10rem);
-  font-weight: 500;
-  line-height: 0.8;
-  letter-spacing: -0.065em;
-}
-
-.airPromos {
+.airHeroScreen {
   position: absolute;
-  right: clamp(26px, 3vw, 56px);
-  bottom: clamp(26px, 3vw, 56px);
-  display: grid;
-  width: 25%;
-  gap: 10px;
+  z-index: 2;
+  bottom: 7%;
+  left: 50%;
+  width: min(88%, 820px);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: tokens.$line-width solid rgba(6, 63, 57, 0.2);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 24px 64px rgba(2, 45, 59, 0.28);
+  transform: translateX(-50%) rotate(-1deg);
+  transition: transform tokens.$duration-interaction ease;
 }
 
-.airPromos span {
-  aspect-ratio: 2 / 0.9;
-  border: 1px solid rgba(6, 63, 57, 0.32);
-  background: rgba(255, 255, 255, 0.18);
+.airHeroScreen .previewImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.airVisual:hover .airHeroScreen {
+  transform: translate(-50%, -5px) rotate(0);
 }
 
 .youthVisual {
-  display: grid;
-  grid-template-columns: 1.7fr 0.7fr;
-  grid-template-rows: 1fr 0.35fr;
-  gap: 12px;
-  padding: clamp(26px, 3vw, 56px);
-  color: #4a2606;
-  background: #f8dfc4;
+  color: #ffffff;
+  background: #f3a354 url("/images/projects/backgrounds/youth-center-artwork-v2.png") center / cover no-repeat;
 }
 
-.youthBanner {
+.youthPoster {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(82%, 760px);
+  padding: 12px;
+  color: #1f2e43;
+  background: #fffaf0;
+  box-shadow: 13px 16px 0 rgba(31, 46, 67, 0.2);
+  transform: translate(-50%, -50%) rotate(-1.5deg);
+  transition: transform tokens.$duration-interaction ease;
+}
+
+.youthTape {
+  position: absolute;
+  z-index: 3;
+  top: -14px;
+  left: 50%;
+  width: 76px;
+  height: 28px;
+  background: rgba(122, 187, 173, 0.72);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.youthPosterLabel {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  padding: clamp(24px, 3vw, 52px);
-  background: #f3a354;
+  padding: 3px 2px 11px;
+  font-size: clamp(0.47rem, 0.68vw, 0.64rem);
+  letter-spacing: 0.08em;
 }
 
-.youthBanner span {
-  @include mixins.section-label;
-}
-
-.youthBanner strong {
-  max-width: 12ch;
-  font-size: clamp(1.8rem, 3.6vw, 4.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-}
-
-.youthServices {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-}
-
-.youthServices span {
-  display: grid;
-  place-items: center;
-  background: #ffffff;
-  font-size: 0.6875rem;
-}
-
-.youthInfo {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.youthInfo span {
-  background: rgba(255, 255, 255, 0.72);
+.youthVisual:hover .youthPoster {
+  transform: translate(-50%, calc(-50% - 5px)) rotate(-0.25deg);
 }
 
 .fragVisual {
+  isolation: isolate;
   display: grid;
   place-items: center;
   padding: 56px;
   color: #f6f5f1;
-  background: #292a2c;
+  background: #292a2c url("/images/projects/backgrounds/fragfarm-artwork.png") center / cover no-repeat;
 }
 
-.phone {
-  position: relative;
-  width: min(48%, 390px);
-  min-width: 260px;
-  aspect-ratio: 0.56;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 28px;
-  background: #555352;
-}
-
-.phoneTop {
+.fragCaption {
   position: absolute;
   z-index: 2;
-  top: 26px;
-  left: 50%;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  transform: translateX(-50%);
 }
 
-.fashionFigure {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55)),
-    radial-gradient(circle at 50% 22%, #898481 0 12%, transparent 12.5%),
-    linear-gradient(110deg, #3b3938 0 42%, #77726f 42% 58%, #333130 58%);
+.fragCaption {
+  top: 32px;
+  left: 36px;
 }
 
-.reviewCard {
-  position: absolute;
-  z-index: 2;
-  top: 36%;
-  left: 50%;
-  display: flex;
-  width: 76%;
-  flex-direction: column;
-  gap: 9px;
-  padding: 26px 20px;
-  color: #282828;
-  background: #f7f5f0;
-  transform: translateX(-50%) rotate(-3deg);
+.fragPhone {
+  width: min(52%, 360px);
+  border-color: rgba(255, 255, 255, 0.55);
+  border-radius: 30px;
+  box-shadow: 22px 24px 70px rgba(0, 0, 0, 0.48);
 }
 
-.reviewCard strong {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  font-weight: 500;
+.fragPhone .previewScreen {
+  aspect-ratio: 390 / 700;
 }
 
-.reviewCard span,
-.phoneMenu span {
-  font-size: 0.625rem;
-}
-
-.phoneMenu {
-  position: absolute;
-  z-index: 2;
-  right: 24px;
-  bottom: 24px;
-  left: 24px;
-  display: grid;
-}
-
-.phoneMenu span {
-  padding-block: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+.fragPhone .previewImage {
+  object-fit: cover;
+  object-position: center top;
 }
 
 @include mixins.tablet {
@@ -353,24 +473,60 @@
   .copy {
     padding: 48px;
   }
+
+  .airHeroScreen {
+    width: 92%;
+  }
+
+  .youthPoster {
+    width: 62%;
+  }
 }
 
 @include mixins.mobile {
-  .heading {
-    min-height: 150px;
-  }
-
   .work {
     grid-template-columns: 1fr;
   }
 
   .visual {
-    min-height: 520px;
+    min-height: 0;
+    aspect-ratio: 1;
+  }
+
+  .daisoCatalog {
+    width: 90%;
+  }
+
+  .fragVisual {
+    padding: 28px;
+  }
+
+  .airNav {
+    top: 22px;
+    right: 22px;
+    left: 22px;
+  }
+
+  .airHeroScreen {
+    bottom: 7%;
+    width: 94%;
+  }
+
+  .youthPoster {
+    width: 90%;
+  }
+
+  .fragCaption {
+    display: none;
+  }
+
+  .fragPhone {
+    width: 44%;
   }
 
   .copy {
-    min-height: 480px;
-    padding: 48px tokens.$page-gutter;
+    min-height: 360px;
+    padding: 40px tokens.$page-gutter;
   }
 
   .work:nth-of-type(even) .copy {

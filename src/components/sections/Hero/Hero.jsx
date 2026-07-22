@@ -12,21 +12,21 @@ export default function Hero() {
     <section className={styles.hero} id="top" aria-labelledby="hero-title">
       <div className={styles.inner}>
         <h1 id="hero-title">
-          I turn complex flows
+          I turn unspoken needs
           <br />
-          into usable interfaces.
+          into clear interfaces.
         </h1>
 
         <p className={styles.description}>
-          정보를 읽는 순서를 설계하고
+          질문과 관찰로 필요한 기준을 발견하고
           <br />
-          실제 사용할 수 있는 화면으로 연결합니다.
+          사용자가 이해하기 쉬운 화면으로 구현합니다.
         </p>
       </div>
 
       <div className={styles.meta}>
         <div>
-          <strong>Selected Projects</strong>
+          <strong>Projects</strong>
           <ul>
             {projectNames.map((name) => (
               <li key={name}>{name}</li>
@@ -36,12 +36,14 @@ export default function Hero() {
         <div>
           <strong>Focus</strong>
           <ul>
-            <li>Flow</li>
-            <li>System</li>
+            <li>User needs</li>
+            <li>Structure</li>
             <li>Accessibility</li>
           </ul>
         </div>
-        <a href="#projects">View projects ↗</a>
+        <div className={styles.contactCell}>
+          <a href="#contact">LET&apos;S TALK&nbsp;&nbsp;↗</a>
+        </div>
       </div>
     </section>
   );

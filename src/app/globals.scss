@@ -1,23 +1,41 @@
 @use "../styles/reset";
+@use "../styles/keyframes";
+
+// Keep content visible if the motion library is unavailable or intentionally skipped.
+html [data-aos]:not(.aos-init) {
+  opacity: 1 !important;
+  transform: none !important;
+}
 
 :root {
   --background: #ffffff;
-  --foreground: #111111;
-  --muted: #74777d;
+  --foreground: #09090b;
+  --muted: #6d7888;
   --line: #eceef0;
-  --page-gutter: clamp(20px, 2vw, 40px);
-  --site-max-width: 1920px;
-  --content-max-width: 1680px;
-  --font-sans: var(--font-albert), var(--font-korean), "Noto Sans KR",
-    Arial, sans-serif;
+  --line-soft: #f3f4f5;
+  --animation-marquee: marquee-flow;
+  --font-sans: var(--font-albert), var(--font-pretendard), Pretendard, Arial,
+    sans-serif;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --background: #1e1e24;
+  --foreground: #ffffff;
+  --muted: #9a9ea5;
+  --line: #33363b;
+  --line-soft: #25252b;
+  color-scheme: dark;
 }
 
 html {
   background: var(--background);
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
+  overflow-x: clip;
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-sans);
@@ -26,6 +44,6 @@ body {
 }
 
 ::selection {
-  color: #ffffff;
-  background: #111111;
+  color: var(--background);
+  background: var(--foreground);
 }

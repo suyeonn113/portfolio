@@ -1,12 +1,38 @@
-$color-white: #ffffff;
-$color-black: #111111;
-$color-muted: #74777d;
-$color-line: #eceef0;
-$color-line-soft: #f3f4f5;
+$color-white: var(--background);
+$color-black: var(--foreground);
+$color-muted: var(--muted);
+$color-line: var(--line);
+$color-line-soft: var(--line-soft);
 
-$site-max-width: 1920px;
-$content-max-width: 1680px;
 $page-gutter: clamp(20px, 2vw, 40px);
+$section-heading-padding-block: 58px 36px;
+
+$header-height: 104px;
+$header-height-mobile: 72px;
+$control-size: 40px;
+$control-size-mobile: 36px;
+$hero-height: 760px;
+$hero-height-stacked: 800px;
+$project-slider-width: 520px;
+$project-slider-height: 600px;
+$project-slider-padding: 32px;
+$strength-heading-height: 210px;
+$strength-card-height: 340px;
+
+$font-size-label: 0.875rem;
+$font-size-section-heading: 2.5rem;
+$font-size-section-title: 1.75rem;
+$font-weight-book: 450;
+$font-weight-medium: 500;
+$line-height-readable: 1.75;
+$tracking-display: -0.045em;
+$tracking-title: -0.035em;
+
+$line-width: 1px;
+$radius-chip: 8px;
+$icon-stroke-width: 1.8px;
+$duration-interaction: 180ms;
+$animation-marquee: var(--animation-marquee);
 
 $breakpoint-wide: 1440px;
 $breakpoint-tablet: 960px;

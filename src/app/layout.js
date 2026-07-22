@@ -1,4 +1,6 @@
-import { Albert_Sans, Noto_Sans_KR } from "next/font/google";
+import { Albert_Sans } from "next/font/google";
+import localFont from "next/font/local";
+import AosProvider from "@/components/motion/AosProvider";
 import "./globals.scss";
 
 const albertSans = Albert_Sans({
@@ -7,22 +9,26 @@ const albertSans = Albert_Sans({
   display: "swap",
 });
 
-const notoSansKr = Noto_Sans_KR({
-  variable: "--font-korean",
-  weight: "variable",
+const pretendard = localFont({
+  src: "./fonts/PretendardVariable.woff2",
+  variable: "--font-pretendard",
+  weight: "45 920",
   display: "swap",
 });
 
 export const metadata = {
-  title: "Web Design & Publishing Portfolio",
+  title: "Web Publisher · UI Implementation Portfolio",
   description:
-    "사용 흐름과 접근성을 설계하고 실제 동작하는 화면으로 구현하는 웹 포트폴리오",
+    "질문과 관찰로 사용 목적을 파악하고, 이해하기 쉬운 화면 구조로 구현하는 웹퍼블리셔 포트폴리오",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko" className={`${albertSans.variable} ${notoSansKr.variable}`}>
-      <body>{children}</body>
+    <html lang="ko" className={`${albertSans.variable} ${pretendard.variable}`}>
+      <body>
+        <AosProvider />
+        {children}
+      </body>
     </html>
   );
 }

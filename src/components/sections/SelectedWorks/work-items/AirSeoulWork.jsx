@@ -1,25 +1,35 @@
 import { projectBySlug } from "@/data/projects";
+import Image from "next/image";
 import styles from "../SelectedWorks.module.scss";
 
 const project = projectBySlug["air-seoul"];
 
 export default function AirSeoulWork() {
   return (
-    <article className={styles.work}>
+    <article
+      className={styles.work}
+      style={{
+        "--project-color": project.keyColor,
+        "--project-ink": project.inkColor,
+      }}
+    >
       <ProjectCopy project={project} />
-      <div className={`${styles.visual} ${styles.airVisual}`} aria-hidden="true">
-        <div className={styles.airNav}>
-          <strong>AIR SEOUL</strong>
-          <span>BOOKING&nbsp;&nbsp; SERVICE&nbsp;&nbsp; INFO</span>
+      <div
+        className={`${styles.visual} ${styles.airVisual}`}
+        data-aos="fade-left"
+      >
+        <div className={styles.airNav} aria-hidden="true">
+          <strong>BOARDING / 02</strong>
         </div>
-        <div className={styles.airDestination}>
-          <span>DESTINATION 01</span>
-          <strong>TOKYO</strong>
-          <p>ICN → NRT</p>
-        </div>
-        <div className={styles.airPromos}>
-          <span />
-          <span />
+        <div className={styles.airHeroScreen}>
+          <Image
+            className={styles.previewImage}
+            src={project.thumbnail}
+            alt={project.thumbnailAlt}
+            fill
+            sizes="(max-width: 640px) 94vw, (max-width: 960px) 46vw, 42vw"
+            unoptimized
+          />
         </div>
       </div>
     </article>
@@ -38,9 +48,14 @@ function ProjectCopy({ project: item }) {
       </div>
       <p className={styles.summary}>{item.summary}</p>
       <p className={styles.tech}>{item.tech.join(" · ")}</p>
-      <a href={item.url} target="_blank" rel="noreferrer">
-        Visit live site ↗
-      </a>
+      <div className={styles.projectLinks}>
+        <a href={item.url} target="_blank" rel="noreferrer">
+          Visit live site ↗
+        </a>
+        <a href={item.githubUrl} target="_blank" rel="noreferrer">
+          View GitHub ↗
+        </a>
+      </div>
     </div>
   );
 }

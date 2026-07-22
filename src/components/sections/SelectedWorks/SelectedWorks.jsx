@@ -9,7 +9,7 @@ export default function SelectedWorks() {
     <section className={styles.section} id="work" aria-labelledby="work-title">
       <header className={styles.heading}>
         <div>
-          <h2 id="work-title">Selected Works</h2>
+          <h2 id="work-title">Projects</h2>
           <p>(2025–2026)</p>
         </div>
         <span>Four projects</span>

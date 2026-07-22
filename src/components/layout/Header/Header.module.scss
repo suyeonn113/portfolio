@@ -2,59 +2,220 @@
 @use "../../../styles/tokens" as tokens;
 
 .header {
-  @include mixins.content-width;
-
   position: absolute;
-  z-index: 10;
+  z-index: 20;
   top: 0;
-  left: 50%;
+  left: 0;
   display: flex;
+  width: 100%;
+  min-height: tokens.$header-height;
   align-items: center;
-  justify-content: space-between;
-  min-height: 84px;
-  transform: translateX(-50%);
+  justify-content: flex-end;
+  padding-inline: tokens.$page-gutter;
 }
 
-.mark {
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controlButton {
   display: grid;
-  grid-template-columns: repeat(3, 4px);
-  gap: 3px;
-  padding: 8px;
-  margin-left: -8px;
-}
-
-.mark span {
-  width: 4px;
-  height: 4px;
-  background: tokens.$color-black;
+  width: tokens.$control-size;
+  height: tokens.$control-size;
+  flex: 0 0 tokens.$control-size;
+  place-items: center;
+  padding: 0;
+  color: tokens.$color-black;
+  border: tokens.$line-width solid tokens.$color-line;
   border-radius: 50%;
+  background: tokens.$color-white;
+  cursor: pointer;
 }
 
-.navigation {
+.controlButton:focus-visible {
+  outline: 2px solid tokens.$color-black;
+  outline-offset: 3px;
+}
+
+.themeIcon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  transform-origin: center;
+}
+
+.themeIcon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: tokens.$icon-stroke-width;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.themeIconBump {
+  animation: theme-icon-bump 220ms ease-out;
+}
+
+@keyframes theme-icon-bump {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  48% {
+    transform: scale(1.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .themeIconBump {
+    animation: none;
+  }
+}
+
+.menuIcon {
+  display: flex;
+  width: 20px;
+  height: 14px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menuIcon span {
+  width: 65%;
+  height: tokens.$icon-stroke-width;
+  margin-inline: auto;
+  background: currentColor;
+  transform: translateX(3px);
+  transition: transform tokens.$duration-interaction ease;
+}
+
+.menuIcon span:nth-child(2) {
+  transform: translateX(-2px);
+}
+
+.controlButton:hover .menuIcon span,
+.controlButton:focus-visible .menuIcon span {
+  transform: translateX(0);
+}
+
+.menuPanel {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: tokens.$header-height 1fr auto;
+  color: tokens.$color-black;
+  background: tokens.$color-white;
+}
+
+.menuTop {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 2vw, 40px);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  justify-content: flex-end;
+  padding-inline: tokens.$page-gutter;
 }
 
-.navigation a {
-  display: block;
-  padding-block: 10px;
+.menuNavigation {
+  align-self: start;
+  padding: 12px tokens.$page-gutter 48px;
+}
+
+.menuNavigation ol {
+  display: grid;
+  gap: 4px;
+}
+
+.menuNavigation a {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: auto auto;
+  column-gap: 12px;
+  align-items: baseline;
+  color: tokens.$color-black;
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: tokens.$tracking-title;
+  line-height: 1.35;
+  transition:
+    color tokens.$duration-interaction ease,
+    column-gap tokens.$duration-interaction ease;
+}
+
+.menuNumber {
+  color: tokens.$color-muted;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+.menuLabel {
+  color: inherit;
+}
+
+.menuNavigation a:hover,
+.menuNavigation a:focus-visible {
+  column-gap: 24px;
+  color: tokens.$color-muted;
+}
+
+.menuFooter {
+  display: grid;
+  min-height: 170px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: tokens.$line-width solid tokens.$color-line;
+}
+
+.menuFooter > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px tokens.$page-gutter;
+}
+
+.menuFooter > div + div {
+  border-left: tokens.$line-width solid tokens.$color-line;
+}
+
+.menuFooter strong,
+.menuFooter span,
+.menuFooter a {
+  font-size: tokens.$font-size-label;
+  font-weight: tokens.$font-weight-medium;
+}
+
+.menuFooter span,
+.menuFooter a {
+  color: tokens.$color-muted;
 }
 
 @include mixins.mobile {
   .header {
-    min-height: 64px;
+    min-height: tokens.$header-height-mobile;
   }
 
-  .navigation {
-    gap: 14px;
-    font-size: 0.625rem;
+  .controlButton {
+    width: tokens.$control-size-mobile;
+    height: tokens.$control-size-mobile;
+    flex-basis: tokens.$control-size-mobile;
   }
 
-  .navigation li:nth-child(2) {
-    display: none;
+  .menuPanel {
+    grid-template-rows: tokens.$header-height-mobile 1fr auto;
+  }
+
+  .menuNavigation {
+    padding-top: 20px;
+  }
+
+  .menuFooter {
+    min-height: 150px;
   }
 }

@@ -7,7 +7,7 @@
   position: relative;
   display: grid;
   grid-template-rows: 1fr auto;
-  min-height: clamp(620px, 40vw, 760px);
+  height: tokens.$hero-height;
   padding-top: 84px;
   background: tokens.$color-white;
 }
@@ -23,33 +23,34 @@
 
 .inner h1 {
   max-width: 900px;
-  font-size: clamp(3.5rem, 4.6vw, 5.5rem);
-  font-weight: 450;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-size: 3.5rem;
+  font-weight: tokens.$font-weight-book;
+  line-height: 1.02;
+  letter-spacing: tokens.$tracking-display;
 }
 
 .description {
   justify-self: end;
   padding-top: clamp(36px, 3.2vw, 64px);
   color: tokens.$color-muted;
-  font-size: clamp(0.75rem, 0.8vw, 0.875rem);
-  line-height: 1.75;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  text-align: right;
 }
 
 .meta {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   min-height: 176px;
-  border-top: 1px solid tokens.$color-line;
+  border-top: tokens.$line-width solid tokens.$color-line;
 }
 
 .meta > * {
-  padding: 34px max(tokens.$page-gutter, calc((100vw - tokens.$site-max-width) / 2 + tokens.$page-gutter));
+  padding: 34px tokens.$page-gutter;
 }
 
 .meta > * + * {
-  border-left: 1px solid tokens.$color-line;
+  border-left: tokens.$line-width solid tokens.$color-line;
 }
 
 .meta strong,
@@ -65,51 +66,67 @@
 
 .meta li {
   color: tokens.$color-muted;
-  line-height: 1.75;
+  line-height: tokens.$line-height-readable;
+}
+
+.contactCell {
+  display: grid;
+  place-items: center;
 }
 
 .meta a {
-  align-self: center;
-  justify-self: center;
-  border-bottom: 1px solid currentColor;
+  border-bottom: tokens.$line-width solid currentColor;
   padding-bottom: 4px;
+  font-size: 1rem;
 }
 
-@include mixins.tablet {
+@media (max-width: 1200px) {
   .hero {
-    min-height: 620px;
+    height: tokens.$hero-height-stacked;
   }
 
   .inner {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
   }
 
   .description {
     justify-self: start;
     padding-top: 28px;
+    text-align: left;
   }
 }
 
 @include mixins.mobile {
   .hero {
-    min-height: 560px;
     padding-top: 64px;
   }
 
   .inner h1 {
-    font-size: clamp(2.65rem, 13vw, 4rem);
+    font-size: clamp(2.65rem, 13vw, 3rem);
+  }
+
+  .description {
+    font-size: 1rem;
   }
 
   .meta {
-    grid-template-columns: 1fr 1fr;
-    min-height: 142px;
+    grid-template-columns: 1fr;
+    min-height: 0;
   }
 
   .meta > * {
-    padding: 24px tokens.$page-gutter;
+    min-height: 112px;
+    padding: 22px tokens.$page-gutter;
   }
 
-  .meta > :nth-child(2) {
-    display: none;
+  .meta > * + * {
+    border-top: tokens.$line-width solid tokens.$color-line;
+    border-left: 0;
+  }
+
+  .contactCell {
+    place-items: center start;
   }
 }
