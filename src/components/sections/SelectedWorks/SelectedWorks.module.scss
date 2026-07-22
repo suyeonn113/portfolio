@@ -165,71 +165,10 @@
   transition: transform tokens.$duration-interaction ease;
 }
 
-.iosStatus {
-  position: relative;
-  display: flex;
-  height: 36px;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: clamp(14px, 4.5%, 18px);
-  color: #111113;
-  background: rgba(248, 248, 248, 0.96);
-}
-
-.iosStatus time {
-  font-size: 0.55rem;
-  font-weight: tokens.$font-weight-medium;
-  letter-spacing: 0.01em;
-}
-
-.dynamicIsland {
-  position: absolute;
-  top: 9px;
-  left: 50%;
-  width: 48px;
-  height: 14px;
-  border-radius: 999px;
-  background: #09090b;
-  transform: translateX(-50%);
-}
-
-.iosSignals {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.iosSignals svg {
-  display: block;
-  overflow: visible;
-  color: currentColor;
-  stroke: currentColor;
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.iosSignals svg:nth-child(1) {
-  width: 15px;
-  height: 10px;
-  fill: currentColor;
-  stroke: none;
-}
-
-.iosSignals svg:nth-child(2) {
-  width: 15px;
-  height: 10px;
-}
-
-.iosSignals svg:nth-child(3) {
-  width: 22px;
-  height: 10px;
-}
-
 .previewScreen {
   position: relative;
   aspect-ratio: 16 / 10;
-  border-block: tokens.$line-width solid #e3e3e6;
+  border-bottom: tokens.$line-width solid #e3e3e6;
   background: #ffffff;
 }
 
@@ -240,18 +179,18 @@
 
 .iosToolbar {
   display: grid;
-  min-height: 48px;
+  min-height: 40px;
   grid-template-columns: 22px minmax(0, 1fr) 22px 22px;
   gap: 8px;
   align-items: center;
-  padding: 8px clamp(14px, 4.5%, 18px) 10px;
+  padding: 5px clamp(12px, 4%, 16px) 6px;
   color: #151519;
   background: rgba(248, 248, 250, 0.97);
 }
 
 .iosToolbar strong {
   overflow: hidden;
-  padding: 6px 10px;
+  padding: 4px 8px;
   border-radius: 11px;
   background: #eaeaee;
   font-size: 0.52rem;
@@ -409,7 +348,7 @@
   z-index: 2;
   top: 50%;
   left: 50%;
-  width: min(82%, 760px);
+  width: min(90%, 760px);
   padding: 12px;
   color: #1f2e43;
   background: #fffaf0;
@@ -469,7 +408,7 @@
 }
 
 .fragPhone .previewScreen {
-  aspect-ratio: 390 / 700;
+  aspect-ratio: 390 / 760;
 }
 
 .fragPhone .previewImage {
@@ -491,7 +430,15 @@
   }
 
   .youthPoster {
-    width: 62%;
+    width: 92%;
+  }
+
+  .fragVisual {
+    padding: 36px;
+  }
+
+  .fragPhone {
+    width: min(78%, 220px);
   }
 }
 
@@ -510,6 +457,7 @@
   }
 
   .fragVisual {
+    aspect-ratio: 4 / 5;
     padding: 28px;
   }
 
@@ -525,7 +473,7 @@
   }
 
   .youthPoster {
-    width: 90%;
+    width: 92%;
   }
 
   .fragCaption {
@@ -533,7 +481,26 @@
   }
 
   .fragPhone {
-    width: 44%;
+    width: min(68%, 190px);
+  }
+
+  .fragPhone .iosToolbar {
+    min-height: 32px;
+    grid-template-columns: 16px minmax(0, 1fr) 16px 16px;
+    gap: 4px;
+    padding: 4px 8px 5px;
+  }
+
+  .fragPhone .iosToolbar strong {
+    padding: 3px 5px;
+    font-size: 0.42rem;
+  }
+
+  .fragPhone .iosBack,
+  .fragPhone .iosShare,
+  .fragPhone .iosTabs {
+    width: 14px;
+    height: 14px;
   }
 
   .copy {
