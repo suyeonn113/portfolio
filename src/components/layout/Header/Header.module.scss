@@ -1,0 +1,60 @@
+@use "../../../styles/mixins" as mixins;
+@use "../../../styles/tokens" as tokens;
+
+.header {
+  @include mixins.content-width;
+
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+  transform: translateX(-50%);
+}
+
+.mark {
+  display: grid;
+  grid-template-columns: repeat(3, 4px);
+  gap: 3px;
+  padding: 8px;
+  margin-left: -8px;
+}
+
+.mark span {
+  width: 4px;
+  height: 4px;
+  background: tokens.$color-black;
+  border-radius: 50%;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2vw, 40px);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.navigation a {
+  display: block;
+  padding-block: 10px;
+}
+
+@include mixins.mobile {
+  .header {
+    min-height: 64px;
+  }
+
+  .navigation {
+    gap: 14px;
+    font-size: 0.625rem;
+  }
+
+  .navigation li:nth-child(2) {
+    display: none;
+  }
+}

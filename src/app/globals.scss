@@ -1,0 +1,31 @@
+@use "../styles/reset";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --muted: #74777d;
+  --line: #eceef0;
+  --page-gutter: clamp(20px, 2vw, 40px);
+  --site-max-width: 1920px;
+  --content-max-width: 1680px;
+  --font-sans: var(--font-albert), var(--font-korean), "Noto Sans KR",
+    Arial, sans-serif;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  color: #ffffff;
+  background: #111111;
+}

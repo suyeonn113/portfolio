@@ -1,0 +1,383 @@
+@use "../../../styles/mixins" as mixins;
+@use "../../../styles/tokens" as tokens;
+
+.section {
+  @include mixins.site-shell;
+
+  background: tokens.$color-white;
+}
+
+.heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  min-height: 190px;
+  padding: 58px tokens.$page-gutter 36px;
+  border-bottom: 1px solid tokens.$color-line;
+}
+
+.heading h2 {
+  font-size: clamp(2rem, 2.4vw, 3rem);
+  font-weight: 450;
+  letter-spacing: -0.045em;
+}
+
+.heading p,
+.heading > span {
+  @include mixins.section-label;
+}
+
+.heading p {
+  margin-top: 6px;
+  color: tokens.$color-muted;
+}
+
+.work {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: clamp(650px, 48vw, 900px);
+  border-bottom: 1px solid tokens.$color-line;
+}
+
+.visual,
+.copy {
+  min-width: 0;
+}
+
+.visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 132px);
+  background: tokens.$color-white;
+}
+
+.workTitle {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+}
+
+.workTitle > span,
+.workTitle p,
+.tech,
+.copy a {
+  @include mixins.section-label;
+}
+
+.workTitle h3 {
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.workTitle p {
+  margin-top: 9px;
+  color: tokens.$color-muted;
+  text-transform: none;
+}
+
+.summary {
+  max-width: 440px;
+  margin-top: clamp(42px, 5vw, 82px);
+  font-size: clamp(0.9rem, 1.05vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.tech {
+  margin-top: 28px;
+  color: tokens.$color-muted;
+  line-height: 1.8;
+}
+
+.copy a {
+  margin-top: clamp(64px, 8vw, 128px);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 5px;
+}
+
+.daisoVisual {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: 1fr 0.34fr;
+  gap: 1px;
+  padding: clamp(26px, 3vw, 58px);
+  background: #f3efed;
+}
+
+.daisoLead {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 3vw, 56px);
+  color: #ffffff;
+  background: #e53935;
+}
+
+.daisoLead span,
+.daisoLead strong {
+  @include mixins.section-label;
+}
+
+.daisoLead strong {
+  font-size: clamp(1.6rem, 2.8vw, 3.5rem);
+}
+
+.daisoTiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+
+.daisoTiles span {
+  background: #ffffff;
+}
+
+.daisoTiles span:nth-child(3n) {
+  background: #f2c8c5;
+}
+
+.daisoProducts {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+}
+
+.daisoProducts span {
+  background: #ffffff;
+}
+
+.daisoProducts span::after {
+  display: block;
+  width: 38%;
+  aspect-ratio: 1;
+  margin: 24% auto 0;
+  background: #ded8d4;
+  border-radius: 50%;
+  content: "";
+}
+
+.airVisual {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: clamp(26px, 3vw, 56px);
+  color: #063f39;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(13, 126, 116, 0.28)),
+    #9adbd5;
+}
+
+.airNav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+}
+
+.airDestination {
+  align-self: center;
+}
+
+.airDestination span,
+.airDestination p {
+  @include mixins.section-label;
+}
+
+.airDestination strong {
+  display: block;
+  margin-block: 10px;
+  font-size: clamp(4.5rem, 8vw, 10rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.065em;
+}
+
+.airPromos {
+  position: absolute;
+  right: clamp(26px, 3vw, 56px);
+  bottom: clamp(26px, 3vw, 56px);
+  display: grid;
+  width: 25%;
+  gap: 10px;
+}
+
+.airPromos span {
+  aspect-ratio: 2 / 0.9;
+  border: 1px solid rgba(6, 63, 57, 0.32);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.youthVisual {
+  display: grid;
+  grid-template-columns: 1.7fr 0.7fr;
+  grid-template-rows: 1fr 0.35fr;
+  gap: 12px;
+  padding: clamp(26px, 3vw, 56px);
+  color: #4a2606;
+  background: #f8dfc4;
+}
+
+.youthBanner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 3vw, 52px);
+  background: #f3a354;
+}
+
+.youthBanner span {
+  @include mixins.section-label;
+}
+
+.youthBanner strong {
+  max-width: 12ch;
+  font-size: clamp(1.8rem, 3.6vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.youthServices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.youthServices span {
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  font-size: 0.6875rem;
+}
+
+.youthInfo {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.youthInfo span {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.fragVisual {
+  display: grid;
+  place-items: center;
+  padding: 56px;
+  color: #f6f5f1;
+  background: #292a2c;
+}
+
+.phone {
+  position: relative;
+  width: min(48%, 390px);
+  min-width: 260px;
+  aspect-ratio: 0.56;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 28px;
+  background: #555352;
+}
+
+.phoneTop {
+  position: absolute;
+  z-index: 2;
+  top: 26px;
+  left: 50%;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  transform: translateX(-50%);
+}
+
+.fashionFigure {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55)),
+    radial-gradient(circle at 50% 22%, #898481 0 12%, transparent 12.5%),
+    linear-gradient(110deg, #3b3938 0 42%, #77726f 42% 58%, #333130 58%);
+}
+
+.reviewCard {
+  position: absolute;
+  z-index: 2;
+  top: 36%;
+  left: 50%;
+  display: flex;
+  width: 76%;
+  flex-direction: column;
+  gap: 9px;
+  padding: 26px 20px;
+  color: #282828;
+  background: #f7f5f0;
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.reviewCard strong {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.reviewCard span,
+.phoneMenu span {
+  font-size: 0.625rem;
+}
+
+.phoneMenu {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: grid;
+}
+
+.phoneMenu span {
+  padding-block: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+@include mixins.tablet {
+  .work {
+    min-height: 620px;
+  }
+
+  .copy {
+    padding: 48px;
+  }
+}
+
+@include mixins.mobile {
+  .heading {
+    min-height: 150px;
+  }
+
+  .work {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    min-height: 520px;
+  }
+
+  .copy {
+    min-height: 480px;
+    padding: 48px tokens.$page-gutter;
+  }
+
+  .work:nth-of-type(even) .copy {
+    order: 2;
+  }
+
+  .work:nth-of-type(even) .visual {
+    order: 1;
+  }
+}

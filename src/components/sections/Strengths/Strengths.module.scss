@@ -1,0 +1,108 @@
+@use "../../../styles/mixins" as mixins;
+@use "../../../styles/tokens" as tokens;
+
+.section {
+  @include mixins.site-shell;
+
+  background: tokens.$color-white;
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  min-height: 210px;
+  padding: 58px tokens.$page-gutter 36px;
+  border-bottom: 1px solid tokens.$color-line;
+}
+
+.heading h2 {
+  font-size: clamp(2rem, 2.4vw, 3rem);
+  font-weight: 450;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.heading p {
+  justify-self: end;
+  color: tokens.$color-muted;
+  font-size: 0.8125rem;
+  line-height: 1.75;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.item {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 340px;
+  padding: 34px tokens.$page-gutter 38px;
+  border-bottom: 1px solid tokens.$color-line;
+}
+
+.item:nth-child(even) {
+  border-left: 1px solid tokens.$color-line;
+}
+
+.titleRow {
+  display: grid;
+  grid-template-columns: 40px 32px auto;
+  align-items: center;
+}
+
+.symbol {
+  font-size: 1.3rem;
+}
+
+.titleRow span:not(.symbol),
+.titleRow h3,
+.keywords li {
+  @include mixins.section-label;
+}
+
+.titleRow h3 {
+  font-weight: 500;
+}
+
+.description {
+  max-width: 360px;
+  padding: 18px 0 0 72px;
+  color: tokens.$color-muted;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.keywords {
+  display: flex;
+  align-self: end;
+  gap: clamp(14px, 2vw, 34px);
+  padding-left: 72px;
+  color: tokens.$color-muted;
+}
+
+@include mixins.mobile {
+  .heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    min-height: 250px;
+  }
+
+  .heading p {
+    justify-self: start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    min-height: 280px;
+  }
+
+  .item:nth-child(even) {
+    border-left: 0;
+  }
+}

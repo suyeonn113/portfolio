@@ -1,0 +1,98 @@
+@use "../../../styles/mixins" as mixins;
+@use "../../../styles/tokens" as tokens;
+
+.footer {
+  @include mixins.site-shell;
+
+  background: tokens.$color-white;
+  border-top: 1px solid tokens.$color-line;
+}
+
+.ticker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 94px;
+  overflow: hidden;
+  border-bottom: 1px solid tokens.$color-line;
+  white-space: nowrap;
+}
+
+.ticker span {
+  padding-inline: tokens.$page-gutter;
+  font-size: clamp(0.875rem, 1.15vw, 1.25rem);
+  font-weight: 500;
+}
+
+.space {
+  min-height: clamp(220px, 18vw, 340px);
+  border-bottom: 1px solid tokens.$color-line;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  min-height: 210px;
+}
+
+.info > * {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 46px tokens.$page-gutter;
+}
+
+.info > * + * {
+  border-left: 1px solid tokens.$color-line;
+}
+
+.info strong,
+.info a {
+  @include mixins.section-label;
+}
+
+.info strong {
+  margin-bottom: 4px;
+}
+
+.info a {
+  color: tokens.$color-muted;
+}
+
+.mark {
+  display: grid !important;
+  grid-template-columns: repeat(3, 5px);
+  align-content: start;
+  gap: 4px !important;
+}
+
+.mark span {
+  width: 5px;
+  height: 5px;
+  background: tokens.$color-black;
+  border-radius: 50%;
+}
+
+@include mixins.mobile {
+  .ticker {
+    justify-content: flex-start;
+  }
+
+  .space {
+    min-height: 180px;
+  }
+
+  .info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info > :nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid tokens.$color-line;
+  }
+
+  .info > :nth-child(4) {
+    border-top: 1px solid tokens.$color-line;
+  }
+}
