@@ -1,15 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import styles from "./Header.module.scss";
 
 const menuItems = [
-  { label: "Home", href: "#top" },
-  { label: "Projects", href: "#projects" },
-  { label: "Strengths", href: "#strengths" },
-  { label: "Works", href: "#work" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Strengths", href: "/#strengths" },
+  { label: "Projects", href: "/#work" },
 ];
+
+const focusableSelector = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  '[tabindex]:not([tabindex="-1"])',
+].join(",");
 
 function ThemeIcon({ theme, animate }) {
   return (
@@ -33,11 +42,16 @@ function ThemeIcon({ theme, animate }) {
 
 function MenuIcon() {
   return (
-    <span className={styles.menuIcon} aria-hidden="true">
-      <span />
-      <span />
-      <span />
-    </span>
+    <svg
+      className={styles.menuIcon}
+      viewBox="0 0 20 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M3.5 0.5H16.5" />
+      <path d="M3.5 6.5H16.5" />
+      <path d="M3.5 12.5H16.5" />
+    </svg>
   );
 }
 
@@ -45,21 +59,102 @@ export default function Header() {
   const [theme, setTheme] = useState("light");
   const [themeAnimationKey, setThemeAnimationKey] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuPanelRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const menuTriggerRef = useRef(null);
+  const shouldRestoreFocusRef = useRef(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const storedTheme = window.localStorage.getItem("portfolio-theme");
+    const documentTheme = document.documentElement.dataset.theme;
+    const initialTheme =
+      storedTheme ??
+      documentTheme ??
+      (mediaQuery.matches ? "dark" : "light");
+
+    document.documentElement.dataset.theme = initialTheme;
+    const themeFrame = window.requestAnimationFrame(() => {
+      setTheme(initialTheme);
+    });
+
+    const syncSystemTheme = (event) => {
+      if (window.localStorage.getItem("portfolio-theme")) return;
+
+      const nextTheme = event.matches ? "dark" : "light";
+      setTheme(nextTheme);
+      document.documentElement.dataset.theme = nextTheme;
+    };
+
+    mediaQuery.addEventListener("change", syncSystemTheme);
+
+    return () => {
+      window.cancelAnimationFrame(themeFrame);
+      mediaQuery.removeEventListener("change", syncSystemTheme);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return undefined;
 
     const previousOverflow = document.body.style.overflow;
-    const closeWithEscape = (event) => {
-      if (event.key === "Escape") setIsMenuOpen(false);
+    const backgroundElements = [
+      document.querySelector("main"),
+      document.querySelector("footer"),
+    ].filter(Boolean);
+    const focusFrame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
+
+    const handleMenuKeyDown = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        shouldRestoreFocusRef.current = true;
+        setIsMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !menuPanelRef.current) return;
+
+      const focusableElements = Array.from(
+        menuPanelRef.current.querySelectorAll(focusableSelector),
+      ).filter((element) => !element.hasAttribute("disabled"));
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements.at(-1);
+
+      if (!firstElement || !lastElement) {
+        event.preventDefault();
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
     };
 
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", closeWithEscape);
+    backgroundElements.forEach((element) => {
+      element.inert = true;
+    });
+    document.addEventListener("keydown", handleMenuKeyDown);
 
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeWithEscape);
+      backgroundElements.forEach((element) => {
+        element.inert = false;
+      });
+      document.removeEventListener("keydown", handleMenuKeyDown);
+
+      if (shouldRestoreFocusRef.current) {
+        window.requestAnimationFrame(() => {
+          menuTriggerRef.current?.focus();
+        });
+      }
     };
   }, [isMenuOpen]);
 
@@ -69,17 +164,32 @@ export default function Header() {
     setTheme(nextTheme);
     setThemeAnimationKey((key) => key + 1);
     document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("portfolio-theme", nextTheme);
   };
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const openMenu = (event) => {
+    menuTriggerRef.current = event.currentTarget;
+    shouldRestoreFocusRef.current = true;
+    setIsMenuOpen(true);
+  };
+
+  const closeMenu = (restoreFocus = true) => {
+    shouldRestoreFocusRef.current = restoreFocus;
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className={styles.header}>
-      <a className={styles.wordmark} href="#top" aria-label="홈으로 이동">
+      <Link
+        className={styles.wordmark}
+        href="/"
+        aria-label="홈으로 이동"
+        inert={isMenuOpen ? true : undefined}
+      >
         SUYEONN
-      </a>
+      </Link>
 
-      <div className={styles.controls}>
+      <div className={styles.controls} inert={isMenuOpen ? true : undefined}>
         <button
           className={styles.controlButton}
           type="button"
@@ -96,7 +206,7 @@ export default function Header() {
         <button
           className={styles.controlButton}
           type="button"
-          onClick={() => setIsMenuOpen(true)}
+          onClick={openMenu}
           aria-label="전체 메뉴 열기"
           aria-expanded={isMenuOpen}
           aria-controls="site-menu"
@@ -107,6 +217,7 @@ export default function Header() {
 
       {isMenuOpen && (
         <div
+          ref={menuPanelRef}
           className={styles.menuPanel}
           id="site-menu"
           role="dialog"
@@ -115,9 +226,10 @@ export default function Header() {
         >
           <div className={styles.menuTop}>
             <button
+              ref={closeButtonRef}
               className={styles.controlButton}
               type="button"
-              onClick={closeMenu}
+              onClick={() => closeMenu()}
               aria-label="전체 메뉴 닫기"
             >
               <MenuIcon />
@@ -128,12 +240,12 @@ export default function Header() {
             <ol>
               {menuItems.map((item, index) => (
                 <li key={item.href}>
-                  <a href={item.href} onClick={closeMenu}>
-                    <span className={styles.menuNumber}>
+                  <Link href={item.href} onClick={() => closeMenu(false)}>
+                    <span className={styles.menuNumber} aria-hidden="true">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className={styles.menuLabel}>{item.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ol>
@@ -146,9 +258,9 @@ export default function Header() {
             </div>
             <div>
               <strong>Based in Seoul</strong>
-              <a href="#contact" onClick={closeMenu}>
+              <Link href="/#contact" onClick={() => closeMenu(false)}>
                 Let&apos;s talk ↗
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -29,8 +29,16 @@
 }
 
 .project {
+  --project-color: var(--project-color-light);
+  --project-ink: var(--project-ink-light);
+
   width: tokens.$project-slider-width;
   flex: 0 0 tokens.$project-slider-width;
+}
+
+:global(:root[data-theme="dark"]) .project {
+  --project-color: var(--project-color-dark);
+  --project-ink: var(--project-ink-dark);
 }
 
 .visual {

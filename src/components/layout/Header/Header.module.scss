@@ -17,6 +17,9 @@
 .wordmark {
   @include mixins.section-label;
 
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
   flex: 0 0 auto;
   color: tokens.$color-black;
   font-weight: 650;
@@ -104,29 +107,27 @@
 }
 
 .menuIcon {
-  display: flex;
+  display: block;
   width: 20px;
   height: 14px;
-  flex-direction: column;
-  justify-content: space-between;
+  overflow: visible;
 }
 
-.menuIcon span {
-  width: 65%;
-  height: tokens.$icon-stroke-width;
-  margin-inline: auto;
-  border-radius: 999px;
-  background: currentColor;
+.menuIcon path {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
   transform: translateX(3px);
   transition: transform tokens.$duration-interaction ease;
 }
 
-.menuIcon span:nth-child(2) {
+.menuIcon path:nth-child(2) {
   transform: translateX(-2px);
 }
 
-.controlButton:hover .menuIcon span,
-.controlButton:focus-visible .menuIcon span {
+.controlButton:hover .menuIcon path,
+.controlButton:focus-visible .menuIcon path {
   transform: translateX(0);
 }
 
@@ -164,6 +165,7 @@
   grid-template-columns: auto auto;
   column-gap: 12px;
   align-items: baseline;
+  min-height: 44px;
   color: tokens.$color-black;
   font-size: 2.125rem;
   font-weight: 400;

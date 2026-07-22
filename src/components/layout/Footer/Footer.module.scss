@@ -68,6 +68,9 @@
 }
 
 .info a {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
   color: tokens.$color-muted;
 }
 
@@ -81,6 +84,7 @@
   }
 
   .info > :nth-child(3) {
+    grid-column: 1 / -1;
     border-left: 0;
     border-top: tokens.$line-width solid tokens.$color-line;
   }

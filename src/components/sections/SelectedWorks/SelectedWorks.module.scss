@@ -34,10 +34,19 @@
 }
 
 .work {
+  --project-color: var(--project-color-light);
+  --project-ink: var(--project-ink-light);
+
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: clamp(650px, 48vw, 900px);
+  scroll-margin-top: 20px;
   background: var(--project-color);
+}
+
+:global(:root[data-theme="dark"]) .work {
+  --project-color: var(--project-color-dark);
+  --project-ink: var(--project-ink-dark);
 }
 
 .visual,
@@ -99,13 +108,13 @@
 .workTitle p {
   margin-top: 9px;
   color: inherit;
-  opacity: 0.68;
+  opacity: 0.88;
   text-transform: none;
 }
 
 .projectRole {
   max-width: 46ch;
-  opacity: 0.72;
+  opacity: 0.88;
   word-break: keep-all;
 }
 
@@ -120,7 +129,7 @@
   margin-top: 28px;
   color: inherit;
   line-height: 1.8;
-  opacity: 0.68;
+  opacity: 0.88;
 }
 
 .projectLinks {
@@ -132,10 +141,15 @@
 
 .projectLinks a {
   display: inline-flex;
+  min-height: 24px;
   align-items: center;
   gap: 5px;
   border-bottom: tokens.$line-width solid currentColor;
   padding-bottom: 5px;
+}
+
+.projectLinks a:focus-visible {
+  outline-color: var(--project-ink);
 }
 
 .linkIcon {
@@ -264,7 +278,7 @@
 .daisoCatalogTop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 2px 2px 10px;
   font-size: clamp(0.48rem, 0.7vw, 0.66rem);
   letter-spacing: 0.12em;
@@ -371,7 +385,7 @@
 .youthPosterLabel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 3px 2px 11px;
   font-size: clamp(0.47rem, 0.68vw, 0.64rem);
   letter-spacing: 0.08em;

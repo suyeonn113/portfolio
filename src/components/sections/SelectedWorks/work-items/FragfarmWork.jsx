@@ -8,10 +8,13 @@ const project = projectBySlug.fragfarm;
 export default function FragfarmWork() {
   return (
     <article
+      id={`project-${project.slug}`}
       className={styles.work}
       style={{
-        "--project-color": project.keyColor,
-        "--project-ink": project.inkColor,
+        "--project-color-light": project.keyColor,
+        "--project-ink-light": project.inkColor,
+        "--project-color-dark": project.darkKeyColor,
+        "--project-ink-dark": project.darkInkColor,
       }}
     >
       <ProjectCopy project={project} />
@@ -20,7 +23,7 @@ export default function FragfarmWork() {
         data-aos="fade-left"
       >
         <span className={styles.fragCaption} aria-hidden="true">
-          FRAGFARM / EDITORIAL COMMERCE
+          04 / EDITORIAL COMMERCE
         </span>
         <ProjectPreview
           className={styles.fragPhone}

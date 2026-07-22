@@ -44,9 +44,11 @@ export default function Hero() {
           </ul>
         </div>
         <div className={styles.contactCell}>
-          <Link href="/resume">
-            VIEW RESUME
-            <LinkArrowIcon direction="right" className={styles.resumeIcon} />
+          <Link href="/about">
+            <span className={styles.contactLinkLabel}>
+              ABOUT ME
+              <LinkArrowIcon direction="right" className={styles.resumeIcon} />
+            </span>
           </Link>
         </div>
       </div>

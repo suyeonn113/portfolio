@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Footer.module.scss";
 
 const talkItems = Array.from({ length: 10 }, (_, index) => index);
@@ -29,13 +30,14 @@ export default function Footer() {
             rel="noreferrer"
           >
             GitHub
+            <span className="srOnly"> (새 창에서 열림)</span>
           </a>
         </div>
         <div>
           <strong>Pages</strong>
-          <a href="#work">Work</a>
-          <a href="#strengths">Strengths</a>
-          <a href="#contact">Contact</a>
+          <Link href="/about">About</Link>
+          <Link href="/#work">Work</Link>
+          <Link href="/#strengths">Strengths</Link>
         </div>
         <div>
           <strong>Seoul, Korea</strong>

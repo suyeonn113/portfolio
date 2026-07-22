@@ -20,8 +20,10 @@ export default function ProjectSlider() {
               key={`${project.slug}-${index}`}
               aria-hidden={isDuplicate || undefined}
               style={{
-                "--project-color": project.keyColor,
-                "--project-ink": project.inkColor,
+                "--project-color-light": project.keyColor,
+                "--project-ink-light": project.inkColor,
+                "--project-color-dark": project.darkKeyColor,
+                "--project-ink-dark": project.darkInkColor,
               }}
             >
               <div className={styles.visual}>

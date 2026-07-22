@@ -4,7 +4,6 @@ export const projects = [
     order: "01",
     title: "DAISOMALL",
     category: "Commerce discovery",
-    projectType: "Team project",
     role: "UI 기획 · React 구조·상품 데이터 설계 · 홈/검색 구현",
     summary:
       "홈 탐색과 검색 결과에 구현 범위를 집중해 상품 발견·필터·정렬·비교 흐름을 재구성했습니다. 반응형 UI와 키보드 접근성을 보완한 React 커머스 리디자인입니다.",
@@ -17,15 +16,17 @@ export const projects = [
     keyColor: "#b72a2d",
     softColor: "#f6d8d6",
     inkColor: "#ffffff",
+    darkKeyColor: "#842327",
+    darkInkColor: "#fff5f5",
   },
   {
     slug: "air-seoul",
     order: "02",
     title: "AIR SEOUL",
     category: "Airline booking service",
-    role: "UI 기획 · React 구조·예약 데이터 설계 · 전체 화면 구현",
+    role: "UI 기획 · React 구조·예약 데이터 설계 · 핵심 예약·여행정보 화면 구현",
     summary:
-      "항공권 검색 조건 입력부터 URL 기반 결과 비교, 운임 선택과 여정 요약까지 연결했습니다. 예약·체크인·스케줄·여행 정보로 확장한 React 기반 항공 서비스 리디자인입니다.",
+      "항공권 검색 조건 입력부터 URL 기반 결과 비교, 운임 선택과 여정 요약까지 연결했습니다. 예약 조회·체크인·스케줄·여행 정보 UI 데모로 확장한 React 기반 항공 서비스 리디자인입니다.",
     tech: ["React", "Routing", "URL Query", "Booking Flow"],
     url: "https://suyeonn.dothome.co.kr/airseoul/",
     githubUrl:
@@ -35,6 +36,8 @@ export const projects = [
     keyColor: "#63c9bf",
     softColor: "#bfe6e1",
     inkColor: "#063f39",
+    darkKeyColor: "#176f69",
+    darkInkColor: "#effffc",
   },
   {
     slug: "seoul-youth-center",
@@ -53,6 +56,8 @@ export const projects = [
     keyColor: "#f3a354",
     softColor: "#f8dfc4",
     inkColor: "#4a2606",
+    darkKeyColor: "#8f572c",
+    darkInkColor: "#fff5e9",
   },
   {
     slug: "fragfarm",
@@ -61,7 +66,7 @@ export const projects = [
     category: "Mobile fashion commerce",
     role: "UI 기획 · PHP 공통 구조·상품 데이터 · 쇼핑 흐름 구현",
     summary:
-      "브랜드 감성을 유지하면서 상품 탐색·상세 옵션·장바구니·주문·회원·리뷰와 문의까지 모바일 쇼핑 흐름을 구현했습니다. PHP 공통 구조와 접근성을 함께 정리한 패션 커머스 리디자인입니다.",
+      "브랜드 감성을 유지하면서 상품 탐색·상세 옵션·장바구니·주문·회원·리뷰와 문의까지 모바일 쇼핑 데모 흐름을 구현했습니다. PHP 공통 구조와 접근성을 함께 정리한 패션 커머스 리디자인입니다.",
     tech: ["PHP", "Mobile Commerce", "Shopping Flow", "Accessibility"],
     url: "https://suyeonn.dothome.co.kr/fragfarm-mobile/index.php",
     githubUrl:
@@ -71,6 +76,8 @@ export const projects = [
     keyColor: "#292a2c",
     softColor: "#d9d9d7",
     inkColor: "#ffffff",
+    darkKeyColor: "#17181b",
+    darkInkColor: "#f6f5f1",
   },
 ];
 

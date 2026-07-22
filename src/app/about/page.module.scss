@@ -1,0 +1,410 @@
+@use "../../styles/mixins" as mixins;
+@use "../../styles/tokens" as tokens;
+
+.main {
+  background: tokens.$color-white;
+}
+
+.eyebrow,
+.profileBar dt,
+.profileBar dd,
+.resumeNumber,
+.downloadButton {
+  @include mixins.section-label;
+}
+
+.hero {
+  display: grid;
+  min-height: 760px;
+  grid-template-rows: 1fr auto;
+  padding-top: tokens.$header-height;
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+}
+
+.heroInner {
+  @include mixins.content-width;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  align-items: center;
+  padding-block: clamp(56px, 7vw, 112px);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 26px;
+  color: tokens.$color-muted;
+}
+
+.hero h1 {
+  font-size: clamp(5rem, 9vw, 9rem);
+  font-weight: tokens.$font-weight-book;
+  letter-spacing: -0.065em;
+  line-height: 0.78;
+}
+
+.heroCopy {
+  justify-self: end;
+  color: tokens.$color-muted;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.profileBar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 138px;
+  margin: 0;
+  border-top: tokens.$line-width solid tokens.$color-line;
+}
+
+.profileBar > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px tokens.$page-gutter;
+}
+
+.profileBar > div + div {
+  border-left: tokens.$line-width solid tokens.$color-line;
+}
+
+.profileBar dt {
+  color: tokens.$color-muted;
+}
+
+.profileBar dd {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: none;
+}
+
+.introduction {
+  display: grid;
+  min-height: 760px;
+  grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1.18fr);
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+}
+
+.introHeading,
+.introBody {
+  padding: clamp(64px, 7vw, 112px) tokens.$page-gutter;
+}
+
+.introHeading {
+  border-right: tokens.$line-width solid tokens.$color-line;
+}
+
+.introHeading h2 {
+  max-width: 600px;
+  font-size: clamp(2.1rem, 3.4vw, 4rem);
+  font-weight: tokens.$font-weight-book;
+  letter-spacing: -0.055em;
+  line-height: 1.18;
+  word-break: keep-all;
+}
+
+.introBody {
+  display: grid;
+  align-content: center;
+  gap: 30px;
+}
+
+.introBody p {
+  max-width: 760px;
+  color: tokens.$color-muted;
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.introBody p:first-child {
+  color: tokens.$color-black;
+  font-size: clamp(1.15rem, 1.45vw, 1.45rem);
+  line-height: 1.75;
+}
+
+.notes {
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+}
+
+.notesHeading {
+  display: grid;
+  min-height: 300px;
+  grid-template-columns: minmax(190px, 0.45fr) minmax(0, 1.2fr) minmax(260px, 0.55fr);
+  align-items: end;
+  gap: 40px;
+  padding: 70px tokens.$page-gutter 52px;
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+}
+
+.notesHeading .eyebrow {
+  margin: 0;
+}
+
+.notesHeading h2 {
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: tokens.$font-weight-book;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.notesHeading p {
+  justify-self: end;
+  color: tokens.$color-muted;
+  font-size: tokens.$font-size-label;
+  line-height: 1.65;
+  text-align: right;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: 72px minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(24px, 4vw, 72px);
+  padding: clamp(52px, 6vw, 92px) tokens.$page-gutter;
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+}
+
+.note:last-child {
+  border-bottom: 0;
+}
+
+.noteNumber {
+  color: tokens.$color-muted;
+  font-size: tokens.$font-size-label;
+}
+
+.note h3 {
+  max-width: 520px;
+  font-size: clamp(1.65rem, 2.35vw, 2.7rem);
+  font-weight: tokens.$font-weight-book;
+  letter-spacing: tokens.$tracking-title;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.note h3 span {
+  display: block;
+}
+
+.noteBody {
+  display: grid;
+  gap: 24px;
+}
+
+.noteBody p {
+  max-width: 760px;
+  color: tokens.$color-muted;
+  font-size: 1rem;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.resume {
+  display: grid;
+  min-height: 520px;
+  grid-template-columns: minmax(160px, 0.42fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(28px, 5vw, 80px);
+  padding: clamp(64px, 8vw, 120px) tokens.$page-gutter;
+  color: #ffffff;
+  background: #09090b;
+}
+
+.resumeNumber {
+  align-self: start;
+  color: #b9bec7;
+}
+
+.resumeCopy h2 {
+  margin-bottom: 28px;
+  font-size: clamp(3rem, 6vw, 7rem);
+  font-weight: tokens.$font-weight-book;
+  letter-spacing: -0.065em;
+  line-height: 0.92;
+}
+
+.resumeCopy p {
+  color: #b9bec7;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.downloadButton {
+  display: inline-flex;
+  min-width: 220px;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 0 22px;
+  border: tokens.$line-width solid currentColor;
+  transition:
+    color tokens.$duration-interaction ease,
+    background-color tokens.$duration-interaction ease;
+}
+
+.downloadIcon {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .downloadButton:hover {
+    color: #09090b;
+    background: #ffffff;
+  }
+}
+
+.downloadButton:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+@include mixins.tablet {
+  .heroInner {
+    grid-template-columns: 1fr;
+    align-content: center;
+  }
+
+  .heroCopy {
+    justify-self: start;
+    padding-top: 50px;
+    text-align: left;
+  }
+
+  .introduction {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .introHeading {
+    border-right: 0;
+    border-bottom: tokens.$line-width solid tokens.$color-line;
+  }
+
+  .notesHeading {
+    min-height: 360px;
+    grid-template-columns: 1fr;
+    align-content: end;
+    gap: 22px;
+  }
+
+  .notesHeading p {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .note {
+    grid-template-columns: 52px minmax(240px, 0.8fr) minmax(0, 1.2fr);
+    gap: 24px;
+  }
+
+  .resume {
+    grid-template-columns: 1fr auto;
+  }
+
+  .resumeNumber {
+    grid-column: 1 / -1;
+  }
+}
+
+@include mixins.mobile {
+  .hero {
+    min-height: 720px;
+    padding-top: tokens.$header-height-mobile;
+  }
+
+  .heroInner {
+    padding-block: 48px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4rem, 22vw, 6rem);
+    line-height: 0.83;
+  }
+
+  .heroCopy {
+    padding-top: 42px;
+    font-size: 1rem;
+  }
+
+  .profileBar {
+    grid-template-columns: 1fr;
+  }
+
+  .profileBar > div {
+    min-height: 86px;
+    padding-block: 20px;
+  }
+
+  .profileBar > div + div {
+    border-top: tokens.$line-width solid tokens.$color-line;
+    border-left: 0;
+  }
+
+  .introHeading,
+  .introBody {
+    padding-block: 54px;
+  }
+
+  .introHeading h2 {
+    font-size: 2.15rem;
+  }
+
+  .introBody {
+    gap: 26px;
+  }
+
+  .notesHeading {
+    min-height: 330px;
+    padding-block: 56px 42px;
+  }
+
+  .notesHeading h2 {
+    font-size: 3.2rem;
+  }
+
+  .note {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-block: 48px;
+  }
+
+  .note h3 {
+    font-size: 1.7rem;
+  }
+
+  .noteBody {
+    gap: 20px;
+  }
+
+  .resume {
+    min-height: 600px;
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 44px;
+  }
+
+  .resumeNumber {
+    grid-column: auto;
+  }
+
+  .resumeCopy h2 {
+    font-size: 3.35rem;
+  }
+
+  .downloadButton {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .downloadButton {
+    transition: none;
+  }
+}

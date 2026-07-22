@@ -23,16 +23,31 @@ export default function ProjectCopy({ project }) {
       <p className={styles.summary}>{project.summary}</p>
       <p className={styles.tech}>{project.tech.join(" · ")}</p>
       <div className={styles.projectLinks}>
-        <Link href={`/works/${project.slug}`}>
+        <Link
+          href={`/works/${project.slug}`}
+          aria-label={`View ${project.title} case study`}
+        >
           View case study
           <LinkArrowIcon direction="right" className={styles.linkIcon} />
         </Link>
-        <a href={project.url} target="_blank" rel="noreferrer">
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Visit ${project.title} live site (새 창에서 열림)`}
+        >
           Visit live site
+          <span className="srOnly"> (새 창에서 열림)</span>
           <LinkArrowIcon className={styles.linkIcon} />
         </a>
-        <a href={project.githubUrl} target="_blank" rel="noreferrer">
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`View ${project.title} GitHub (새 창에서 열림)`}
+        >
           View GitHub
+          <span className="srOnly"> (새 창에서 열림)</span>
           <LinkArrowIcon className={styles.linkIcon} />
         </a>
       </div>

@@ -26,6 +26,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={`${albertSans.variable} ${pretendard.variable}`}>
       <body>
+        <a className="skipLink" href="#main-content">
+          본문 바로가기
+        </a>
         <AosProvider />
         {children}
       </body>

@@ -8,10 +8,13 @@ const project = projectBySlug["seoul-youth-center"];
 export default function YouthCenterWork() {
   return (
     <article
+      id={`project-${project.slug}`}
       className={styles.work}
       style={{
-        "--project-color": project.keyColor,
-        "--project-ink": project.inkColor,
+        "--project-color-light": project.keyColor,
+        "--project-ink-light": project.inkColor,
+        "--project-color-dark": project.darkKeyColor,
+        "--project-ink-dark": project.darkInkColor,
       }}
     >
       <div
@@ -21,8 +24,7 @@ export default function YouthCenterWork() {
         <div className={styles.youthPoster}>
           <span className={styles.youthTape} aria-hidden="true" />
           <div className={styles.youthPosterLabel} aria-hidden="true">
-            <strong>SEOUL YOUTH CENTER</strong>
-            <span>PROGRAM BOARD / 03</span>
+            <span>03 / PROGRAM BOARD</span>
           </div>
           <div className={styles.youthScreen}>
             <Image

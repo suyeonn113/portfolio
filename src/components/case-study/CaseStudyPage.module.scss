@@ -2,10 +2,12 @@
 @use "../../styles/tokens" as tokens;
 
 .page {
-  --case-accent: #b72a2d;
-  --case-accent-deep: #8f171b;
-  --case-accent-soft: #f6d8d6;
-  --case-focus: #f4be32;
+  --case-accent: var(--case-accent-light, #b72a2d);
+  --case-surface: var(--case-surface-light, var(--case-accent));
+  --case-flow-surface: var(--case-flow-surface-light, var(--case-surface));
+  --case-accent-soft: var(--case-accent-soft-light, #f6d8d6);
+  --case-focus: var(--case-focus-light, #8f161e);
+  --spotlight-light: var(--spotlight-light-light, #ffd0d2);
   --case-hero-width: 1428px;
   --case-title-vw: 13.2vw;
   --case-title-max: 13rem;
@@ -13,6 +15,15 @@
   min-height: 100vh;
   color: tokens.$color-black;
   background: tokens.$color-white;
+}
+
+:global(:root[data-theme="dark"]) .page {
+  --case-accent: var(--case-accent-dark);
+  --case-surface: var(--case-surface-dark);
+  --case-flow-surface: var(--case-flow-surface-dark, var(--case-surface));
+  --case-accent-soft: var(--case-accent-soft-dark);
+  --case-focus: var(--case-focus-dark);
+  --spotlight-light: var(--spotlight-light-dark);
 }
 
 .header {
@@ -37,6 +48,9 @@
 }
 
 .wordmark {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
   font-weight: 650;
   letter-spacing: -0.025em;
 }
@@ -52,6 +66,7 @@
 .comparisonGrid strong a,
 .footer a {
   display: inline-flex;
+  min-height: 24px;
   align-items: center;
   gap: 6px;
 }
@@ -118,7 +133,7 @@
   margin: 0;
   padding-top: var(--hero-frame-gutter);
   color: #ffffff;
-  background: var(--case-accent);
+  background: var(--case-surface);
 }
 
 .heroImage {
@@ -126,7 +141,7 @@
   max-height: 82vh;
   overflow: hidden;
   place-items: start center;
-  background: var(--case-accent);
+  background: var(--case-surface);
 }
 
 .heroImage img {
@@ -140,12 +155,13 @@
   min-height: var(--hero-frame-gutter);
   align-items: center;
   padding-inline: tokens.$page-gutter;
+  background: rgba(0, 0, 0, 0.68);
   text-transform: none;
 }
 
 .meta {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: tokens.$line-width solid tokens.$color-line;
   border-bottom: tokens.$line-width solid tokens.$color-line;
 }
@@ -177,6 +193,7 @@
 .brief,
 .comparison,
 .decisions,
+.validation,
 .components {
   padding: clamp(88px, 11vw, 176px) tokens.$page-gutter;
 }
@@ -257,7 +274,7 @@
 .screenFrame {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: var(--screen-ratio, 16 / 10);
   border: tokens.$line-width solid tokens.$color-line;
   background: #ffffff;
 }
@@ -269,6 +286,18 @@
   height: 100%;
   object-fit: cover;
   object-position: left top;
+}
+
+.containFrame img {
+  object-fit: contain;
+}
+
+.cropRightFrame img {
+  inset: 0 auto auto 0;
+  width: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: fill;
 }
 
 .referenceFrame img {
@@ -300,11 +329,11 @@
 
   padding: var(--flow-edge-space) 0 0;
   color: #ffffff;
-  background: var(--case-accent);
+  background: var(--case-flow-surface, var(--case-surface));
 }
 
 .flow .sectionLabel {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .flowHeading {
@@ -345,7 +374,7 @@
 
 .flowList li:hover {
   border-color: rgba(255, 255, 255, 0.68);
-  background: rgba(97, 0, 4, 0.16);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .flowItem {
@@ -360,7 +389,7 @@
 .flowNumber,
 .flowOutcome > span {
   font-size: 0.75rem;
-  opacity: 0.65;
+  opacity: 0.9;
 }
 
 .flowTitle {
@@ -376,7 +405,7 @@
   margin-top: 20px;
   font-size: 0.92rem;
   line-height: 1.75;
-  opacity: 0.78;
+  opacity: 0.92;
   word-break: keep-all;
 }
 
@@ -502,6 +531,59 @@
   word-break: keep-all;
 }
 
+.validation {
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+  background: tokens.$color-line-soft;
+}
+
+.validationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 80px);
+  margin-top: clamp(64px, 8vw, 120px);
+}
+
+.validationGrid > div {
+  padding-top: 20px;
+  border-top: tokens.$line-width solid tokens.$color-line;
+}
+
+.validationGrid h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  font-weight: tokens.$font-weight-medium;
+}
+
+.validationGrid ul {
+  margin-top: 28px;
+  padding-left: 1.2em;
+}
+
+.validationGrid li,
+.validationGrid p {
+  color: tokens.$color-muted;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.validationGrid li + li {
+  margin-top: 10px;
+}
+
+.validationGrid p {
+  max-width: 48ch;
+  margin-top: 28px;
+}
+
+.projectNotice {
+  margin-top: clamp(56px, 7vw, 96px);
+  padding-top: 20px;
+  border-top: tokens.$line-width solid tokens.$color-line;
+  color: tokens.$color-muted;
+  font-size: 0.84rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
 .componentGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -578,7 +660,7 @@
   gap: 40px;
   padding: 52px tokens.$page-gutter;
   color: #ffffff;
-  background: var(--case-accent-deep);
+  background: #111113;
   text-transform: none;
 }
 
@@ -586,6 +668,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+}
+
+.footer :focus-visible {
+  outline-color: #ffffff;
 }
 
 .page :focus-visible {
@@ -721,6 +807,7 @@
 
   .comparisonGrid,
   .comparisonGrid[data-count="3"],
+  .validationGrid,
   .componentGrid {
     grid-template-columns: 1fr;
   }

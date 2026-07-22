@@ -7,16 +7,22 @@ export const caseStudies = [
         "팀 프로젝트로 구현한 홈과 검색을 바탕으로 반응형, 정보 위계, 검색 UX와 접근성을 다시 정리한 React 커머스 UI 리디자인입니다.",
     },
     eyebrow: "01 · Commerce discovery",
-    badge: "Team project",
     lead:
       "홈에서 상품을 발견하고 검색 결과에서 조건을 좁혀 비교하기까지, 다이소몰의 핵심 상품 탐색 흐름을 React로 구현하고 다시 다듬었습니다.",
     titleSize: { vw: "13.2vw", max: "13rem" },
     theme: {
       accent: "#b72a2d",
-      deep: "#8f171b",
       soft: "#f6d8d6",
-      focus: "#f4be32",
+      focus: "#8f161e",
       spotlightLight: "#ffd0d2",
+      dark: {
+        accent: "#ff8f95",
+        surface: "#6f1d21",
+        flowSurface: "#5a181b",
+        soft: "#32181b",
+        focus: "#ffd5d7",
+        spotlightLight: "#ffb9bd",
+      },
     },
     hero: {
       src: "/images/projects/daisomall-showcase.png",
@@ -27,7 +33,6 @@ export const caseStudies = [
       caption: "Redesigned home · responsive commerce UI",
     },
     meta: [
-      { label: "Type", value: "Team project" },
       {
         label: "Role",
         value: "UI 기획 · React 구조·상품 데이터 설계 · 홈/검색 구현",
@@ -42,7 +47,7 @@ export const caseStudies = [
         "완결된 탐색 경험으로 다시 정리했습니다.",
       ],
       body: "팀 프로젝트에서 UI 기획과 React 구조·상품 데이터 설계, 홈과 검색 구현을 맡았습니다. 프로젝트 종료 후 개인적으로 다시 다듬으며, 화면 수를 늘리기보다 기존 탐색 흐름의 완성도를 높이는 데 집중했습니다.",
-      note: "Personal refinement · 반응형 · 정보 위계 · 검색 UX · 키보드 접근성",
+      note: "개인 개선 작업 · 반응형 · 정보 위계 · 검색 UX · 키보드 접근성",
     },
     visuals: {
       label: "Visual context / Home",
@@ -118,7 +123,7 @@ export const caseStudies = [
         },
         {
           number: "02",
-          title: "검색 조건과 현재 상태를 연결했습니다.",
+          title: "어떤 검색 조건이 적용됐는지 바로 확인할 수 있게 했습니다.",
           body: [
             "검색어, 배송 필터, 정렬 기준을 React state와 hook으로 관리했습니다.",
             "현재 검색 상태는 결과 요약 문장과 버튼의 선택 상태로 확인할 수 있게 했습니다.",
@@ -143,6 +148,16 @@ export const caseStudies = [
         "랭킹·기획전 탭은 방향키로 이동하고 Enter·Space로 선택",
         "aria-pressed·aria-selected·aria-controls로 선택 상태 전달",
       ],
+    },
+    validation: {
+      label: "Validation / Demo scope",
+      title: ["주요 경로를 직접 확인하고,", "구현 범위를 분명하게 나눴습니다."],
+      checks: [
+        "Production build와 lint로 React 코드와 라우팅 오류 확인",
+        "홈·검색 직접 경로와 검색어·배송 필터·정렬 상태 확인",
+        "스킵 링크·탭·카테고리 메뉴의 키보드 이동 확인",
+      ],
+      scope: "홈과 검색 결과 탐색에 집중한 UI 데모입니다. 실제 구매·결제와 운영 쇼핑몰 기능은 구현 범위에서 제외했습니다.",
     },
     components: {
       label: "Implementation structure",
@@ -177,18 +192,27 @@ export const caseStudies = [
     metadata: {
       title: "AIR SEOUL Case Study · Suyeonn",
       description:
-        "항공권 검색 조건부터 날짜 운임, 항공편과 운임 선택, 여정 요약까지 연결한 React 항공 서비스 리디자인입니다.",
+        "정적 항공·운임 데이터로 검색 조건부터 날짜 운임, 항공편 선택과 여정 요약까지 연결한 React UI 데모입니다.",
     },
     eyebrow: "02 · Airline booking service",
     lead:
-      "항공권 검색 조건을 입력하고 날짜별 운임과 항공편을 비교한 뒤, 선택한 여정을 확인하기까지의 예약 흐름을 React로 연결했습니다.",
+      "정적 항공·운임 데이터를 바탕으로 검색 조건을 입력하고 날짜별 운임과 항공편을 비교한 뒤, 선택한 여정을 확인하는 UI 흐름을 React로 연결했습니다.",
     titleSize: { vw: "10.8vw", max: "11rem" },
+    originalSiteUrl: "https://flyairseoul.com/CW/KO/main.do",
     theme: {
       accent: "#0b948a",
-      deep: "#063f39",
+      flowSurface: "#076c65",
       soft: "#e5f6f3",
-      focus: "#ffcc4d",
+      focus: "#00675f",
       spotlightLight: "#b9fff6",
+      dark: {
+        accent: "#68d9cf",
+        surface: "#175f5a",
+        flowSurface: "#124c48",
+        soft: "#16302f",
+        focus: "#aef7ee",
+        spotlightLight: "#b9fff6",
+      },
     },
     hero: {
       src: "/images/projects/airseoul-hero-clean.png",
@@ -199,10 +223,9 @@ export const caseStudies = [
       caption: "Booking-led home · airline service redesign",
     },
     meta: [
-      { label: "Type", value: "Individual project" },
       {
         label: "Role",
-        value: "UI 기획 · React 구조·예약 데이터 설계 · 전체 화면 구현",
+        value: "UI 기획 · React 구조·예약 데이터 설계 · 핵심 예약·여행정보 화면 구현",
       },
       { label: "Focus", value: "Booking flow · URL state · Travel information" },
       { label: "Stack", value: "React · React Router · SCSS" },
@@ -210,13 +233,24 @@ export const caseStudies = [
     context: {
       label: "Project context",
       title: ["검색 조건부터 운임 선택까지,", "하나의 예약 흐름으로 연결했습니다."],
-      body: "항공사의 모든 업무 기능을 재현하기보다, 사용자가 가장 먼저 만나는 예약과 여행 정보 흐름에 범위를 집중했습니다. 홈에서 입력한 조건이 결과 화면의 날짜·항공편·운임·여정 요약으로 이어지도록 데이터와 화면 구조를 함께 설계했습니다.",
-      note: "Scope · 항공권 검색 · 운임 비교 · 예약 조회 · 체크인 · 여행 정보",
+      body: "항공사의 모든 업무 기능을 재현하기보다, 사용자가 가장 먼저 만나는 예약과 여행 정보 UI에 범위를 집중했습니다. 홈에서 입력한 조건이 결과 화면의 날짜·항공편·운임·여정 요약으로 이어지도록 정적 데이터와 화면 구조를 함께 설계했습니다.",
+      note: "Demo scope · 항공권 검색 · 운임 비교 · 예약 조회 · 체크인 · 여행 정보 UI",
     },
     visuals: {
-      label: "Live project / Booking",
-      title: ["홈의 프로모션에서 출발해,", "운임 비교 화면까지 이어집니다."],
+      label: "Visual context / Booking",
+      title: ["기존 홈의 예약 진입을 다시 정리해,", "운임 비교 화면까지 연결했습니다."],
       items: [
+        {
+          title: "Current official site",
+          url: "https://flyairseoul.com/CW/KO/main.do",
+          src: "/images/projects/case-studies/air-official-reference-2026-07.png",
+          alt: "2026년 7월 23일 캡처한 에어서울 공식 홈페이지",
+          width: 1200,
+          height: 683,
+          frameRatio: "1254 / 714",
+          fit: "contain",
+          caption: "Captured 2026.07.23 · 현재 운영 화면으로, 예약 패널과 프로모션 중심의 정보 구조를 보여주는 참고 자료입니다.",
+        },
         {
           title: "Live project home",
           url: "https://suyeonn.dothome.co.kr/airseoul/",
@@ -224,6 +258,8 @@ export const caseStudies = [
           alt: "도쿄 특가와 예약 진입을 강조한 에어서울 라이브 홈",
           width: 1270,
           height: 714,
+          frameRatio: "1254 / 714",
+          cropRight: true,
           caption: "특가 프로모션과 예약 패널, 여행 준비 정보를 한 화면의 우선순위로 정리했습니다.",
         },
         {
@@ -233,6 +269,8 @@ export const caseStudies = [
           alt: "날짜별 운임과 항공편 운임을 비교하는 에어서울 검색 결과",
           width: 1270,
           height: 714,
+          frameRatio: "1254 / 714",
+          cropRight: true,
           caption: "검색 조건, 날짜별 최저가, 항공편과 운임 옵션을 순서대로 비교할 수 있게 했습니다.",
         },
       ],
@@ -243,16 +281,24 @@ export const caseStudies = [
       items: [
         { number: "01", title: "Search", body: "출발지·도착지·일정·인원을 입력합니다.", outcome: "검색 조건 생성" },
         { number: "02", title: "Scan dates", body: "날짜별 최저 운임을 비교하고 일정을 조정합니다.", outcome: "여행 날짜 선택" },
-        { number: "03", title: "Select fare", body: "항공편 시간과 운임 조건, 잔여 좌석을 비교합니다.", outcome: "항공편·운임 결정" },
+        { number: "03", title: "Select fare", body: "항공편 시간과 운임 조건, 데모 잔여 좌석 데이터를 비교합니다.", outcome: "항공편·운임 결정" },
         { number: "04", title: "Review", body: "가는 편과 오는 편, 총액을 여정 요약에서 확인합니다.", outcome: "예약 정보 확인" },
       ],
     },
     decisions: {
       label: "Implementation decisions",
-      title: ["검색 조건은 URL에 남기고,", "예약 단계는 컴포넌트로 연결했습니다."],
+      title: ["항공 데이터를 구조화하고,", "검색 조건과 예약 단계를 연결했습니다."],
       items: [
         {
           number: "01",
+          title: "공항·노선·항공편·운임 데이터를 분리했습니다.",
+          body: [
+            "공항·노선·항공편·운임 데이터를 역할별로 나눠 검색 조건과 날짜에 맞는 결과를 조합했습니다.",
+            "선택한 항공편과 운임 정보는 여정 요약과 총액 계산에 같은 구조로 전달했습니다.",
+          ],
+        },
+        {
+          number: "02",
           title: "검색 조건을 URL 상태로 전달했습니다.",
           body: [
             "URLSearchParams로 여정 유형, 공항, 날짜, 탑승객 조건을 읽고 결과 화면에 복원했습니다.",
@@ -260,7 +306,7 @@ export const caseStudies = [
           ],
         },
         {
-          number: "02",
+          number: "03",
           title: "반복되는 예약 선택 UI를 분리했습니다.",
           body: [
             "DateFareBar와 FlightOptionRow로 날짜 운임과 항공편 선택 구조를 나눴습니다.",
@@ -268,8 +314,8 @@ export const caseStudies = [
           ],
         },
         {
-          number: "03",
-          title: "예약 이후의 여행 정보까지 같은 구조로 확장했습니다.",
+          number: "04",
+          title: "예약 이후의 여행 정보 UI까지 같은 구조로 확장했습니다.",
           body: [
             "MainLayout 안에서 예약 조회·체크인·스케줄과 공항·수하물·좌석 안내를 연결했습니다.",
             "공통 데이터와 상세 템플릿을 사용해 페이지마다 정보 위계가 달라지지 않게 했습니다.",
@@ -287,13 +333,23 @@ export const caseStudies = [
         "단계 진행은 aria-current, 선택창은 dialog 의미와 포커스 복귀 제공",
       ],
     },
+    validation: {
+      label: "Validation / Demo scope",
+      title: ["예약 UI의 상태를 직접 확인하고,", "실서비스와 데모의 경계를 밝혔습니다."],
+      checks: [
+        "Production build와 lint로 React 코드와 라우팅 오류 확인",
+        "검색 결과 URL을 다시 열어 날짜·항공편·운임·여정 상태 복원 확인",
+        "예약 탭·날짜 선택과 주요 여행 정보 경로의 키보드 탐색 확인",
+      ],
+      scope: "정적 항공편·운임·잔여 좌석 데이터를 사용한 예약 탐색 UI 데모입니다. 실제 예약·결제·로그인 인증은 구현 범위에서 제외했습니다.",
+    },
     components: {
       label: "Implementation structure",
       title: ["검색·선택·요약의 책임을 나눠,", "예약 흐름을 조합했습니다."],
       items: [
         { title: "FlightBookingPanel", body: "여정 유형과 공항·날짜·인원을 관리하고 검색 조건을 결과 URL로 전달합니다.", icon: "search" },
         { title: "FlightSearchResults / DateFareBar", body: "검색 조건을 복원하고 날짜별 최저가와 항공편·운임 옵션을 단계적으로 보여줍니다.", icon: "route" },
-        { title: "FlightOptionRow / BookingSummaryAside", body: "운임 선택 상태와 잔여 좌석을 연결하고 선택한 여정과 총액을 요약합니다.", icon: "options" },
+        { title: "FlightOptionRow / BookingSummaryAside", body: "운임 선택 상태와 데모 잔여 좌석 데이터를 연결하고 선택한 여정과 총액을 요약합니다.", icon: "options" },
         { title: "MainLayout / Travel guides", body: "공통 헤더·푸터와 공항 서비스, 수하물, 좌석 안내 페이지의 정보 구조를 공유합니다.", icon: "layout" },
       ],
     },
@@ -312,10 +368,18 @@ export const caseStudies = [
     titleSize: { vw: "7.9vw", max: "9.4rem" },
     theme: {
       accent: "#ef8b2c",
-      deep: "#a64d0d",
+      flowSurface: "#7a3b00",
       soft: "#fff0df",
       focus: "#16314f",
       spotlightLight: "#fff0c7",
+      dark: {
+        accent: "#f3b16d",
+        surface: "#8f572c",
+        flowSurface: "#593000",
+        soft: "#37271b",
+        focus: "#ffe0bd",
+        spotlightLight: "#fff0c7",
+      },
     },
     hero: {
       src: "/images/projects/seoul-youth-center-showcase.png",
@@ -326,7 +390,6 @@ export const caseStudies = [
       caption: "Purpose-led information architecture · public service UI",
     },
     meta: [
-      { label: "Type", value: "Individual project" },
       { label: "Role", value: "UI 기획 · 정보구조·PHP 공통 구조 · 신청 흐름 구현" },
       { label: "Focus", value: "Information architecture · Program application" },
       { label: "Stack", value: "PHP · MySQL · JavaScript · SCSS" },
@@ -357,7 +420,7 @@ export const caseStudies = [
           alt: "상태, 연령, 분야, 검색어로 프로그램을 찾는 청소년 프로그램 신청 화면",
           width: 1270,
           height: 714,
-          caption: "모집 상태·연령·분야·검색어를 한 번에 조합해 현재 신청 가능한 활동을 찾게 했습니다.",
+          caption: "모집 상태·연령·분야·검색어를 한 번에 조합해 데모 기준일에 신청 가능한 활동을 찾게 했습니다.",
         },
         {
           title: "Application lookup",
@@ -420,6 +483,16 @@ export const caseStudies = [
         "접수 상태·필터·신청 결과를 텍스트와 의미 구조로 함께 전달",
       ],
     },
+    validation: {
+      label: "Validation / Demo scope",
+      title: ["신청 경로와 상태 계산을 확인하고,", "운영 시스템과의 차이를 밝혔습니다."],
+      checks: [
+        "주요 PHP 파일의 문법과 홈·프로그램·신청내역 직접 경로 확인",
+        "모집 상태·연령·분야·검색어 조합과 데모 기준일의 상태 계산 확인",
+        "탭·달력·프로그램 카드와 주요 메뉴의 키보드 이동 확인",
+      ],
+      scope: "프로그램 상태는 프로젝트 데모 기준일(2026.03.23)로 계산합니다. 신청 CRUD 데모이며 실제 본인인증·관리자 운영 시스템은 구현 범위에서 제외했습니다.",
+    },
     components: {
       label: "Implementation structure",
       title: ["공통 내비게이션과 신청 데이터를 나눠,", "많은 페이지를 같은 규칙으로 관리했습니다."],
@@ -437,37 +510,44 @@ export const caseStudies = [
     metadata: {
       title: "FRAGFARM Case Study · Suyeonn",
       description:
-        "브랜드 감성과 상품 탐색, 옵션, 장바구니, 주문, 회원, 리뷰와 문의 흐름을 함께 구현한 PHP 모바일 패션 커머스입니다.",
+        "브랜드 감성과 상품 탐색, 옵션, 장바구니, 데모 주문, 리뷰와 문의 흐름을 구현한 PHP 모바일 패션 커머스 데모입니다.",
     },
     eyebrow: "04 · Mobile fashion commerce",
     lead:
-      "브랜드의 빈티지한 인상은 유지하면서 상품 탐색과 옵션 선택, 장바구니·주문·회원·리뷰와 문의까지 실제 쇼핑 흐름을 구현했습니다.",
+      "브랜드의 빈티지한 인상은 유지하면서 상품 탐색과 옵션 선택, 장바구니·데모 주문·회원·리뷰와 문의까지 모바일 쇼핑 UI 흐름을 구현했습니다.",
     titleSize: { vw: "12vw", max: "12rem" },
     theme: {
-      accent: "#292a2c",
-      deep: "#111113",
+      accent: "#e75b79",
+      surface: "#292a2c",
       soft: "#efefed",
-      focus: "#e75b79",
-      spotlightLight: "#f3c9d2",
+      focus: "#8f1439",
+      spotlightLight: "#ffadc4",
+      dark: {
+        accent: "#ff8ca5",
+        surface: "#17181b",
+        flowSurface: "#17181b",
+        soft: "#2b2b2e",
+        focus: "#ffb0c1",
+        spotlightLight: "#ffadc4",
+      },
     },
     hero: {
-      src: "/images/projects/fragfarm-mobile-main.png",
+      src: "/images/projects/fragfarm-mobile-main-v2.png",
       alt: "프레그팜 컬렉션 비주얼과 모바일 헤더로 구성한 홈",
-      width: 390,
-      height: 844,
+      width: 850,
+      height: 2196,
       maxWidth: "520px",
       layout: "narrow",
-      caption: "Brand mood · end-to-end mobile commerce",
+      caption: "Brand mood · mobile commerce flow demo",
     },
     meta: [
-      { label: "Type", value: "Individual project" },
       { label: "Role", value: "UI 기획 · PHP 공통 구조·상품 데이터 · 쇼핑 흐름 구현" },
       { label: "Focus", value: "Mobile commerce · Shopping state · CRUD" },
       { label: "Stack", value: "PHP · MySQL · JavaScript · SCSS" },
     ],
     context: {
       label: "Project context",
-      title: ["브랜드 무드는 유지하고,", "실제 쇼핑 흐름을 끝까지 연결했습니다."],
+      title: ["브랜드 무드는 유지하고,", "핵심 쇼핑 흐름을 데모로 연결했습니다."],
       body: "룩북처럼 보이는 홈에 머무르지 않고 상품 목록·검색·상세 옵션·장바구니·주문·회원·리뷰와 문의까지 모바일 커머스의 핵심 흐름을 구성했습니다. 공통 PHP include와 서비스 함수, 클라이언트 저장 상태를 역할별로 나눠 화면과 데이터가 함께 확장되게 했습니다.",
       note: "Scope · 상품 탐색 · 옵션·재고 · 장바구니·주문 · 회원 · 리뷰·문의 CRUD",
     },
@@ -502,7 +582,7 @@ export const caseStudies = [
         { number: "01", title: "Discover", body: "컬렉션, 신상품, 세일과 리뷰 아카이브를 훑습니다.", outcome: "관심 상품 발견" },
         { number: "02", title: "Browse", body: "카테고리·정렬·보기 방식과 검색으로 목록을 좁힙니다.", outcome: "상품 후보 비교" },
         { number: "03", title: "Select", body: "상품 상세에서 옵션·재고·리뷰와 문의를 확인합니다.", outcome: "옵션 선택" },
-        { number: "04", title: "Order", body: "장바구니 합계를 확인하고 주문·내역·후기로 이어갑니다.", outcome: "주문 흐름 완료" },
+        { number: "04", title: "Order", body: "장바구니 합계를 확인하고 데모 주문·내역·후기로 이어갑니다.", outcome: "주문 화면 흐름 확인" },
       ],
     },
     decisions: {
@@ -544,6 +624,16 @@ export const caseStudies = [
         "리뷰 슬라이더는 방향키 탐색을 지원하고 복제 카드는 접근성 트리에서 제외",
         "장바구니·위시·수량·결과 변화는 aria-live와 읽을 수 있는 상태 문구로 전달",
       ],
+    },
+    validation: {
+      label: "Validation / Demo scope",
+      title: ["쇼핑 상태와 주요 경로를 확인하고,", "실제 결제 범위를 구분했습니다."],
+      checks: [
+        "주요 PHP 파일의 문법과 홈·목록·상세·장바구니·주문 직접 경로 확인",
+        "카테고리·정렬·보기 방식·페이지 URL 상태와 장바구니 합계 확인",
+        "옵션·로그인 패널, 상품 목록과 주요 쇼핑 경로의 키보드 탐색 확인",
+      ],
+      scope: "상품·장바구니·주문 흐름은 클라이언트 저장 상태와 데모 데이터를 함께 사용합니다. PG 결제·소셜 로그인·외부 간편결제는 구현 범위에서 제외했습니다.",
     },
     components: {
       label: "Implementation structure",

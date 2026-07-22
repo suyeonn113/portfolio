@@ -5,6 +5,9 @@ import SpotlightHeading from "@/components/ui/SpotlightHeading";
 import { projectBySlug } from "@/data/projects";
 import styles from "./CaseStudyPage.module.scss";
 
+const projectNotice =
+  "본 프로젝트는 학습 및 포트폴리오 목적으로 제작한 비공식 리디자인이며 실제 브랜드·기관 서비스와 무관합니다. 사용된 상표와 이미지의 권리는 각 권리자에게 있습니다.";
+
 function HeadingLines({ lines }) {
   return lines.map((line) => (
     <span className={styles.headingLine} key={line}>
@@ -17,7 +20,7 @@ function StructureIcon({ name }) {
   const paths = {
     product: (
       <>
-        <rect x="4" y="6" width="9" height="14" />
+        <path d="M11 6H4V20H13V18" />
         <rect x="11" y="4" width="9" height="14" />
         <path d="M7 10h3M7 14h3M14 8h3M14 12h3" />
       </>
@@ -50,7 +53,7 @@ function StructureIcon({ name }) {
     ),
     options: (
       <>
-        <path d="M4 7h16M4 12h16M4 17h16" />
+        <path d="M4 7h2M10 7h10M4 12h9M17 12h3M4 17h4M12 17h8" />
         <circle cx="8" cy="7" r="2" />
         <circle cx="15" cy="12" r="2" />
         <circle cx="10" cy="17" r="2" />
@@ -93,34 +96,56 @@ function StructureIcon({ name }) {
 
 export default function CaseStudyPage({ study }) {
   const project = projectBySlug[study.projectSlug];
+  const projectAnchor = `/#project-${study.projectSlug}`;
+  const lightSurface = study.theme.surface ?? study.theme.accent;
+  const lightFlowSurface = study.theme.flowSurface ?? lightSurface;
+  const darkTheme = study.theme.dark ?? study.theme;
+  const darkSurface = darkTheme.surface ?? darkTheme.accent;
   const pageStyle = {
-    "--case-accent": study.theme.accent,
-    "--case-accent-deep": study.theme.deep,
-    "--case-accent-soft": study.theme.soft,
-    "--case-focus": study.theme.focus,
+    "--case-accent-light": study.theme.accent,
+    "--case-surface-light": lightSurface,
+    "--case-flow-surface-light": lightFlowSurface,
+    "--case-accent-soft-light": study.theme.soft,
+    "--case-focus-light": study.theme.focus,
+    "--spotlight-light-light": study.theme.spotlightLight,
+    "--case-accent-dark": darkTheme.accent,
+    "--case-surface-dark": darkSurface,
+    "--case-flow-surface-dark": darkTheme.flowSurface ?? darkSurface,
+    "--case-accent-soft-dark": darkTheme.soft ?? study.theme.soft,
+    "--case-focus-dark": darkTheme.focus ?? study.theme.focus,
+    "--spotlight-light-dark":
+      darkTheme.spotlightLight ?? study.theme.spotlightLight,
     "--case-hero-width": study.hero.maxWidth ?? "1428px",
     "--case-title-vw": study.titleSize?.vw ?? "13.2vw",
     "--case-title-max": study.titleSize?.max ?? "13rem",
-    "--spotlight-light": study.theme.spotlightLight,
   };
 
   return (
-    <main className={styles.page} id="top" style={pageStyle}>
-      <header className={styles.header}>
+    <main className={styles.page} id="main-content" tabIndex={-1} style={pageStyle}>
+      <header className={styles.header} id="top">
         <Link className={styles.wordmark} href="/#top">
           SUYEONN
         </Link>
         <nav className={styles.headerLinks} aria-label="프로젝트 링크">
-          <Link href="/#work">
+          <Link href={projectAnchor}>
             <LinkArrowIcon direction="left" className={styles.linkIcon} />
             All projects
           </Link>
+          {study.originalSiteUrl ? (
+            <a href={study.originalSiteUrl} target="_blank" rel="noreferrer">
+              Original site
+              <span className="srOnly"> (새 창에서 열림)</span>
+              <LinkArrowIcon className={styles.linkIcon} />
+            </a>
+          ) : null}
           <a href={project.url} target="_blank" rel="noreferrer">
             Live site
+            <span className="srOnly"> (새 창에서 열림)</span>
             <LinkArrowIcon className={styles.linkIcon} />
           </a>
           <a href={project.githubUrl} target="_blank" rel="noreferrer">
             GitHub
+            <span className="srOnly"> (새 창에서 열림)</span>
             <LinkArrowIcon className={styles.linkIcon} />
           </a>
         </nav>
@@ -166,7 +191,10 @@ export default function CaseStudyPage({ study }) {
           <SpotlightHeading id="brief-title">
             <HeadingLines lines={study.context.title} />
           </SpotlightHeading>
-          <div>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="700"
+          >
             <p>{study.context.body}</p>
             <p className={styles.scopeNote}>{study.context.note}</p>
           </div>
@@ -181,12 +209,24 @@ export default function CaseStudyPage({ study }) {
           </SpotlightHeading>
         </div>
         <div className={styles.comparisonGrid} data-count={study.visuals.items.length}>
-          {study.visuals.items.map((visual) => (
-            <figure key={visual.title}>
+          {study.visuals.items.map((visual, index) => (
+            <figure
+              key={visual.title}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              data-aos-duration="700"
+            >
               <div
                 className={`${styles.screenFrame} ${
                   visual.reference ? styles.referenceFrame : ""
+                } ${visual.fit === "contain" ? styles.containFrame : ""} ${
+                  visual.cropRight ? styles.cropRightFrame : ""
                 }`}
+                style={
+                  visual.frameRatio
+                    ? { "--screen-ratio": visual.frameRatio }
+                    : undefined
+                }
               >
                 <Image
                   src={visual.src}
@@ -205,6 +245,7 @@ export default function CaseStudyPage({ study }) {
                   {visual.url ? (
                     <a href={visual.url} target="_blank" rel="noreferrer">
                       {visual.title}
+                      <span className="srOnly"> (새 창에서 열림)</span>
                       <LinkArrowIcon className={styles.linkIcon} />
                     </a>
                   ) : (
@@ -257,8 +298,13 @@ export default function CaseStudyPage({ study }) {
           </SpotlightHeading>
         </div>
         <ol className={styles.decisionList}>
-          {study.decisions.items.map((decision) => (
-            <li key={decision.number}>
+          {study.decisions.items.map((decision, index) => (
+            <li
+              key={decision.number}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              data-aos-duration="600"
+            >
               <span>{decision.number}</span>
               <h3>{decision.title}</h3>
               <div className={styles.decisionBody}>
@@ -278,12 +324,41 @@ export default function CaseStudyPage({ study }) {
             <HeadingLines lines={study.accessibility.title} />
           </SpotlightHeading>
         </div>
-        <ul>
+        <ul
+          data-aos="fade-left"
+          data-aos-duration="700"
+        >
           {study.accessibility.items.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </section>
+
+      {study.validation ? (
+        <section className={styles.validation} aria-labelledby="validation-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionLabel}>{study.validation.label}</p>
+            <SpotlightHeading id="validation-title">
+              <HeadingLines lines={study.validation.title} />
+            </SpotlightHeading>
+          </div>
+          <div className={styles.validationGrid}>
+            <div>
+              <h3>Checked</h3>
+              <ul>
+                {study.validation.checks.map((check) => (
+                  <li key={check}>{check}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Demo scope</h3>
+              <p>{study.validation.scope}</p>
+            </div>
+          </div>
+          <p className={styles.projectNotice}>{projectNotice}</p>
+        </section>
+      ) : null}
 
       <section className={styles.components} aria-labelledby="components-title">
         <div className={styles.sectionHeading}>
@@ -293,8 +368,13 @@ export default function CaseStudyPage({ study }) {
           </SpotlightHeading>
         </div>
         <div className={styles.componentGrid}>
-          {study.components.items.map((component) => (
-            <article key={component.title}>
+          {study.components.items.map((component, index) => (
+            <article
+              key={component.title}
+              data-aos="fade-up"
+              data-aos-delay={index * 90}
+              data-aos-duration="650"
+            >
               <div className={styles.componentTopline}>
                 <h3>{component.title}</h3>
                 <StructureIcon name={component.icon} />
@@ -308,16 +388,18 @@ export default function CaseStudyPage({ study }) {
       <footer className={styles.footer}>
         <p>{study.footerLabel}</p>
         <div>
-          <Link href="/#work">
+          <Link href={projectAnchor}>
             <LinkArrowIcon direction="left" className={styles.linkIcon} />
             Back to projects
           </Link>
           <a href={project.url} target="_blank" rel="noreferrer">
             Visit live site
+            <span className="srOnly"> (새 창에서 열림)</span>
             <LinkArrowIcon className={styles.linkIcon} />
           </a>
           <a href={project.githubUrl} target="_blank" rel="noreferrer">
             View GitHub
+            <span className="srOnly"> (새 창에서 열림)</span>
             <LinkArrowIcon className={styles.linkIcon} />
           </a>
         </div>

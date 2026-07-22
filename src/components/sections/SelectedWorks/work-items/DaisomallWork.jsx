@@ -8,10 +8,13 @@ const project = projectBySlug.daisomall;
 export default function DaisomallWork() {
   return (
     <article
+      id={`project-${project.slug}`}
       className={styles.work}
       style={{
-        "--project-color": project.keyColor,
-        "--project-ink": project.inkColor,
+        "--project-color-light": project.keyColor,
+        "--project-ink-light": project.inkColor,
+        "--project-color-dark": project.darkKeyColor,
+        "--project-ink-dark": project.darkInkColor,
       }}
     >
       <div
@@ -20,7 +23,6 @@ export default function DaisomallWork() {
       >
         <div className={styles.daisoCatalog}>
           <div className={styles.daisoCatalogTop} aria-hidden="true">
-            <strong>DAISOMALL</strong>
             <span>01 / STORE</span>
           </div>
           <div className={styles.daisoCatalogScreen}>

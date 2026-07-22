@@ -8,10 +8,13 @@ const project = projectBySlug["air-seoul"];
 export default function AirSeoulWork() {
   return (
     <article
+      id={`project-${project.slug}`}
       className={styles.work}
       style={{
-        "--project-color": project.keyColor,
-        "--project-ink": project.inkColor,
+        "--project-color-light": project.keyColor,
+        "--project-ink-light": project.inkColor,
+        "--project-color-dark": project.darkKeyColor,
+        "--project-ink-dark": project.darkInkColor,
       }}
     >
       <ProjectCopy project={project} />
