@@ -46,11 +46,23 @@
   border-radius: 50%;
   background: tokens.$color-white;
   cursor: pointer;
+  transition:
+    background-color 280ms ease,
+    border-color 280ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .controlButton:hover {
+    border-color: tokens.$color-line;
+    background: tokens.$color-hover-surface;
+  }
 }
 
 .controlButton:focus-visible {
   outline: 2px solid tokens.$color-black;
   outline-offset: 3px;
+  border-color: tokens.$color-line;
+  background: tokens.$color-hover-surface;
 }
 
 .themeIcon {
@@ -103,6 +115,7 @@
   width: 65%;
   height: tokens.$icon-stroke-width;
   margin-inline: auto;
+  border-radius: 999px;
   background: currentColor;
   transform: translateX(3px);
   transition: transform tokens.$duration-interaction ease;

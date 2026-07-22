@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <rect width="1600" height="1100" fill="#f3f3f0"/>
+  <style>
+    text { font-family: Pretendard, Arial, sans-serif; fill: #141414; }
+    .label { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; }
+    .micro { font-size: 10px; fill: #717171; }
+    .small { font-size: 12px; fill: #595959; }
+    .body { font-size: 13px; fill: #3b3b3b; }
+    .inverse { fill: #ffffff; }
+    .inverse-muted { fill: #d8d8d8; }
+    .rail-heading { fill: #141414; }
+    .rail-muted { fill: #6d7888; }
+    .line { stroke: #d6d6d0; stroke-width: 1; }
+    .hair { stroke: #e4e4df; stroke-width: 1; }
+  </style>
+
+  <text x="60" y="45" class="label">DESIGN DIRECTION 01</text>
+  <text x="60" y="88" font-size="38" font-weight="450" letter-spacing="-1.5">Editorial Resume</text>
+  <text x="1538" y="44" class="label" text-anchor="end">WEB + A4 PRINT</text>
+  <text x="1538" y="68" class="small" text-anchor="end">큰 타이포 · 얇은 선 · 넓은 여백 · 무채색 대비</text>
+
+  <!-- Desktop web resume -->
+  <rect x="60" y="130" width="930" height="905" rx="2" fill="#ffffff" stroke="#d8d8d2"/>
+  <rect x="60" y="130" width="930" height="54" fill="#ffffff"/>
+  <text x="82" y="162" class="label">SUYEONN</text>
+  <text x="780" y="162" class="micro">PORTFOLIO</text>
+  <text x="878" y="162" class="micro">PRINT ↗</text>
+  <line x1="60" y1="184" x2="990" y2="184" class="line"/>
+
+  <text x="82" y="231" class="micro">RESUME / 2026</text>
+  <text x="82" y="298" font-size="51" font-weight="430" letter-spacing="-2.8">조수연</text>
+  <text x="82" y="348" font-size="42" font-weight="430" letter-spacing="-2.2">Web Publisher</text>
+  <text x="530" y="276" font-size="17" fill="#686868">운영자의 의도와 사용자의 경험을</text>
+  <text x="530" y="303" font-size="17" fill="#686868">명확한 화면으로 구현합니다.</text>
+  <text x="530" y="341" class="small">Seoul · Available for work</text>
+  <text x="530" y="363" class="small">suyeonn113@naver.com</text>
+
+  <line x1="60" y1="397" x2="990" y2="397" class="line"/>
+  <line x1="292" y1="397" x2="292" y2="474" class="line"/>
+  <line x1="525" y1="397" x2="525" y2="474" class="line"/>
+  <line x1="757" y1="397" x2="757" y2="474" class="line"/>
+  <text x="82" y="421" class="micro">EXPERIENCE</text>
+  <text x="82" y="451" font-size="20" font-weight="500">2년 1개월</text>
+  <text x="314" y="421" class="micro">TRAINING</text>
+  <text x="314" y="451" font-size="20" font-weight="500">950 hours</text>
+  <text x="547" y="421" class="micro">FOCUS</text>
+  <text x="547" y="451" font-size="20" font-weight="500">UI · Structure</text>
+  <text x="779" y="421" class="micro">CERTIFICATE</text>
+  <text x="779" y="451" font-size="20" font-weight="500">GTQ 1급</text>
+
+  <!-- sticky profile rail -->
+  <rect x="60" y="474" width="232" height="561" fill="#f3f4f5"/>
+  <line x1="292" y1="474" x2="292" y2="1035" stroke="#e1e4e7"/>
+  <text x="82" y="513" class="rail-muted" font-size="11" letter-spacing="1.5">PROFILE</text>
+  <text x="82" y="564" class="rail-heading" font-size="24" font-weight="450">질문과 관찰로</text>
+  <text x="82" y="595" class="rail-heading" font-size="24" font-weight="450">필요한 기준을</text>
+  <text x="82" y="626" class="rail-heading" font-size="24" font-weight="450">발견합니다.</text>
+  <line x1="82" y1="678" x2="267" y2="678" stroke="#cfd4d9"/>
+  <text x="82" y="711" class="rail-muted" font-size="11">USER NEEDS</text>
+  <text x="82" y="735" class="rail-muted" font-size="11">STRUCTURE</text>
+  <text x="82" y="759" class="rail-muted" font-size="11">ACCESSIBILITY</text>
+  <text x="82" y="1001" class="rail-muted" font-size="10">SCROLL TO EXPLORE ↓</text>
+
+  <!-- experience area -->
+  <text x="324" y="515" class="micro">01 / EXPERIENCE</text>
+  <text x="324" y="562" font-size="30" font-weight="440" letter-spacing="-1.2">현장에서 배운 관찰을</text>
+  <text x="324" y="599" font-size="30" font-weight="440" letter-spacing="-1.2">사용 가능한 구조로.</text>
+
+  <line x1="324" y1="636" x2="960" y2="636" class="line"/>
+  <text x="324" y="664" class="micro">2024.05 — 2025.07</text>
+  <text x="475" y="665" font-size="15" font-weight="600">언더스탠드에비뉴 서교점</text>
+  <text x="475" y="689" class="small">고객 요구를 파악하고 상품·재고·매장 흐름을 운영</text>
+  <text x="475" y="713" class="small">→ 사용자 관찰 / 우선순위 판단 / 정보 전달</text>
+
+  <line x1="324" y1="741" x2="960" y2="741" class="line"/>
+  <text x="324" y="769" class="micro">2023.12 — 2024.04</text>
+  <text x="475" y="770" font-size="15" font-weight="600">아이아이컴바인드</text>
+  <text x="475" y="794" class="small">내·외국인 고객 안내와 매장 환경 관리</text>
+
+  <line x1="324" y1="822" x2="960" y2="822" class="line"/>
+  <text x="324" y="850" class="micro">2023.05 — 2023.09</text>
+  <text x="475" y="851" font-size="15" font-weight="600">마포청소년문화의집</text>
+  <text x="475" y="875" class="small">프로그램 운영, 일정 조율, 현장 안전 관리</text>
+
+  <text x="324" y="933" class="micro">02 / CAPABILITIES</text>
+  <line x1="324" y1="957" x2="960" y2="957" class="line"/>
+  <text x="324" y="986" class="small">MARKUP</text>
+  <text x="452" y="986" class="small">INTERACTION</text>
+  <text x="589" y="986" class="small">TOOLS</text>
+  <text x="720" y="986" class="small">BACKEND</text>
+  <text x="324" y="1010" class="micro">HTML · CSS · SCSS</text>
+  <text x="452" y="1010" class="micro">JS · REACT</text>
+  <text x="589" y="1010" class="micro">FIGMA · GIT</text>
+  <text x="720" y="1010" class="micro">PHP · MYSQL</text>
+
+  <!-- Print concept -->
+  <text x="1040" y="161" class="label">A4 PRINT / 2 PAGES</text>
+  <text x="1040" y="187" class="small">웹과 같은 데이터, 인쇄에 맞춘 별도 밀도</text>
+
+  <!-- A4 Page 1 -->
+  <rect x="1040" y="220" width="230" height="325" fill="#ffffff" stroke="#d2d2cc"/>
+  <rect x="1040" y="220" width="230" height="13" fill="#141414"/>
+  <text x="1055" y="257" font-size="18" font-weight="520">조수연</text>
+  <text x="1055" y="274" class="micro">WEB PUBLISHER</text>
+  <text x="1255" y="253" font-size="7" fill="#777" text-anchor="end">010-8532-2068</text>
+  <text x="1255" y="264" font-size="7" fill="#777" text-anchor="end">suyeonn113@naver.com</text>
+  <line x1="1055" y1="291" x2="1255" y2="291" class="hair"/>
+  <text x="1055" y="309" font-size="7" font-weight="600">PROFILE</text>
+  <text x="1055" y="326" font-size="9">의도와 경험을 명확한 화면으로 구현합니다.</text>
+  <text x="1055" y="339" font-size="6.8" fill="#666">현장 관찰과 운영 경험을 바탕으로 사용 흐름을 설계합니다.</text>
+  <line x1="1055" y1="357" x2="1255" y2="357" class="hair"/>
+  <text x="1055" y="375" font-size="7" font-weight="600">CORE SKILLS</text>
+  <text x="1055" y="391" font-size="7" fill="#555">HTML · CSS · SCSS · JavaScript · React</text>
+  <text x="1055" y="403" font-size="7" fill="#555">PHP · MySQL · Git · Figma · Photoshop</text>
+  <line x1="1055" y1="419" x2="1255" y2="419" class="hair"/>
+  <text x="1055" y="437" font-size="7" font-weight="600">EXPERIENCE</text>
+  <text x="1055" y="454" font-size="6" fill="#888">2024.05—2025.07</text>
+  <text x="1114" y="454" font-size="7.5" font-weight="600">언더스탠드에비뉴 서교점</text>
+  <text x="1114" y="467" font-size="6.5" fill="#666">고객 응대 · 상품/재고 · 매장 운영</text>
+  <text x="1055" y="487" font-size="6" fill="#888">2023.12—2024.04</text>
+  <text x="1114" y="487" font-size="7.5" font-weight="600">아이아이컴바인드</text>
+  <text x="1114" y="500" font-size="6.5" fill="#666">고객 안내 · 판매 · 환경 관리</text>
+  <text x="1055" y="520" font-size="6" fill="#888">2023.05—2023.09</text>
+  <text x="1114" y="520" font-size="7.5" font-weight="600">마포청소년문화의집</text>
+  <text x="1255" y="533" font-size="6" fill="#888" text-anchor="end">01</text>
+
+  <!-- A4 Page 2 -->
+  <rect x="1300" y="220" width="230" height="325" fill="#ffffff" stroke="#d2d2cc"/>
+  <rect x="1300" y="220" width="230" height="13" fill="#141414"/>
+  <text x="1315" y="255" font-size="7" font-weight="600">TRAINING &amp; PROJECTS</text>
+  <text x="1315" y="277" font-size="8" font-weight="600">UI/UX 웹퍼블리셔·프론트엔드 실무과정</text>
+  <text x="1315" y="291" font-size="6.5" fill="#666">2025.12—2026.06 · 950시간</text>
+  <line x1="1315" y1="309" x2="1515" y2="309" class="hair"/>
+  <text x="1315" y="328" font-size="7.5" font-weight="600">DAISOMALL</text>
+  <text x="1392" y="328" font-size="6.5" fill="#666">팀장 · UI 기획 · React</text>
+  <text x="1315" y="346" font-size="7.5" font-weight="600">AIR SEOUL</text>
+  <text x="1392" y="346" font-size="6.5" fill="#666">항공권 검색·예약 흐름</text>
+  <text x="1315" y="364" font-size="7.5" font-weight="600">YOUTH CENTER</text>
+  <text x="1392" y="364" font-size="6.5" fill="#666">공공서비스 · PHP/MySQL</text>
+  <text x="1315" y="382" font-size="7.5" font-weight="600">FRAGFARM</text>
+  <text x="1392" y="382" font-size="6.5" fill="#666">모바일 커머스</text>
+  <line x1="1315" y1="401" x2="1515" y2="401" class="hair"/>
+  <text x="1315" y="420" font-size="7" font-weight="600">EDUCATION / CERTIFICATE</text>
+  <text x="1315" y="438" font-size="6.8">명지대학교 청소년지도학과 · 4.29/4.5</text>
+  <text x="1315" y="454" font-size="6.8">GTQ 1급 · 청소년상담사 3급 · 청소년지도사 2급</text>
+  <line x1="1315" y1="472" x2="1515" y2="472" class="hair"/>
+  <text x="1315" y="491" font-size="7" font-weight="600">PORTFOLIO</text>
+  <rect x="1480" y="487" width="35" height="35" fill="#141414"/>
+  <rect x="1486" y="493" width="8" height="8" fill="#fff"/>
+  <rect x="1501" y="493" width="8" height="8" fill="#fff"/>
+  <rect x="1486" y="508" width="8" height="8" fill="#fff"/>
+  <text x="1315" y="508" font-size="6.5" fill="#666">suyeonn-portfolio.vercel.app</text>
+  <text x="1515" y="533" font-size="6" fill="#888" text-anchor="end">02</text>
+
+  <rect x="1040" y="585" width="490" height="210" fill="#ffffff" stroke="#d8d8d2"/>
+  <text x="1062" y="619" class="label">INFORMATION RULE</text>
+  <line x1="1062" y1="638" x2="1508" y2="638" class="line"/>
+  <text x="1062" y="670" font-size="13" font-weight="600">WEB</text>
+  <text x="1130" y="670" class="body">이메일 · 지역 · 경력 · 역량만 공개</text>
+  <text x="1062" y="704" font-size="13" font-weight="600">PRINT</text>
+  <text x="1130" y="704" class="body">전화번호 포함, 사진은 선택</text>
+  <text x="1062" y="738" font-size="13" font-weight="600">REMOVE</text>
+  <text x="1130" y="738" class="body">출생연도 · 상세주소 · 희망연봉은 공개 제외</text>
+  <text x="1062" y="770" class="small">한 이력서가 아니라, 같은 정보의 두 가지 읽기 방식.</text>
+
+  <rect x="1040" y="830" width="490" height="205" fill="#141414"/>
+  <text x="1062" y="864" class="inverse-muted" font-size="11" letter-spacing="1.5">RECOMMENDED FLOW</text>
+  <text x="1062" y="908" class="inverse" font-size="22" font-weight="450">Intro → Experience → Skills</text>
+  <text x="1062" y="939" class="inverse" font-size="22" font-weight="450">→ Training → Education → Print</text>
+  <text x="1062" y="987" class="inverse-muted" font-size="12">웹은 설득하고, A4는 검토하기 쉽게 정리합니다.</text>
+</svg>

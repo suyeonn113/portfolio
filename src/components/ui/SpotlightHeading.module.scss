@@ -2,7 +2,7 @@
   --spotlight-x: 50%;
   --spotlight-y: 50%;
   --spotlight-opacity: 0;
-  --spotlight-color: var(--daiso-red, #b72a2d);
+  --spotlight-color: var(--case-accent, #b72a2d);
   --spotlight-size: clamp(160px, 14vw, 240px);
 
   position: relative;
@@ -10,7 +10,7 @@
 }
 
 .heading[data-tone="light"] {
-  --spotlight-color: #ffd0d2;
+  --spotlight-color: var(--spotlight-light, #ffd0d2);
 }
 
 .base,

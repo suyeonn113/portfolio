@@ -23,6 +23,7 @@ export const projects = [
     order: "02",
     title: "AIR SEOUL",
     category: "Airline booking service",
+    role: "UI 기획 · React 구조·예약 데이터 설계 · 전체 화면 구현",
     summary:
       "항공권 검색 조건 입력부터 URL 기반 결과 비교, 운임 선택과 여정 요약까지 연결했습니다. 예약·체크인·스케줄·여행 정보로 확장한 React 기반 항공 서비스 리디자인입니다.",
     tech: ["React", "Routing", "URL Query", "Booking Flow"],
@@ -40,6 +41,7 @@ export const projects = [
     order: "03",
     title: "SEOUL YOUTH CENTER",
     category: "Public service",
+    role: "UI 기획 · 정보구조·PHP 공통 구조 · 신청 흐름 구현",
     summary:
       "복잡한 기관 정보를 사용자 목적 중심으로 재편하고, 청소년·평생교육 프로그램 탐색부터 신청 내역 관리까지 연결했습니다. 반응형 UI와 키보드 접근성을 갖춘 PHP 기반 공공 서비스 리디자인입니다.",
     tech: ["PHP", "MySQL", "Information Architecture", "Application Flow"],
@@ -57,6 +59,7 @@ export const projects = [
     order: "04",
     title: "FRAGFARM",
     category: "Mobile fashion commerce",
+    role: "UI 기획 · PHP 공통 구조·상품 데이터 · 쇼핑 흐름 구현",
     summary:
       "브랜드 감성을 유지하면서 상품 탐색·상세 옵션·장바구니·주문·회원·리뷰와 문의까지 모바일 쇼핑 흐름을 구현했습니다. PHP 공통 구조와 접근성을 함께 정리한 패션 커머스 리디자인입니다.",
     tech: ["PHP", "Mobile Commerce", "Shopping Flow", "Accessibility"],

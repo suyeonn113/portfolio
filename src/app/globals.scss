@@ -13,6 +13,7 @@ html [data-aos]:not(.aos-init) {
   --muted: #6d7888;
   --line: #eceef0;
   --line-soft: #f3f4f5;
+  --hover-surface: #f9fafb;
   --animation-marquee: marquee-flow;
   --font-sans: var(--font-albert), var(--font-pretendard), Pretendard, Arial,
     sans-serif;
@@ -25,6 +26,7 @@ html [data-aos]:not(.aos-init) {
   --muted: #9a9ea5;
   --line: #33363b;
   --line-soft: #25252b;
+  --hover-surface: #25272c;
   color-scheme: dark;
 }
 

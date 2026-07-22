@@ -1,10 +1,10 @@
 import CaseStudyPage from "@/components/case-study/CaseStudyPage";
 import { caseStudyBySlug } from "@/data/caseStudies";
 
-const study = caseStudyBySlug.daisomall;
+const study = caseStudyBySlug["seoul-youth-center"];
 
 export const metadata = study.metadata;
 
-export default function DaisomallCaseStudy() {
+export default function SeoulYouthCenterCaseStudy() {
   return <CaseStudyPage study={study} />;
 }

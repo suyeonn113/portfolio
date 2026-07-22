@@ -112,7 +112,13 @@
 
 @include mixins.mobile {
   .hero {
+    height: auto;
+    min-height: tokens.$hero-height-stacked;
     padding-top: 64px;
+  }
+
+  .inner {
+    padding-bottom: 40px;
   }
 
   .inner h1 {

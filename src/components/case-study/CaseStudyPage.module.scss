@@ -1,9 +1,14 @@
-@use "../../../styles/mixins" as mixins;
-@use "../../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/tokens" as tokens;
 
 .page {
-  --daiso-red: #b72a2d;
-  --daiso-red-deep: #8f171b;
+  --case-accent: #b72a2d;
+  --case-accent-deep: #8f171b;
+  --case-accent-soft: #f6d8d6;
+  --case-focus: #f4be32;
+  --case-hero-width: 1428px;
+  --case-title-vw: 13.2vw;
+  --case-title-max: 13rem;
 
   min-height: 100vh;
   color: tokens.$color-black;
@@ -91,7 +96,7 @@
 
 .intro h1 {
   margin-top: clamp(40px, 6vw, 86px);
-  font-size: clamp(4rem, 13.2vw, 13rem);
+  font-size: clamp(4rem, var(--case-title-vw), var(--case-title-max));
   font-weight: tokens.$font-weight-book;
   line-height: 0.78;
   letter-spacing: -0.075em;
@@ -113,7 +118,7 @@
   margin: 0;
   padding-top: var(--hero-frame-gutter);
   color: #ffffff;
-  background: var(--daiso-red);
+  background: var(--case-accent);
 }
 
 .heroImage {
@@ -121,12 +126,12 @@
   max-height: 82vh;
   overflow: hidden;
   place-items: start center;
-  background: var(--daiso-red);
+  background: var(--case-accent);
 }
 
 .heroImage img {
   display: block;
-  width: min(100%, 1428px);
+  width: min(100%, var(--case-hero-width));
   height: auto;
 }
 
@@ -241,6 +246,10 @@
   margin-top: clamp(72px, 9vw, 140px);
 }
 
+.comparisonGrid[data-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .comparisonGrid figure {
   margin: 0;
 }
@@ -291,7 +300,7 @@
 
   padding: var(--flow-edge-space) 0 0;
   color: #ffffff;
-  background: var(--daiso-red);
+  background: var(--case-accent);
 }
 
 .flow .sectionLabel {
@@ -427,7 +436,7 @@
 
 .decisionList li:hover {
   border-color: tokens.$color-line;
-  background: tokens.$color-line-soft;
+  background: tokens.$color-hover-surface;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -510,7 +519,7 @@
 }
 
 .componentGrid article:hover {
-  background: tokens.$color-line-soft;
+  background: tokens.$color-hover-surface;
 }
 
 .componentTopline {
@@ -569,7 +578,7 @@
   gap: 40px;
   padding: 52px tokens.$page-gutter;
   color: #ffffff;
-  background: var(--daiso-red-deep);
+  background: var(--case-accent-deep);
   text-transform: none;
 }
 
@@ -580,7 +589,7 @@
 }
 
 .page :focus-visible {
-  outline: 3px solid #f4be32;
+  outline: 3px solid var(--case-focus);
   outline-offset: 5px;
 }
 
@@ -600,6 +609,15 @@
   .briefCopy,
   .accessibility {
     grid-template-columns: 1fr;
+  }
+
+  .comparisonGrid[data-count="3"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comparisonGrid[data-count="3"] figure:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - clamp(10px, 1.5vw, 24px));
   }
 
   .briefCopy > div {
@@ -702,8 +720,14 @@
   }
 
   .comparisonGrid,
+  .comparisonGrid[data-count="3"],
   .componentGrid {
     grid-template-columns: 1fr;
+  }
+
+  .comparisonGrid[data-count="3"] figure:last-child {
+    grid-column: auto;
+    width: auto;
   }
 
   .flowList {
@@ -744,7 +768,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .header {
     display: grid;
     grid-template-columns: 1fr;
