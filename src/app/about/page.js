@@ -156,7 +156,7 @@ export default function AboutPage() {
           <a
             className={styles.downloadButton}
             href="/documents/suyeon-resume-2026.pdf"
-            download="조수연_웹퍼블리셔_이력서.pdf"
+            download="잡코리아-이력서-조수연.pdf"
           >
             <span>Download resume</span>
             <span className="srOnly"> (PDF 파일 다운로드)</span>
