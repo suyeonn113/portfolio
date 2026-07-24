@@ -153,15 +153,15 @@ export default function AboutPage() {
               A4 이력서에서 자세히 확인할 수 있습니다.
             </p>
           </div>
-          {/* <a
+          <a
             className={styles.downloadButton}
-            href="/documents/suyeon-resume-2026.pdf"
-            download="잡코리아-이력서-조수연.pdf"
+            href="/documents/조수연-이력서-2026.pdf"
+            download="조수연-이력서-2026.pdf"
           >
             <span>Download resume</span>
             <span className="srOnly"> (PDF 파일 다운로드)</span>
             <LinkArrowIcon className={styles.downloadIcon} />
-          </a> */}
+          </a>
         </section>
       </main>
       <Footer />
