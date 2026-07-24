@@ -42,7 +42,7 @@ export const projects = [
   {
     slug: "seoul-youth-center",
     order: "03",
-    title: "SEOUL YOUTH CENTER",
+    title: "시립서울청소년센터",
     category: "Public service",
     role: "UI 기획 · 정보구조·PHP 공통 구조 · 신청 흐름 구현",
     summary:
