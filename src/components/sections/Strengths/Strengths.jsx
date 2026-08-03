@@ -33,11 +33,16 @@ export default function Strengths() {
               <h3>{strength.title}</h3>
             </div>
             <p className={styles.description}>{strength.description}</p>
-            <ul className={styles.keywords} aria-label={`${strength.title} 키워드`}>
-              {strength.keywords.map((keyword) => (
-                <li key={keyword}>{keyword}</li>
-              ))}
-            </ul>
+            <div className={styles.itemFooter}>
+              <ul className={styles.keywords} aria-label={`${strength.title} 키워드`}>
+                {strength.keywords.map((keyword) => (
+                  <li key={keyword}>{keyword}</li>
+                ))}
+              </ul>
+              <span className={styles.relatedPreview} aria-hidden="true">
+                {strength.previewLabel}
+              </span>
+            </div>
           </article>
         ))}
       </div>

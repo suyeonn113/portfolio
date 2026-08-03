@@ -43,6 +43,7 @@
 
 .item {
   display: grid;
+  min-width: 0;
   grid-template-rows: auto auto 1fr;
   height: tokens.$strength-card-height;
   padding: 34px tokens.$page-gutter 38px;
@@ -55,6 +56,7 @@
 
 .titleRow {
   display: grid;
+  min-width: 0;
   grid-template-columns: 28px auto;
   gap: 14px;
   align-items: center;
@@ -98,25 +100,34 @@
 }
 
 .titleRow h3 {
+  min-width: 0;
   font-size: tokens.$font-size-section-title;
   font-weight: tokens.$font-weight-book;
   letter-spacing: tokens.$tracking-title;
   line-height: 1.2;
   text-transform: none;
+  overflow-wrap: anywhere;
 }
 
 .description {
+  min-width: 0;
   max-width: 560px;
   padding-top: 18px;
   color: tokens.$color-muted;
   font-size: tokens.$font-size-label;
   line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.itemFooter {
+  display: grid;
+  align-self: end;
+  gap: 18px;
 }
 
 .keywords {
   display: flex;
   flex-wrap: wrap;
-  align-self: end;
   gap: 8px;
   color: tokens.$color-muted;
 }
@@ -131,6 +142,14 @@
   line-height: 20px;
   text-transform: none;
   transition: background-color 200ms ease;
+}
+
+.relatedPreview {
+  @include mixins.section-label;
+
+  width: fit-content;
+  border-bottom: tokens.$line-width solid currentColor;
+  padding-bottom: 4px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -153,7 +172,6 @@
 
   .titleRow h3 {
     font-size: 1.5rem;
-    white-space: nowrap;
   }
 }
 

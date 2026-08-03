@@ -118,11 +118,26 @@
   word-break: keep-all;
 }
 
-.summary {
+.projectDescription {
   max-width: 500px;
   margin-top: clamp(42px, 5vw, 82px);
+}
+
+.highlight {
+  max-width: 27ch;
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  font-weight: tokens.$font-weight-medium;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+}
+
+.summary {
+  margin-top: 18px;
   font-size: clamp(0.9rem, 1.05vw, 1.125rem);
   line-height: tokens.$line-height-readable;
+  opacity: 0.82;
+  word-break: keep-all;
 }
 
 .tech {
@@ -135,7 +150,8 @@
 .projectLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px 24px;
+  align-items: center;
   margin-top: clamp(64px, 8vw, 128px);
 }
 
@@ -146,6 +162,20 @@
   gap: 5px;
   border-bottom: tokens.$line-width solid currentColor;
   padding-bottom: 5px;
+}
+
+.projectLinks .primaryProjectLink {
+  min-height: 44px;
+  padding: 12px 16px;
+  border: tokens.$line-width solid var(--project-ink);
+  background: var(--project-ink);
+  color: var(--project-color);
+}
+
+.secondaryProjectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
 }
 
 .projectLinks a:focus-visible {

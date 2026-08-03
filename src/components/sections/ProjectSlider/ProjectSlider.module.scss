@@ -43,16 +43,27 @@
 
 .visual {
   display: flex;
+  width: 100%;
   height: tokens.$project-slider-height;
+  border: 0;
   flex-direction: column;
   justify-content: space-between;
   padding: tokens.$project-slider-padding;
   color: var(--project-ink);
   background: var(--project-color);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-.visual span {
+.order,
+.action {
   @include mixins.section-label;
+}
+
+.projectMeta {
+  display: grid;
+  gap: 18px;
 }
 
 .visual strong {
@@ -61,6 +72,21 @@
   font-weight: tokens.$font-weight-medium;
   line-height: 0.95;
   letter-spacing: -0.05em;
+}
+
+.action {
+  width: fit-content;
+  border-bottom: tokens.$line-width solid currentColor;
+  padding-bottom: 4px;
+}
+
+.visual:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -8px;
+}
+
+.section:focus-within .track {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

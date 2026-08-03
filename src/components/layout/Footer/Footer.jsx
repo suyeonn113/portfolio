@@ -11,7 +11,7 @@ export default function Footer() {
           {[0, 1].map((group) => (
             <div className={styles.tickerGroup} key={group}>
               {talkItems.map((item) => (
-                <span key={item}>FROM FLOW TO FUNCTION&nbsp;&nbsp;✳︎</span>
+                <span key={item}>BUILT WITH INTENT&nbsp;&nbsp;·&nbsp;&nbsp;MADE ACCESSIBLE&nbsp;&nbsp;✳︎</span>
               ))}
             </div>
           ))}

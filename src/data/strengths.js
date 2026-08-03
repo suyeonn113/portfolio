@@ -1,30 +1,34 @@
 export const strengths = [
   {
-    title: "FIND THE REAL NEED",
-    description:
-      "질문과 관찰을 통해 말로 정리되지 않은 요구를 구체적인 기준으로 바꿉니다.",
-    keywords: ["Questions", "Observation", "User needs"],
-    icon: "need",
-  },
-  {
-    title: "STRUCTURE THE FLOW",
-    description:
-      "흩어진 정보와 기능을 사용 목적에 맞는 순서와 흐름으로 정리합니다.",
-    keywords: ["User flow", "Information order", "Search"],
-    icon: "flow",
-  },
-  {
     title: "BUILD FOR REUSE",
     description:
-      "반복 UI를 컴포넌트로 분리해 데이터와 상태에 맞게 조합하고 확장합니다.",
-    keywords: ["Components", "Props", "State", "Tokens"],
+      "디자인 규칙과 데이터의 책임을 나누고, 반복되는 UI가 같은 컴포넌트 구조에서 확장될 수 있게 설계합니다.",
+    keywords: ["Design rules", "Data", "Components"],
+    previewLabel: "View React structure ↗",
     icon: "system",
   },
   {
-    title: "PUBLISH WITH CARE",
+    title: "CONNECT STATES AND FLOW",
     description:
-      "반응형과 키보드·포커스·대체 텍스트 등 접근성 기본을 함께 점검합니다.",
-    keywords: ["Responsive", "Keyboard", "Focus", "Alt text"],
+      "서로 다른 화면과 컴포넌트가 같은 조건과 선택 상태를 공유하도록 연결합니다.",
+    keywords: ["State", "Routing", "User flow"],
+    previewLabel: "View booking flow ↗",
+    icon: "flow",
+  },
+  {
+    title: "DESIGN FOR DIFFERENT USERS",
+    description:
+      "연령과 업무 환경, 사용 기기가 달라도 같은 서비스를 이용할 수 있도록 정보와 조작 방식을 조정합니다.",
+    keywords: ["Responsive", "Accessibility", "Public service"],
+    previewLabel: "View responsive service ↗",
     icon: "accessibility",
+  },
+  {
+    title: "IMPROVE FROM REAL USE",
+    description:
+      "직접 서비스를 사용하며 발견한 불편을 상품 탐색과 문의·관리 흐름의 개선으로 연결합니다.",
+    keywords: ["Observation", "Commerce UX", "CS flow"],
+    previewLabel: "View commerce UX ↗",
+    icon: "need",
   },
 ];
