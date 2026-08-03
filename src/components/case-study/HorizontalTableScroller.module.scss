@@ -1,3 +1,5 @@
+@use "../../styles/tokens" as tokens;
+
 .scroller {
   width: 100%;
 }
@@ -21,7 +23,7 @@
   background: linear-gradient(
     to bottom,
     transparent 7px,
-    #dde1e5 7px 8px,
+    var(--scrollbar-track) 7px 8px,
     transparent 8px
   );
 }
@@ -36,7 +38,7 @@
   left: 0;
   height: 10px;
   padding: 0;
-  border: 1px solid #aab0b8;
+  border: tokens.$line-width solid var(--scrollbar-thumb);
   border-radius: 0;
   background: transparent;
   cursor: ew-resize;
@@ -45,14 +47,8 @@
 
 .thumb:hover,
 .thumb:focus-visible {
-  border-color: #6f7781;
-  background: rgba(111, 119, 129, 0.06);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .viewport {
-    scroll-behavior: auto;
-  }
+  border-color: var(--scrollbar-thumb-hover);
+  background: tokens.$color-hover-surface;
 }
 
 @media (forced-colors: active) {

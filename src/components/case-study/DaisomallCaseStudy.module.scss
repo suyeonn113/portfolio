@@ -1,6 +1,15 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/tokens" as tokens;
 
+$figma-purple: #9747ff;
+$figma-frame-stroke: 1.5px;
+$figma-component-stroke: 2px;
+$figma-frame-radius: 5px;
+$evidence-margin-top: clamp(72px, 9vw, 132px);
+$reuse-screen-ratio: calc(2 / 3);
+$outcome-surface: #111113;
+$outcome-transition-duration: 280ms;
+
 .heroStage {
   position: relative;
   width: min(calc(100% - (tokens.$page-gutter * 2)), 1428px);
@@ -11,8 +20,8 @@
 .heroMobile {
   position: absolute;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: #ffffff;
+  border: tokens.$line-width solid rgba(255, 255, 255, 0.45);
+  background: tokens.$color-white;
   box-shadow: 0 22px 60px rgba(52, 4, 7, 0.28);
 }
 
@@ -54,7 +63,7 @@
 
 .system {
   border-top: tokens.$line-width solid tokens.$color-line;
-  background: #ffffff;
+  background: tokens.$color-white;
 }
 
 .sectionHeading {
@@ -94,7 +103,7 @@
 }
 
 .architectureTable {
-  margin-top: clamp(72px, 9vw, 132px);
+  margin-top: $evidence-margin-top;
   background: tokens.$color-white;
 }
 
@@ -160,7 +169,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 2.5vw, 36px);
-  margin-top: clamp(72px, 9vw, 132px);
+  margin-top: $evidence-margin-top;
   margin-inline: auto;
   max-width: 1080px;
 }
@@ -174,9 +183,9 @@
 .reuseImage {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: $reuse-screen-ratio;
   border: tokens.$line-width solid tokens.$color-line;
-  background: #ffffff;
+  background: tokens.$color-white;
 }
 
 .reuseImage img {
@@ -230,7 +239,7 @@
 }
 
 .reuseTabs button[aria-selected="true"] {
-  color: #ffffff;
+  color: tokens.$color-white;
   background: var(--case-accent);
 }
 
@@ -241,9 +250,9 @@
 .reuseSwitcherImage {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: $reuse-screen-ratio;
   border: tokens.$line-width solid tokens.$color-line;
-  background: #ffffff;
+  background: tokens.$color-white;
 }
 
 .reuseSwitcherImage img {
@@ -275,7 +284,7 @@
 }
 
 .responsive {
-  color: #ffffff;
+  color: tokens.$color-white;
   background: var(--case-accent);
 }
 
@@ -292,13 +301,13 @@
 }
 
 .responsiveCopy ul {
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  border-top: tokens.$line-width solid rgba(255, 255, 255, 0.35);
   list-style: none;
 }
 
 .responsiveCopy li {
   padding: 17px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.28);
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
@@ -306,7 +315,7 @@
 .responsiveCopy li span {
   display: inline-block;
   min-width: 74px;
-  color: #ffffff;
+  color: tokens.$color-white;
   font-size: 0.78rem;
   font-weight: tokens.$font-weight-medium;
   text-transform: uppercase;
@@ -319,7 +328,7 @@
   align-items: end;
   margin-top: clamp(64px, 8vw, 120px);
   padding: clamp(24px, 4vw, 64px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: tokens.$line-width solid rgba(255, 255, 255, 0.28);
   background: rgba(17, 17, 19, 0.14);
 }
 
@@ -334,8 +343,8 @@
   width: 100%;
   padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  background: #ffffff;
+  border: tokens.$line-width solid rgba(255, 255, 255, 0.52);
+  background: tokens.$color-white;
   color: inherit;
   cursor: zoom-in;
 }
@@ -363,13 +372,13 @@
   right: 10px;
   bottom: 10px;
   padding: 6px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: tokens.$line-width solid rgba(255, 255, 255, 0.7);
   background: rgba(17, 17, 19, 0.72);
-  color: #ffffff;
+  color: tokens.$color-white;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition: opacity tokens.$duration-interaction ease;
 }
 
 .viewportTrigger:hover .viewportHint,
@@ -378,7 +387,7 @@
 }
 
 .viewportTrigger:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid tokens.$color-white;
   outline-offset: 4px;
 }
 
@@ -405,7 +414,7 @@
   display: grid;
   max-width: 90vw;
   max-height: 90vh;
-  background: #ffffff;
+  background: tokens.$color-white;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
 }
 
@@ -440,8 +449,8 @@
 }
 
 .tokenTable {
-  margin-top: clamp(72px, 9vw, 132px);
-  background: #ffffff;
+  margin-top: $evidence-margin-top;
+  background: tokens.$color-white;
 }
 
 .tokenTable table {
@@ -503,12 +512,12 @@
 
 .figmaBoard {
   min-width: 0;
-  background: #ffffff;
+  background: tokens.$color-white;
 }
 
 .figmaTitle {
   margin-bottom: 12px;
-  color: #9747ff;
+  color: $figma-purple;
   text-transform: none;
 }
 
@@ -523,9 +532,9 @@
   gap: clamp(16px, 2vw, 24px);
   justify-content: center;
   padding: clamp(22px, 2.5vw, 34px);
-  border: 1.5px dashed #9747ff;
-  border-radius: 5px;
-  background: #ffffff;
+  border: $figma-frame-stroke dashed $figma-purple;
+  border-radius: $figma-frame-radius;
+  background: tokens.$color-white;
 }
 
 .variantGrid figure {
@@ -537,7 +546,7 @@
 
 .variantGrid figcaption {
   margin-bottom: 12px;
-  color: #9747ff;
+  color: $figma-purple;
   text-transform: none;
 }
 
@@ -552,8 +561,8 @@
   min-height: 0;
   overflow: hidden;
   place-items: center;
-  border: 1px solid #9747ff;
-  background: #ffffff;
+  border: $figma-component-stroke solid $figma-purple;
+  background: tokens.$color-white;
 }
 
 .variantImage img {
@@ -566,13 +575,13 @@
 .componentNotes {
   margin-top: 26px;
   padding-top: 20px;
-  border-top: 2px solid #9747ff;
+  border-top: $figma-component-stroke solid $figma-purple;
 }
 
 .componentNotes > p {
   margin: 0;
   color: tokens.$color-muted;
-  line-height: 1.75;
+  line-height: tokens.$line-height-readable;
   word-break: keep-all;
 }
 
@@ -592,7 +601,7 @@
 
 .componentNotes th {
   width: 76px;
-  color: #9747ff;
+  color: $figma-purple;
   font-size: 0.76rem;
   font-weight: tokens.$font-weight-medium;
 }
@@ -617,8 +626,8 @@
 }
 
 .outcome {
-  color: #ffffff;
-  background: #111113;
+  color: tokens.$color-white;
+  background: $outcome-surface;
 }
 
 .outcome .sectionLabel {
@@ -628,16 +637,17 @@
 .outcomeGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: clamp(72px, 9vw, 132px);
-  border-top: 1px solid rgba(255, 255, 255, 0.28);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  margin-top: $evidence-margin-top;
+  border-top: tokens.$line-width solid rgba(255, 255, 255, 0.28);
+  border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.28);
 }
 
 .outcomeGrid article {
   min-height: 240px;
   padding: clamp(26px, 3.5vw, 52px);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background-color 280ms ease, border-color 280ms ease;
+  border-right: tokens.$line-width solid rgba(255, 255, 255, 0.2);
+  transition: background-color $outcome-transition-duration ease,
+    border-color $outcome-transition-duration ease;
 }
 
 @media (hover: hover) {
@@ -664,7 +674,7 @@
 .outcomeGrid p {
   margin-top: clamp(40px, 5vw, 72px);
   font-size: clamp(1rem, 1.35vw, 1.25rem);
-  line-height: 1.75;
+  line-height: tokens.$line-height-readable;
   word-break: keep-all;
 }
 
@@ -781,7 +791,7 @@
   .outcomeGrid article {
     min-height: auto;
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.2);
   }
 
   .outcomeGrid article:last-child {
