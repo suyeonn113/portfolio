@@ -253,7 +253,8 @@
 }
 
 .sectionHeading h2 {
-  max-width: 1120px;
+  width: 100%;
+  min-width: 0;
 }
 
 .comparisonGrid {
@@ -680,6 +681,10 @@
 }
 
 @include mixins.tablet {
+  .intro {
+    min-height: auto;
+  }
+
   .meta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

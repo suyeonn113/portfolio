@@ -94,7 +94,7 @@ function StructureIcon({ name }) {
   );
 }
 
-export default function CaseStudyPage({ study }) {
+export default function CaseStudyPage({ study, heroContent, children }) {
   const project = projectBySlug[study.projectSlug];
   const projectAnchor = `/#project-${study.projectSlug}`;
   const lightSurface = study.theme.surface ?? study.theme.accent;
@@ -164,14 +164,16 @@ export default function CaseStudyPage({ study }) {
 
       <figure className={styles.heroFigure}>
         <div className={styles.heroImage} data-layout={study.hero.layout}>
-          <Image
-            src={study.hero.src}
-            alt={study.hero.alt}
-            width={study.hero.width}
-            height={study.hero.height}
-            priority
-            sizes="100vw"
-          />
+          {heroContent ?? (
+            <Image
+              src={study.hero.src}
+              alt={study.hero.alt}
+              width={study.hero.width}
+              height={study.hero.height}
+              priority
+              sizes="100vw"
+            />
+          )}
         </div>
         <figcaption>{study.hero.caption}</figcaption>
       </figure>
@@ -185,6 +187,8 @@ export default function CaseStudyPage({ study }) {
         ))}
       </section>
 
+      {children ?? (
+        <>
       <section className={styles.brief} aria-labelledby="brief-title">
         <p className={styles.sectionLabel}>{study.context.label}</p>
         <div className={styles.briefCopy}>
@@ -384,6 +388,8 @@ export default function CaseStudyPage({ study }) {
           ))}
         </div>
       </section>
+        </>
+      )}
 
       <footer className={styles.footer}>
         <p>{study.footerLabel}</p>

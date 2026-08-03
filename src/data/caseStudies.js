@@ -4,11 +4,11 @@ export const caseStudies = [
     metadata: {
       title: "DAISOMALL Case Study · Suyeonn",
       description:
-        "팀 프로젝트로 구현한 홈과 검색을 바탕으로 반응형, 정보 위계, 검색 UX와 접근성을 다시 정리한 React 커머스 UI 리디자인입니다.",
+        "분리되어 있던 모바일과 PC 경험을 하나의 React 구조로 통합하고 상품 데이터를 추천, 랭킹, 검색으로 확장한 다이소몰 리뉴얼입니다.",
     },
-    eyebrow: "01 · Commerce discovery",
+    eyebrow: "01 · Commerce renewal",
     lead:
-      "홈에서 상품을 발견하고 검색 결과에서 조건을 좁혀 비교하기까지, 다이소몰의 핵심 상품 탐색 흐름을 React로 구현하고 다시 다듬었습니다.",
+      "분리되어 있던 모바일·PC 경험을 하나의 React 구조로 통합했습니다. 상품 데이터와 UI의 재사용 범위를 설계해 추천·랭킹·검색으로 확장했습니다.",
     titleSize: { vw: "13.2vw", max: "13rem" },
     theme: {
       accent: "#b72a2d",
@@ -25,19 +25,19 @@ export const caseStudies = [
       },
     },
     hero: {
-      src: "/images/projects/daisomall-showcase.png",
-      alt: "프로모션, 카테고리와 추천 상품으로 구성한 다이소몰 리디자인 홈",
-      width: 1428,
-      height: 1500,
+      src: "/images/projects/case-studies/daisomall/daisomall-home-desktop.png",
+      alt: "같은 React 구조로 통합한 다이소몰 데스크톱과 모바일 홈",
+      width: 2880,
+      height: 1800,
       maxWidth: "1428px",
-      caption: "Redesigned home · responsive commerce UI",
+      caption: "One React structure · desktop and mobile commerce UI",
     },
     meta: [
       {
         label: "Role",
-        value: "UI 기획 · React 구조·상품 데이터 설계 · 홈/검색 구현",
+        value: "팀 프로젝트 · React 구조·상품 데이터 설계 · 접근성 구현 주도",
       },
-      { label: "Focus", value: "Home · Search · Accessibility" },
+      { label: "Focus", value: "Reusable UI · Responsive · Component architecture" },
       { label: "Stack", value: "React · React Router · SCSS" },
     ],
     context: {
@@ -185,7 +185,7 @@ export const caseStudies = [
         },
       ],
     },
-    footerLabel: "DAISOMALL · Commerce discovery",
+    footerLabel: "DAISOMALL · Reusable commerce UI",
   },
   {
     projectSlug: "air-seoul",

@@ -15,6 +15,9 @@ html [data-aos]:not(.aos-init) {
   --line-soft: #f3f4f5;
   --hover-surface: #f9fafb;
   --focus-ring: #005fcc;
+  --scrollbar-track: #f3f4f5;
+  --scrollbar-thumb: #8d939b;
+  --scrollbar-thumb-hover: #09090b;
   --animation-marquee: marquee-flow;
   --font-sans: var(--font-albert), var(--font-pretendard), Pretendard, Arial,
     sans-serif;
@@ -29,7 +32,46 @@ html [data-aos]:not(.aos-init) {
   --line-soft: #25252b;
   --hover-surface: #25272c;
   --focus-ring: #ffffff;
+  --scrollbar-track: #25252b;
+  --scrollbar-thumb: #737780;
+  --scrollbar-thumb-hover: #ffffff;
   color-scheme: dark;
+}
+
+* {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  min-width: 44px;
+  min-height: 44px;
+  border: 2px solid var(--scrollbar-track);
+  border-radius: 999px;
+  background: var(--scrollbar-thumb);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track);
 }
 
 html {
@@ -99,6 +141,10 @@ main[tabindex="-1"]:focus {
 }
 
 @media (forced-colors: active) {
+  * {
+    scrollbar-color: auto;
+  }
+
   .skipLink,
   :where(a, button, input, select, textarea, [tabindex]):focus-visible {
     outline-color: Highlight;
