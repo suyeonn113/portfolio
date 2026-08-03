@@ -9,6 +9,9 @@ $evidence-margin-top: clamp(72px, 9vw, 132px);
 $reuse-screen-ratio: calc(2 / 3);
 $outcome-surface: #111113;
 $outcome-transition-duration: 280ms;
+$tree-connector-color: color-mix(in srgb, var(--muted) 58%, transparent);
+$tree-connector-width: 2px;
+$tree-output-center: 92.85%;
 
 .heroStage {
   position: relative;
@@ -26,14 +29,14 @@ $outcome-transition-duration: 280ms;
 }
 
 .heroDesktop {
-  top: 50%;
+  top: 49%;
   left: 2%;
   width: 82%;
   transform: translateY(-50%);
 }
 
 .heroMobile {
-  top: 50%;
+  top: 49%;
   right: 3%;
   z-index: 1;
   width: 22%;
@@ -102,61 +105,297 @@ $outcome-transition-duration: 280ms;
   word-break: keep-all;
 }
 
-.architectureTable {
+.architectureTree {
   margin-top: $evidence-margin-top;
-  background: tokens.$color-white;
+  margin-inline: auto;
+  max-width: 1120px;
 }
 
-.architectureTable table {
-  width: 100%;
-  min-width: 720px;
-  border: tokens.$line-width solid tokens.$color-line;
-  border-collapse: collapse;
-}
-
-.architectureTable th,
-.architectureTable td {
-  padding: 15px clamp(16px, 2vw, 28px);
-  border-bottom: tokens.$line-width solid tokens.$color-line;
-  text-align: left;
-  line-height: 1.45;
-}
-
-.architectureTable thead th {
-  @include mixins.section-label;
-  color: tokens.$color-muted;
-  font-weight: tokens.$font-weight-medium;
-}
-
-.architectureTable tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.architectureTable td:first-child {
-  color: var(--case-accent);
-  font-size: 0.8rem;
-  font-weight: tokens.$font-weight-medium;
-  text-transform: uppercase;
-}
-
-.architectureTable td:last-child {
-  color: tokens.$color-muted;
-}
-
-.architectureTable code,
 .tokenTable code {
   font-family: inherit;
   overflow-wrap: anywhere;
 }
 
-.tableGroup th {
-  padding-block: 11px;
+.architectureFlow {
+  display: grid;
+  justify-items: center;
+}
+
+.treeStage {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  width: min(100%, 420px);
+  min-width: 0;
+}
+
+.treeNode {
+  width: min(100%, 360px);
+  min-width: 0;
+  padding: 16px 18px;
+  border: tokens.$line-width solid tokens.$color-line;
+  background: tokens.$color-white;
+}
+
+.treeNode span {
+  @include mixins.section-label;
+  display: block;
+  margin-bottom: 7px;
+  color: var(--case-accent);
+}
+
+.treeNode code {
+  display: block;
   color: tokens.$color-black;
-  background: tokens.$color-line-soft;
-  font-size: 0.78rem;
+  font-family: inherit;
   font-weight: tokens.$font-weight-medium;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.treeNode p {
+  margin-top: 6px;
+  color: tokens.$color-muted;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.treeNodeAccent {
+  border-color: var(--case-accent);
+  box-shadow: inset 3px 0 0 var(--case-accent);
+}
+
+.flowConnector {
+  display: block;
+  width: $tree-connector-width;
+  height: 30px;
+  background: $tree-connector-color;
+}
+
+.treeStageGroup {
+  position: relative;
+  padding: 20px 0 20px 22px;
+  border-left: $tree-connector-width solid $tree-connector-color;
+}
+
+.treeStageGroup::before,
+.treeStageGroup::after {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  border-top: $tree-connector-width solid $tree-connector-color;
+  content: "";
+}
+
+.treeStageGroup::before {
+  top: 0;
+}
+
+.treeStageGroup::after {
+  bottom: 0;
+}
+
+.treeStageGroup .treeNode {
+  position: relative;
+  width: 100%;
+}
+
+.treeStageGroup .treeNode::before {
+  position: absolute;
+  top: 49%;
+  left: -24px;
+  width: 22px;
+  height: $tree-connector-width;
+  background: $tree-connector-color;
+  content: "";
+}
+
+.componentLeaves {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: min(100%, 420px);
+  margin: 30px auto 0;
+  padding: 20px 0 0 22px;
+  border-left: $tree-connector-width solid $tree-connector-color;
+}
+
+.componentLeaves::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: $tree-connector-width;
+  background: $tree-connector-color;
+  content: "";
+}
+
+.componentLeaves::after {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: $tree-connector-width;
+  height: 30px;
+  background: $tree-connector-color;
+  content: "";
+}
+
+.componentLeaves .treeNode {
+  position: relative;
+  width: 100%;
+}
+
+.componentLeaves .treeNode::before {
+  position: absolute;
+  top: 49%;
+  left: -24px;
+  width: 22px;
+  height: $tree-connector-width;
+  background: $tree-connector-color;
+  content: "";
+}
+
+.componentLeaves .treeNode:last-child::after {
+  position: absolute;
+  top: 51%;
+  bottom: 0;
+  left: -25px;
+  width: $tree-connector-width+2px;
+  background: tokens.$color-white;
+  content: "";
+}
+
+@media (min-width: 1200px) {
+  .architectureFlow {
+    position: relative;
+    grid-template-columns:
+      minmax(120px, 1fr) 24px minmax(140px, 1.05fr) 24px
+      minmax(170px, 1.2fr) 24px minmax(180px, 1.25fr) 24px
+      minmax(150px, 1fr) 24px minmax(160px, 1.05fr);
+    align-items: center;
+  }
+
+  .architectureFlow::after {
+    position: absolute;
+    z-index: 0;
+    top: 49%;
+    bottom: -50px;
+    left: $tree-output-center;
+    width: $tree-connector-width;
+    background: $tree-connector-color;
+    content: "";
+  }
+
+  .treeStage {
+    width: 100%;
+  }
+
+  .architectureFlow .treeNode {
+    position: relative;
+    z-index: 1;
+    min-height: 100px;
+  }
+
+  .flowConnector {
+    width: 100%;
+    height: $tree-connector-width;
+  }
+
+  .treeStageGroup {
+    padding: 0 20px;
+    border-left: 0;
+  }
+
+  .treeStageGroup::before,
+  .treeStageGroup::after {
+    width: $tree-connector-width;
+    border-top: 0;
+    background: $tree-connector-color;
+  }
+
+  .treeStageHooks {
+    --tree-node-height: 148px;
+  }
+
+  .treeStageViews {
+    --tree-node-height: 122px;
+  }
+
+  .treeStageHooks .treeNode,
+  .treeStageViews .treeNode {
+    height: var(--tree-node-height);
+  }
+
+  .treeStageHooks::before,
+  .treeStageHooks::after,
+  .treeStageViews::before,
+  .treeStageViews::after {
+    top: calc(var(--tree-node-height) / 2);
+    bottom: calc(var(--tree-node-height) / 2);
+  }
+
+  .treeStageGroup::before {
+    left: 0;
+  }
+
+  .treeStageGroup::after {
+    right: 0;
+    left: auto;
+  }
+
+  .treeStageGroup .treeNode::before,
+  .treeStageGroup .treeNode::after {
+    position: absolute;
+    top: 49%;
+    width: 20px;
+    height: $tree-connector-width;
+    background: $tree-connector-color;
+    content: "";
+  }
+
+  .treeStageGroup .treeNode::before {
+    left: -20px;
+  }
+
+  .treeStageGroup .treeNode::after {
+    right: -20px;
+  }
+
+  .componentLeaves {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+    margin-top: 48px;
+    padding: 34px 0 0;
+    border-left: 0;
+  }
+
+  .componentLeaves::before {
+    position: absolute;
+    top: 0;
+    left: 9.63%;
+    right: 7.15%;
+    width: auto;
+    height: $tree-connector-width;
+    background: $tree-connector-color;
+    content: "";
+  }
+
+  .componentLeaves::after {
+    display: none;
+  }
+
+  .componentLeaves .treeNode::before {
+    top: -34px;
+    left: 50%;
+    width: $tree-connector-width;
+    height: 34px;
+    background: $tree-connector-color;
+  }
+
+
+  .componentLeaves .treeNode:last-child::after {
+    display: none;
+  }
 }
 
 .figmaTitle,
@@ -528,7 +767,7 @@ $outcome-transition-duration: 280ms;
 
 .variantGrid {
   display: grid;
-  grid-template-columns: 230px 492px;
+  grid-template-columns: minmax(0, 0.467fr) minmax(0, 1fr);
   gap: clamp(16px, 2vw, 24px);
   justify-content: center;
   padding: clamp(22px, 2.5vw, 34px);
@@ -683,6 +922,17 @@ $outcome-transition-duration: 280ms;
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.8rem;
   line-height: 1.7;
+}
+
+@media (max-width: 1320px) {
+  .componentShowcase {
+    grid-template-columns: 1fr;
+    max-width: 860px;
+  }
+
+  .componentNotes {
+    margin-top: 0;
+  }
 }
 
 @include mixins.tablet {

@@ -27,6 +27,16 @@ function SectionHeading({ id, label, lines, tone }) {
   );
 }
 
+function ArchitectureNode({ layer, file, role, accent = false }) {
+  return (
+    <article className={`${styles.treeNode} ${accent ? styles.treeNodeAccent : ""}`}>
+      <span>{layer}</span>
+      <code>{file}</code>
+      <p>{role}</p>
+    </article>
+  );
+}
+
 export function DaisomallHero() {
   return (
     <div className={styles.heroStage}>
@@ -53,26 +63,6 @@ export function DaisomallHero() {
     </div>
   );
 }
-
-const architecture = [
-  { layer: "Data", file: "products.js", role: "상품 원본 데이터" },
-  { layer: "Service", file: "productService.js", role: "상품 조회·가공" },
-  { layer: "Hooks", file: "useProducts.js", role: "일반 상품 데이터 연결" },
-  { layer: "Hooks", file: "useRankingProducts.js", role: "랭킹 상품 데이터 연결" },
-  { layer: "Views", file: "HomeRecommendSection", role: "추천 화면 조합" },
-  { layer: "Views", file: "HomeRankingSection", role: "랭킹 화면 조합" },
-  { layer: "Views", file: "SearchResultsView", role: "검색 결과 조합" },
-  { layer: "List", file: "ProductCardList.jsx", role: "문맥에 맞는 카드 목록 출력" },
-];
-
-const productCardFiles = [
-  { file: "ProductCard.jsx", role: "상품 카드 컨테이너" },
-  { file: "ProductCard.scss", role: "레이아웃·상태별 스타일" },
-  { file: "ProductCardImage.jsx", role: "상품 이미지" },
-  { file: "ProductCardInfo.jsx", role: "가격·이름·평점 정보" },
-  { file: "ProductCardLabel.jsx", role: "구매량·신상 등의 상태 라벨" },
-  { file: "ProductCardDeliveryBadges.jsx", role: "배송 옵션 배지" },
-];
 
 const tokenValue = (token) => token.$value?.hex ?? token.$value;
 
@@ -147,23 +137,44 @@ export default function DaisomallCaseStudy() {
           문맥에 맞춰 조합되도록 React 구조를 설계했습니다.
         </p>
 
-        <HorizontalTableScroller label="React 구조 표">
-          <div className={styles.architectureTable} data-aos="fade-up">
-            <table>
-            <thead><tr><th>Layer</th><th>File</th><th>Role</th></tr></thead>
-            <tbody>
-              <tr className={styles.tableGroup}><th colSpan="3">Architecture</th></tr>
-              {architecture.map((item) => (
-                <tr key={`${item.layer}-${item.file}`}><td>{item.layer}</td><td><code>{item.file}</code></td><td>{item.role}</td></tr>
-              ))}
-              <tr className={styles.tableGroup}><th colSpan="3">ProductCard / sibling files</th></tr>
-              {productCardFiles.map((item) => (
-                <tr key={item.file}><td>File</td><td><code>{item.file}</code></td><td>{item.role}</td></tr>
-              ))}
-            </tbody>
-            </table>
+        <div className={styles.architectureTree} data-aos="fade-up">
+          <div className={styles.architectureFlow}>
+            <div className={styles.treeStage}>
+              <ArchitectureNode layer="Data" file="products.js" role="상품 원본 데이터" />
+            </div>
+            <span className={styles.flowConnector} aria-hidden="true" />
+            <div className={styles.treeStage}>
+              <ArchitectureNode layer="Service" file="productService.js" role="상품 조회·가공" />
+            </div>
+            <span className={styles.flowConnector} aria-hidden="true" />
+            <div className={`${styles.treeStage} ${styles.treeStageGroup} ${styles.treeStageHooks}`}>
+              <ArchitectureNode layer="Hooks" file="useProducts.js" role="일반 상품 데이터 연결" />
+              <ArchitectureNode layer="Hooks" file="useRankingProducts.js" role="랭킹 상품 데이터 연결" />
+            </div>
+            <span className={styles.flowConnector} aria-hidden="true" />
+            <div className={`${styles.treeStage} ${styles.treeStageGroup} ${styles.treeStageViews}`}>
+              <ArchitectureNode layer="View" file="HomeRecommendSection" role="추천 화면 조합" />
+              <ArchitectureNode layer="View" file="HomeRankingSection" role="랭킹 화면 조합" />
+              <ArchitectureNode layer="View" file="SearchResultsView" role="검색 결과 조합" />
+            </div>
+            <span className={styles.flowConnector} aria-hidden="true" />
+            <div className={styles.treeStage}>
+            <ArchitectureNode layer="List" file="ProductCardList.jsx" role="문맥에 맞는 카드 목록 출력" />
+            </div>
+            <span className={styles.flowConnector} aria-hidden="true" />
+            <div className={styles.treeStage}>
+              <ArchitectureNode layer="UI" file="ProductCard.jsx" role="상품 카드 조합과 Variant 제어" accent />
+            </div>
           </div>
-        </HorizontalTableScroller>
+
+          <div className={styles.componentLeaves} aria-label="ProductCard 구성 파일">
+            <ArchitectureNode layer="File" file="ProductCardImage.jsx" role="상품 이미지" />
+            <ArchitectureNode layer="File" file="ProductCardInfo.jsx" role="가격·이름·평점 정보" />
+            <ArchitectureNode layer="File" file="ProductCardLabel.jsx" role="구매량·신상 상태 라벨" />
+            <ArchitectureNode layer="File" file="ProductCardDeliveryBadges.jsx" role="배송 옵션 배지" />
+            <ArchitectureNode layer="Style" file="ProductCard.scss" role="레이아웃·상태별 스타일" />
+          </div>
+        </div>
       </section>
 
       <section className={styles.reuse} aria-labelledby="reuse-title">
