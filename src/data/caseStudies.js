@@ -196,7 +196,7 @@ export const caseStudies = [
     },
     eyebrow: "02 · Airline booking service",
     lead:
-      "정적 항공·운임 데이터를 바탕으로 검색 조건을 입력하고 날짜별 운임과 항공편을 비교한 뒤, 선택한 여정을 확인하는 UI 흐름을 React로 연결했습니다.",
+      "에어서울의 브랜드 컬러인 민트를 유지하면서, 특가 항공권을 발견한 순간부터 날짜·운임 선택과 여정 요약까지 상태가 이어지는 예약 경험을 React로 연결했습니다.",
     titleSize: { vw: "10.8vw", max: "11rem" },
     originalSiteUrl: "https://flyairseoul.com/CW/KO/main.do",
     theme: {

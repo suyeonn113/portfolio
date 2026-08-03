@@ -92,7 +92,7 @@
 }
 
 .intro {
-  min-height: min(66vh, 720px);
+  min-height: min(50vh, 480px);
   padding: clamp(72px, 10vw, 160px) tokens.$page-gutter clamp(64px, 8vw, 120px);
 }
 
@@ -142,6 +142,10 @@
   overflow: hidden;
   place-items: start center;
   background: var(--case-surface);
+}
+
+.heroImage[data-custom-hero="true"] {
+  max-height: none;
 }
 
 .heroImage img {
@@ -681,10 +685,6 @@
 }
 
 @include mixins.tablet {
-  .intro {
-    min-height: auto;
-  }
-
   .meta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

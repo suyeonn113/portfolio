@@ -163,7 +163,11 @@ export default function CaseStudyPage({ study, heroContent, children }) {
       </section>
 
       <figure className={styles.heroFigure}>
-        <div className={styles.heroImage} data-layout={study.hero.layout}>
+        <div
+          className={styles.heroImage}
+          data-layout={study.hero.layout}
+          data-custom-hero={heroContent ? "true" : undefined}
+        >
           {heroContent ?? (
             <Image
               src={study.hero.src}
