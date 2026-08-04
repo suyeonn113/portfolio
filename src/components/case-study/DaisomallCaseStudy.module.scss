@@ -29,19 +29,21 @@ $tree-output-center: 92.85%;
 }
 
 .heroDesktop {
-  top: 49%;
+  top: auto;
+  bottom: 0;
   left: 2%;
   width: 82%;
-  transform: translateY(-50%);
+  transform: none;
 }
 
 .heroMobile {
-  top: 49%;
+  top: auto;
+  bottom: 0;
   right: 3%;
   z-index: 1;
   width: 22%;
   max-height: 88%;
-  transform: translateY(-50%);
+  transform: none;
 }
 
 .heroDesktop img,
@@ -108,7 +110,7 @@ $tree-output-center: 92.85%;
 .architectureTree {
   margin-top: $evidence-margin-top;
   margin-inline: auto;
-  max-width: 1120px;
+  max-width: 1680px;
 }
 
 .tokenTable code {
@@ -694,7 +696,9 @@ $tree-output-center: 92.85%;
 
 .tokenTable table {
   width: 100%;
+  max-width: 1280px;
   min-width: 900px;
+  justify-self: safe center;
   border: tokens.$line-width solid tokens.$color-line;
   border-collapse: collapse;
 }
@@ -742,11 +746,11 @@ $tree-output-center: 92.85%;
   margin-top: clamp(88px, 10vw, 148px);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 860px) minmax(240px, 300px);
+  grid-template-columns: minmax(0, 860px) minmax(240px, 340px);
   gap: clamp(28px, 4vw, 64px);
   align-items: start;
   justify-content: center;
-  width: min(100%, 1224px);
+  width: min(100%, 1440px);
 }
 
 .figmaBoard {
@@ -964,6 +968,7 @@ $tree-output-center: 92.85%;
 
   .heroDesktop {
     top: 7%;
+    bottom: auto;
     left: 0;
     width: 94%;
     transform: none;

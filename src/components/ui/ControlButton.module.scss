@@ -1,0 +1,69 @@
+@use "../../styles/tokens" as tokens;
+
+%controlButtonBase {
+  min-height: 38px;
+  padding: 8px 14px;
+  border: tokens.$line-width solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color tokens.$duration-interaction ease,
+    color tokens.$duration-interaction ease,
+    background-color tokens.$duration-interaction ease;
+}
+
+.controlButton {
+  @extend %controlButtonBase;
+  border-color: tokens.$color-line;
+  color: tokens.$color-muted;
+  background: tokens.$color-white;
+}
+
+.controlButton:hover {
+  border-color: tokens.$color-black;
+  color: tokens.$color-black;
+  background: tokens.$color-hover-surface;
+}
+
+.controlButton[aria-pressed="true"],
+.controlButton[aria-selected="true"] {
+  border-color: tokens.$color-black;
+  color: tokens.$color-white;
+  background: tokens.$color-black;
+}
+
+.controlButton.controlButton:focus-visible {
+  outline-color: tokens.$color-black;
+}
+
+.controlButtonDark {
+  @extend %controlButtonBase;
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.controlButtonDark:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.controlButtonDark[aria-pressed="true"],
+.controlButtonDark[aria-selected="true"] {
+  border-color: #ffffff;
+  color: #111113;
+  background: #ffffff;
+}
+
+.controlButtonDark.controlButtonDark:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .controlButton,
+  .controlButtonDark {
+    transition: none;
+  }
+}

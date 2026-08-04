@@ -16,6 +16,63 @@
   text-transform: uppercase;
 }
 
+@mixin outlined-scrollbar-track($orientation: horizontal) {
+  @if $orientation == horizontal {
+    background: linear-gradient(
+      to bottom,
+      transparent 7px,
+      var(--scrollbar-track) 7px 8px,
+      transparent 8px
+    );
+  } @else {
+    background: linear-gradient(
+      to right,
+      transparent 4px,
+      var(--scrollbar-track) 4px 5px,
+      transparent 5px
+    );
+  }
+}
+
+@mixin outlined-scrollbar-thumb {
+  border: tokens.$line-width solid var(--scrollbar-thumb);
+  border-radius: 0;
+  background: transparent;
+}
+
+@mixin outlined-scrollbar-thumb-active {
+  border-color: var(--scrollbar-thumb-hover);
+  background: tokens.$color-hover-surface;
+}
+
+@mixin outlined-native-scrollbar {
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    @include outlined-scrollbar-track(vertical);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include outlined-scrollbar-thumb;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @include outlined-scrollbar-thumb-active;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
 @mixin tablet {
   @media (max-width: tokens.$breakpoint-tablet) {
     @content;
