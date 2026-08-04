@@ -1,0 +1,697 @@
+@use "../../styles/mixins" as mixins;
+@use "../../styles/tokens" as tokens;
+
+$section-space: clamp(88px, 11vw, 176px);
+$content-max: 1440px;
+$evidence-gap: clamp(52px, 7vw, 96px);
+$panel-gap: clamp(16px, 2vw, 28px);
+$panel-radius: 18px;
+$control-radius: 999px;
+$apply-ink: #111113;
+$control-duration: tokens.$duration-interaction;
+
+.heroStage {
+  position: relative;
+  width: min(calc(100% - (tokens.$page-gutter * 2)), $content-max);
+  height: clamp(520px, 58vw, 790px);
+  overflow: hidden;
+  background: var(--case-surface);
+}
+
+.heroDesktop,
+.heroTablet,
+.heroMobile {
+  position: absolute;
+  overflow: hidden;
+  border: tokens.$line-width solid rgba(255, 255, 255, 0.56);
+  background: tokens.$color-white;
+  box-shadow: 0 26px 70px rgba(95, 48, 0, 0.2);
+}
+
+.heroDesktop {
+  bottom: 0;
+  left: 0;
+  width: 78%;
+}
+
+.heroTablet {
+  right: 10%;
+  bottom: 0;
+  z-index: 1;
+  width: 24%;
+  max-height: 78%;
+}
+
+.heroMobile {
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 16%;
+  max-height: 72%;
+}
+
+.heroStage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.find,
+.apply,
+.troubleshooting {
+  padding: $section-space tokens.$page-gutter;
+}
+
+.find {
+  background: tokens.$color-white;
+}
+
+.apply {
+  color: $apply-ink;
+  background: var(--case-accent);
+}
+
+.troubleshooting {
+  color: #fff;
+  background: var(--case-flow-surface);
+}
+
+.sectionHeading {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.4fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.sectionLabel {
+  @include mixins.section-label;
+  color: tokens.$color-muted;
+}
+
+.apply .sectionLabel {
+  color: rgba(17, 17, 19, 0.68);
+}
+
+.troubleshooting .sectionLabel,
+.troubleshooting .sectionIntro,
+.troubleFlow p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sectionHeading h2 {
+  width: 100%;
+  min-width: 0;
+  font-size: clamp(2.4rem, 5.4vw, 6.2rem);
+  font-weight: tokens.$font-weight-book;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+
+.headingLine {
+  display: block;
+}
+
+.sectionIntro {
+  max-width: 720px;
+  margin: clamp(48px, 6vw, 88px) 0 0 auto;
+  color: tokens.$color-muted;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.apply .sectionIntro {
+  color: rgba(17, 17, 19, 0.74);
+}
+
+.findViewer,
+.applicationFlows {
+  max-width: $content-max;
+  margin-inline: auto;
+}
+
+.findViewer {
+  margin-top: $evidence-gap;
+}
+
+.viewTabs,
+.flowTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.viewTabs {
+  display: none;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+
+.viewTabs button,
+.flowTabs button {
+  padding: 10px 16px;
+  border: tokens.$line-width solid tokens.$color-line;
+  border-radius: $control-radius;
+  color: tokens.$color-muted;
+  background: tokens.$color-white;
+  transition: border-color $control-duration ease, color $control-duration ease, background $control-duration ease;
+}
+
+.viewTabs button[aria-pressed="true"],
+.flowTabs button[aria-pressed="true"] {
+  border-color: var(--case-focus);
+  color: tokens.$color-white;
+  background: var(--case-focus);
+}
+
+.findGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $panel-gap;
+  align-items: start;
+}
+
+.findPanel {
+  margin: 0;
+}
+
+.findImage {
+  position: relative;
+  overflow: hidden;
+  border: tokens.$line-width solid tokens.$color-line;
+  border-radius: $panel-radius;
+  background: tokens.$color-line-soft;
+}
+
+.imageButton {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: tokens.$color-white;
+  cursor: zoom-in;
+}
+
+.imageButton img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zoomHint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 11px;
+  border-radius: $control-radius;
+  color: #fff;
+  background: rgba(17, 17, 19, 0.76);
+  font-size: 0.72rem;
+}
+
+.filterEvidence {
+  pointer-events: none;
+}
+
+.filterEvidence span {
+  position: absolute;
+  border: 3px solid var(--case-accent);
+  color: transparent;
+  background: rgba(239, 139, 44, 0.08);
+}
+
+.filterConditions {
+  top: 30%;
+  left: 4%;
+  width: 92%;
+  height: 21%;
+}
+
+.filterResults {
+  top: 45%;
+  left: 4%;
+  width: 42%;
+  height: 42%;
+}
+
+.findViewer figcaption {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 18px 2px 0;
+  color: tokens.$color-muted;
+  line-height: 1.65;
+}
+
+.findViewer figcaption a {
+  color: tokens.$color-black;
+  font-weight: tokens.$font-weight-medium;
+}
+
+.flowTabs {
+  display: none;
+  max-width: $content-max;
+  margin: $evidence-gap auto 20px;
+}
+
+.applicationFlows {
+  display: grid;
+  min-width: 0;
+  gap: clamp(72px, 9vw, 124px);
+  margin-top: $evidence-gap;
+}
+
+.flowGroup {
+  min-width: 0;
+}
+
+.flowGroupHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(17, 17, 19, 0.3);
+}
+
+.flowGroupHeader span {
+  font-size: clamp(1.45rem, 2.4vw, 2.5rem);
+  font-weight: tokens.$font-weight-medium;
+}
+
+.flowGroupHeader p {
+  max-width: 680px;
+  margin-top: 8px;
+  color: rgba(17, 17, 19, 0.7);
+  line-height: 1.65;
+}
+
+.flowGroupHeader a {
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  font-weight: tokens.$font-weight-medium;
+  white-space: nowrap;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: $panel-gap;
+  padding: 0;
+  list-style: none;
+}
+
+.stepGrid[data-count="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1020px;
+}
+
+.stepGrid li {
+  min-width: 0;
+}
+
+.stepGrid .imageButton {
+  overflow: hidden;
+  border: tokens.$line-width solid rgba(17, 17, 19, 0.22);
+  border-radius: $panel-radius;
+}
+
+.stepCaption {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 12px;
+  padding-top: 14px;
+}
+
+.stepCaption > span {
+  color: rgba(17, 17, 19, 0.58);
+  font-size: 0.76rem;
+}
+
+.stepCaption strong {
+  display: block;
+  font-weight: tokens.$font-weight-medium;
+}
+
+.stepCaption p {
+  margin-top: 6px;
+  color: rgba(17, 17, 19, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.troubleFlow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: $evidence-gap;
+  padding: 0;
+  border-top: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  list-style: none;
+}
+
+.troubleFlow li {
+  position: relative;
+  min-height: 340px;
+  padding: clamp(22px, 2.6vw, 38px);
+  border-right: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  transition: background $control-duration ease;
+}
+
+.troubleFlow li:last-child {
+  border-right: 0;
+}
+
+.troubleFlow li:not(:last-child)::after {
+  position: absolute;
+  top: 51px;
+  right: -7px;
+  z-index: 1;
+  color: var(--case-accent);
+  content: "→";
+  background: var(--case-flow-surface);
+}
+
+.iconBox {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 52px;
+  border: tokens.$line-width solid var(--case-accent);
+  border-radius: 50%;
+  place-items: center;
+  color: var(--case-accent);
+}
+
+.iconBox svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: tokens.$icon-stroke-width;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.troubleFlow li > span {
+  @include mixins.section-label;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.troubleFlow h3 {
+  margin-top: 14px;
+  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
+  font-weight: tokens.$font-weight-medium;
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+.troubleFlow p {
+  margin-top: 20px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.outcomes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 30px;
+  border: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+}
+
+.outcomes p {
+  min-height: 128px;
+  padding: 26px;
+  border-right: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  line-height: 1.65;
+  transition: background $control-duration ease;
+  word-break: keep-all;
+}
+
+@media (hover: hover) {
+  .troubleFlow li:hover,
+  .outcomes p:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+}
+
+.outcomes p:last-child {
+  border-right: 0;
+}
+
+.outcomes span {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--case-accent);
+  font-size: 0.78rem;
+  font-weight: tokens.$font-weight-medium;
+  text-transform: uppercase;
+}
+
+.imageDialog {
+  width: min(94vw, 1180px);
+  max-height: 92vh;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  color: tokens.$color-black;
+  background: tokens.$color-white;
+}
+
+.imageDialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.dialogPanel {
+  max-height: 92vh;
+  overflow: auto;
+  @include mixins.outlined-native-scrollbar;
+}
+
+.dialogPanel header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-bottom: tokens.$line-width solid tokens.$color-line;
+  background: tokens.$color-white;
+}
+
+.dialogPanel header button {
+  padding: 8px 12px;
+  border: tokens.$line-width solid tokens.$color-line;
+  border-radius: $control-radius;
+  color: inherit;
+  background: transparent;
+}
+
+.dialogPanel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .stepGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: tokens.$breakpoint-tablet) {
+  .heroStage {
+    height: clamp(470px, 78vw, 650px);
+  }
+
+  .heroDesktop {
+    bottom: 0;
+    left: 0;
+    width: 82%;
+    transform: none;
+  }
+
+  .heroTablet {
+    right: 9%;
+    bottom: 0;
+    width: 30%;
+  }
+
+  .heroMobile {
+    right: 0;
+    bottom: 0;
+    width: 19%;
+  }
+
+  .sectionHeading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .troubleFlow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .troubleFlow li:nth-child(2) {
+    border-right: 0;
+  }
+
+  .troubleFlow li:nth-child(-n + 2) {
+    border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  }
+
+  .troubleFlow li:nth-child(2)::after {
+    display: none;
+  }
+}
+
+@media (max-width: tokens.$breakpoint-mobile) {
+  .heroStage {
+    height: min(118vw, 510px);
+  }
+
+  .heroDesktop {
+    top: 12%;
+    left: 18px;
+    width: 96vw;
+    transform: none;
+  }
+
+  .heroTablet {
+    right: 13vw;
+    bottom: 3%;
+    width: 40vw;
+    max-height: 72%;
+  }
+
+  .heroMobile {
+    right: 2vw;
+    bottom: 2%;
+    width: 24vw;
+    max-height: 66%;
+  }
+
+  .find,
+  .apply,
+  .troubleshooting {
+    padding-block: 80px;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(2.25rem, 10.5vw, 4rem);
+  }
+
+  .sectionIntro {
+    margin-top: 38px;
+  }
+
+  .findViewer figcaption {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .viewTabs {
+    display: flex;
+  }
+
+  .findGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .findPanel[data-active="false"] {
+    display: none;
+  }
+
+  .filterEvidence span {
+    border-width: 2px;
+  }
+
+  .flowTabs {
+    display: flex;
+  }
+
+  .applicationFlows {
+    margin-top: 0;
+  }
+
+  .flowGroup[data-active="false"] {
+    display: none;
+  }
+
+  .flowGroupHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .flowGroupHeader a {
+    width: fit-content;
+  }
+
+  .stepGrid,
+  .stepGrid[data-count="2"] {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    grid-auto-columns: minmax(78vw, 1fr);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    max-width: none;
+    overflow-x: auto;
+    padding-bottom: 18px;
+    scroll-snap-type: x mandatory;
+    @include mixins.outlined-native-scrollbar;
+  }
+
+  .stepGrid li {
+    scroll-snap-align: start;
+  }
+
+  .troubleFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .troubleFlow li,
+  .troubleFlow li:nth-child(2) {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  }
+
+  .troubleFlow li:last-child {
+    border-bottom: 0;
+  }
+
+  .troubleFlow li:not(:last-child)::after {
+    top: auto;
+    right: auto;
+    bottom: -9px;
+    left: 46px;
+    display: block;
+    content: "↓";
+  }
+
+  .iconBox {
+    margin-bottom: 32px;
+  }
+
+  .outcomes {
+    grid-template-columns: 1fr;
+  }
+
+  .outcomes p {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: tokens.$line-width solid rgba(255, 255, 255, 0.24);
+  }
+
+  .outcomes p:last-child {
+    border-bottom: 0;
+  }
+}

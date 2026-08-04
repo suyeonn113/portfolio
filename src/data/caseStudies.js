@@ -2,7 +2,7 @@ export const caseStudies = [
   {
     projectSlug: "daisomall",
     metadata: {
-      title: "DAISOMALL Case Study · Suyeonn",
+      title: "DAISOMALL Case Study",
       description:
         "분리되어 있던 모바일과 PC 경험을 하나의 React 구조로 통합하고 상품 데이터를 추천, 랭킹, 검색으로 확장한 다이소몰 리뉴얼입니다.",
     },
@@ -190,7 +190,7 @@ export const caseStudies = [
   {
     projectSlug: "air-seoul",
     metadata: {
-      title: "AIR SEOUL Case Study · Suyeonn",
+      title: "AIR SEOUL Case Study",
       description:
         "정적 항공·운임 데이터로 검색 조건부터 날짜 운임, 항공편 선택과 여정 요약까지 연결한 React UI 데모입니다.",
     },
@@ -358,13 +358,13 @@ export const caseStudies = [
   {
     projectSlug: "seoul-youth-center",
     metadata: {
-      title: "SEOUL YOUTH CENTER Case Study · Suyeonn",
+      title: "SEOUL YOUTH CENTER Case Study",
       description:
         "기관 정보 구조와 청소년·평생교육 프로그램 탐색, 신청, 신청내역을 연결한 PHP 공공 서비스 리디자인입니다.",
     },
     eyebrow: "03 · Public service",
     lead:
-      "복잡한 기관 정보를 사용자 목적 중심으로 재편하고, 청소년·평생교육 프로그램을 찾고 신청한 뒤 내역을 확인하는 흐름까지 구현했습니다.",
+      "센터 방문과 전화 문의에 머물던 프로그램 신청을, 홈페이지에서 찾고 신청·조회·수정·취소까지 처리하는 온라인 흐름으로 전환했습니다.",
     titleSize: { vw: "7.9vw", max: "9.4rem" },
     theme: {
       accent: "#ef8b2c",
@@ -387,7 +387,7 @@ export const caseStudies = [
       width: 1408,
       height: 1490,
       maxWidth: "1408px",
-      caption: "Purpose-led information architecture · public service UI",
+      caption: "Program discovery · online application and management",
     },
     meta: [
       { label: "Role", value: "UI 기획 · 정보구조·PHP 공통 구조 · 신청 흐름 구현" },
@@ -508,7 +508,7 @@ export const caseStudies = [
   {
     projectSlug: "fragfarm",
     metadata: {
-      title: "FRAGFARM Case Study · Suyeonn",
+      title: "FRAGFARM Case Study",
       description:
         "브랜드 감성과 상품 탐색, 옵션, 장바구니, 데모 주문, 리뷰와 문의 흐름을 구현한 PHP 모바일 패션 커머스 데모입니다.",
     },

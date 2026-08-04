@@ -121,7 +121,7 @@ export default function CaseStudyPage({ study, heroContent, children }) {
   };
 
   return (
-    <main className={styles.page} id="main-content" tabIndex={-1} style={pageStyle}>
+    <main className={styles.page} id="main-content" tabIndex={-1} style={pageStyle} data-case-study-page>
       <header className={styles.header} id="top">
         <Link className={styles.wordmark} href="/#top">
           SUYEONN
