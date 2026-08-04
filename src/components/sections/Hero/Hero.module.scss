@@ -92,7 +92,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: #fffaf0;
+  background: tokens.$color-warm-hover-surface;
   content: "";
   transform: scaleX(0);
   transform-origin: left center;

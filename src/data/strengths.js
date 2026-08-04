@@ -1,34 +1,30 @@
 export const strengths = [
   {
+    number: "01",
+    title: "START WITH INTENT",
+    description:
+      "브랜드가 전하고 싶은 인상과 사용자가 이루려는 목적을 함께 이해합니다. 직접 서비스를 경험하고 흐름을 살피며, 두 방향이 어긋나거나 이용 과정이 끊기는 지점을 개선의 출발점으로 삼습니다.",
+    keywords: ["Brand intent", "User needs", "Observation"],
+    icon: "need",
+  },
+  {
+    number: "02",
     title: "BUILD FOR REUSE",
     description:
-      "디자인 규칙과 데이터의 책임을 나누고, 반복되는 UI가 같은 컴포넌트 구조에서 확장될 수 있게 설계합니다.",
-    keywords: ["Design rules", "Data", "Components"],
-    previewLabel: "View React structure ↗",
+      "반복되는 화면과 기능을 공통 컴포넌트와 일관된 규칙으로 정리합니다. 데이터와 상태가 여러 화면에서 자연스럽게 이어지고, 새로운 내용과 기능도 같은 구조 안에서 확장될 수 있게 구현합니다.",
+    keywords: ["Components", "Reusable UI", "Scalable structure"],
     icon: "system",
   },
   {
-    title: "CONNECT STATES AND FLOW",
+    number: "03",
+    title: "VERIFY ACCESSIBILITY",
     description:
-      "서로 다른 화면과 컴포넌트가 같은 조건과 선택 상태를 공유하도록 연결합니다.",
-    keywords: ["State", "Routing", "User flow"],
-    previewLabel: "View booking flow ↗",
-    icon: "flow",
-  },
-  {
-    title: "DESIGN FOR DIFFERENT USERS",
-    description:
-      "연령과 업무 환경, 사용 기기가 달라도 같은 서비스를 이용할 수 있도록 정보와 조작 방식을 조정합니다.",
-    keywords: ["Responsive", "Accessibility", "Public service"],
-    previewLabel: "View responsive service ↗",
+      "시맨틱 구조와 키보드 조작을 구현에 반영하고, Lighthouse 자동 검사와 실제 브라우저 테스트를 통해 주요 이용 흐름을 끝까지 확인합니다.",
+    keywords: ["Semantic HTML", "Keyboard", "Validation"],
+    evidence: ["3 projects", "6 audits", "Keyboard verified"],
+    href: "/accessibility",
+    previewLabel: "VIEW ACCESSIBILITY",
     icon: "accessibility",
-  },
-  {
-    title: "IMPROVE FROM REAL USE",
-    description:
-      "직접 서비스를 사용하며 발견한 불편을 상품 탐색과 문의·관리 흐름의 개선으로 연결합니다.",
-    keywords: ["Observation", "Commerce UX", "CS flow"],
-    previewLabel: "View commerce UX ↗",
-    icon: "need",
+    featured: true,
   },
 ];

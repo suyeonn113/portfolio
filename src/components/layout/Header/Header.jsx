@@ -8,6 +8,7 @@ const menuItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Strengths", href: "/#strengths" },
+  { label: "Accessibility", href: "/accessibility" },
   { label: "Projects", href: "/#work" },
 ];
 
@@ -258,9 +259,6 @@ export default function Header() {
             </div>
             <div>
               <strong>Based in Seoul</strong>
-              <Link href="/#contact" onClick={() => closeMenu(false)}>
-                Let&apos;s talk ↗
-              </Link>
             </div>
           </div>
         </div>

@@ -3,22 +3,24 @@ import styles from "./Footer.module.scss";
 
 const talkItems = Array.from({ length: 10 }, (_, index) => index);
 
-export default function Footer() {
+export default function Footer({ compact = false }) {
   return (
     <footer className={styles.footer} id="contact">
-      <div className={styles.ticker} aria-hidden="true">
-        <div className={styles.tickerTrack}>
-          {[0, 1].map((group) => (
-            <div className={styles.tickerGroup} key={group}>
-              {talkItems.map((item) => (
-                <span key={item}>BUILT WITH INTENT&nbsp;&nbsp;·&nbsp;&nbsp;MADE ACCESSIBLE&nbsp;&nbsp;✳︎</span>
-              ))}
-            </div>
-          ))}
+      {!compact ? (
+        <div className={styles.ticker} aria-hidden="true">
+          <div className={styles.tickerTrack}>
+            {[0, 1].map((group) => (
+              <div className={styles.tickerGroup} key={group}>
+                {talkItems.map((item) => (
+                  <span key={item}>BUILT WITH INTENT&nbsp;&nbsp;·&nbsp;&nbsp;MADE ACCESSIBLE&nbsp;&nbsp;✳︎</span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
 
-      <div className={styles.space} />
+      {!compact ? <div className={styles.space} /> : null}
 
       <div className={styles.info}>
         <div>
