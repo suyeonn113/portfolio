@@ -4,9 +4,8 @@ import {
   AirSeoulBookingViewer,
   AirSeoulConceptComparison,
 } from "./AirSeoulInteractive";
+import AirSeoulFlowVideo from "./AirSeoulFlowVideo";
 import styles from "./AirSeoulCaseStudy.module.scss";
-
-const imageRoot = "/images/projects/case-studies/airseoul";
 
 function HeadingLines({ lines }) {
   return lines.map((line) => <span className={styles.headingLine} key={line}>{line}</span>);
@@ -39,10 +38,10 @@ export function AirSeoulHero() {
 }
 
 const architecture = [
-  { step: "Entry", files: ["HeroSlider", "FlightBookingPanel"], role: "특가 CTA와 검색 조건 입력" },
-  { step: "Query & data", files: ["searchParams", "FlightSearchResults", "flightSearch"], role: "URL 조건을 검색 데이터로 연결" },
-  { step: "Selection", files: ["FlightSelectSection", "DateFareBar", "FlightOptionRow"], role: "날짜·항공편·운임 선택" },
-  { step: "Summary", files: ["BookingSummaryAside"], role: "선택한 여정과 금액을 즉시 반영" },
+  { step: "검색 조건 입력", files: ["HeroSlider", "FlightBookingPanel"], role: "특가 CTA와 검색 조건 입력 시작" },
+  { step: "조건 전달 및 데이터 조회", files: ["searchParams", "FlightSearchResults", "flightSearch"], role: "홈의 입력값을 URL 조건과 조회 데이터로 연결" },
+  { step: "운임 선택", files: ["FlightSelectSection", "DateFareBar", "FlightOptionRow"], role: "날짜/항공편/운임 선택" },
+  { step: "선택 상태 즉시 반영", files: ["BookingSummaryAside"], role: "선택 여정과 운임을 요약 영역에 동기화" },
 ];
 
 const outcomes = [
@@ -97,20 +96,10 @@ export default function AirSeoulCaseStudy() {
           lines={["특가를 발견한 순간부터,", "운임 선택과 여정 요약까지 이어집니다."]}
           tone="light"
         />
-        <div className={styles.flowCopy}>
-          <p>홈의 프로모션 조건을 예약 페이지로 전달하고, 날짜와 운임 선택 결과를 하나의 구매 흐름 안에서 공유했습니다.</p>
-          <ol>
-            <li><span>01</span>특가 발견</li>
-            <li><span>02</span>조건 전달</li>
-            <li><span>03</span>운임 선택</li>
-            <li><span>04</span>요약 갱신</li>
-          </ol>
-        </div>
-        <div className={styles.videoFrame} data-aos="fade-up">
-          <video autoPlay muted loop playsInline preload="metadata" poster="/images/projects/airseoul-hero-clean.png">
-            <source src={`${imageRoot}/airseoul-promo-to-booking-flow.mp4`} type="video/mp4" />
-          </video>
-        </div>
+        <p className={styles.sectionIntro}>
+          서비스 상태는 하나의 프레임에서 전환하고, 예약 화면은 데스크톱·태블릿·모바일의 정보 밀도에 맞춰 다시 배치했습니다.
+        </p>
+        <AirSeoulFlowVideo />
       </section>
 
       <section className={styles.structure} aria-labelledby="air-structure-title">
@@ -122,15 +111,32 @@ export default function AirSeoulCaseStudy() {
         <p className={styles.sectionIntro}>
           홈에서 만든 검색 조건이 결과 화면의 데이터와 선택 컴포넌트를 거쳐 최종 여정 요약까지 이어지는 구조입니다.
         </p>
-        <ol className={styles.architecture} data-aos="fade-up">
-          {architecture.map((item, index) => (
-            <li key={item.step}>
-              <span>{String(index + 1).padStart(2, "0")} · {item.step}</span>
-              <div>{item.files.map((file) => <code key={file}>{file}</code>)}</div>
-              <p>{item.role}</p>
-            </li>
-          ))}
-        </ol>
+        <div className={styles.architectureTable} data-aos="fade-up">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Step</th>
+                <th scope="col">Flow</th>
+                <th scope="col">Connected components</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {architecture.map((item, index) => (
+                <tr key={item.step}>
+                  <td className={styles.architectureStep}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                  </td>
+                  <th scope="row">{item.step}</th>
+                  <td className={styles.architectureFiles}>
+                    {item.files.map((file) => <code key={file}>{file}</code>)}
+                  </td>
+                  <td className={styles.architectureRole}>{item.role}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className={styles.outcome} aria-labelledby="air-outcome-title">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import buttonStyles from "@/components/ui/ControlButton.module.scss";
 import styles from "./AirSeoulCaseStudy.module.scss";
 
 const imageRoot = "/images/projects/case-studies/airseoul";
@@ -114,6 +115,7 @@ export function AirSeoulConceptComparison() {
 
       <dialog
         className={styles.imageDialog}
+        data-view={dialogView?.key}
         ref={dialogRef}
         aria-labelledby="airseoul-image-dialog-title"
         onClick={(event) => {
@@ -155,6 +157,7 @@ export function AirSeoulBookingViewer() {
           <div>
             {serviceViews.map((view, index) => (
               <button
+                className={buttonStyles.controlButton}
                 key={view.key}
                 type="button"
                 aria-pressed={mode === "service" && activeService === index}
@@ -170,6 +173,7 @@ export function AirSeoulBookingViewer() {
           <div>
             {viewportViews.map((view, index) => (
               <button
+                className={buttonStyles.controlButton}
                 key={view.key}
                 type="button"
                 aria-pressed={mode === "viewport" && activeViewport === index}

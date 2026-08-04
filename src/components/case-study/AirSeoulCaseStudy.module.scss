@@ -17,7 +17,7 @@ $control-duration: tokens.$duration-interaction;
   box-sizing: border-box;
   width: min(calc(100% - (tokens.$page-gutter * 2)), 1180px);
   height: clamp(430px, 80vw, 760px);
-  place-items: center;
+  place-items: end center;
   background: var(--case-surface);
 }
 
@@ -119,7 +119,7 @@ $control-duration: tokens.$duration-interaction;
   margin-bottom: 12px;
 }
 
-.conceptGrid figcaption > span {
+.conceptGrid figcaption>span {
   @include mixins.section-label;
   color: var(--case-accent);
 }
@@ -194,31 +194,10 @@ $control-duration: tokens.$duration-interaction;
   font-size: 0.78rem;
 }
 
-.viewerControls > div > div {
+.viewerControls>div>div {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-}
-
-.viewerControls button {
-  min-height: 38px;
-  padding: 8px 14px;
-  border: tokens.$line-width solid tokens.$color-line;
-  border-radius: $control-radius;
-  color: tokens.$color-muted;
-  background: tokens.$color-white;
-  transition: border-color $control-duration ease, color $control-duration ease, background $control-duration ease;
-}
-
-.viewerControls button:hover {
-  border-color: var(--case-accent);
-  color: tokens.$color-black;
-}
-
-.viewerControls button[aria-pressed="true"] {
-  border-color: var(--case-accent);
-  color: #fff;
-  background: var(--case-accent);
 }
 
 .imageDialog {
@@ -230,6 +209,10 @@ $control-duration: tokens.$duration-interaction;
   background: tokens.$color-white;
 }
 
+.imageDialog[data-view="mobile"] {
+  width: min(94vw, 400px);
+}
+
 .imageDialog::backdrop {
   background: rgba(0, 0, 0, 0.72);
 }
@@ -237,6 +220,7 @@ $control-duration: tokens.$duration-interaction;
 .dialogPanel {
   max-height: 92vh;
   overflow: auto;
+  @include mixins.outlined-native-scrollbar;
 }
 
 .dialogPanel header {
@@ -277,7 +261,7 @@ $control-duration: tokens.$duration-interaction;
   margin-bottom: 22px;
 }
 
-.viewerControls > div > span {
+.viewerControls>div>span {
   @include mixins.section-label;
   display: block;
   margin-bottom: 10px;
@@ -322,7 +306,7 @@ $control-duration: tokens.$duration-interaction;
   background: tokens.$color-white;
 }
 
-.responsiveDevice > span {
+.responsiveDevice>span {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -350,50 +334,121 @@ $control-duration: tokens.$duration-interaction;
   font-size: 0.78rem;
 }
 
-.flowCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  max-width: $content-max;
-  margin: clamp(52px, 7vw, 92px) auto 0;
-  align-items: end;
-}
-
-.flowCopy > p {
-  max-width: 580px;
+.flow>p {
   color: rgba(255, 255, 255, 0.72);
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
-  line-height: 1.8;
 }
 
-.flowCopy ol {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
+.videoPlayer {
+  max-width: 1428px;
+  margin: $evidence-gap auto 0;
 }
 
-.flowCopy li {
-  flex: 1 1 auto;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 1.1rem;
+.videoSteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  // border-radius: $panel-radius;
 }
 
-.flowCopy li span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--case-accent);
-  font-size: 0.92rem;
+.videoSteps button {
+  position: relative;
+  display: grid;
+  min-height: 96px;
+  align-content: center;
+  gap: 8px;
+  padding: 18px;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.58);
+  background: transparent;
+  cursor: pointer;
+}
+
+.videoSteps button:last-child {
+  border-right: 0;
+}
+
+.videoSteps button::before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: transparent;
+  content: "";
+}
+
+.videoSteps button[aria-pressed="true"] {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.videoSteps button:focus-visible {
+  outline-color: #fff;
+}
+
+.videoSteps button[aria-pressed="true"]::before {
+  background: #fff;
+}
+
+.videoSteps button[aria-pressed="true"]::after {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  background: $air-ink;
+  content: "";
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.videoSteps span {
+  font-size: 0.75rem;
+}
+
+.videoSteps strong {
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-weight: tokens.$font-weight-medium;
 }
 
 .videoFrame {
-  max-width: 1428px;
-  margin: $evidence-gap auto 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: $panel-radius;
   background: #000;
+}
+
+.videoControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.videoControls button {
+  display: grid;
+  width: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0;
+  place-items: center;
+}
+
+.videoControls .playButton {
+  min-width: 34px;
+}
+
+.videoControls svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: tokens.$icon-stroke-width;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .videoFrame video {
@@ -402,60 +457,121 @@ $control-duration: tokens.$duration-interaction;
   height: auto;
 }
 
-.architecture {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 34px;
+.architectureTable {
   max-width: $structure-max;
   margin: $evidence-gap auto 0;
-  padding: 0;
-  list-style: none;
-}
-
-.architecture li {
-  position: relative;
-  min-width: 0;
-  min-height: 260px;
-  padding: 24px;
-  border: tokens.$line-width solid $air-line;
+  overflow: hidden;
+  border: tokens.$line-width solid tokens.$color-line;
   border-radius: $panel-radius;
-  background: color-mix(in srgb, $air-mint-soft 78%, tokens.$color-white);
+  background: tokens.$color-white;
 }
 
-.architecture li:not(:last-child)::after {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 10px);
-  color: var(--case-accent);
-  content: "→";
-  font-size: 1.1rem;
-  transform: translateY(-50%);
+.architectureTable table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.architecture li > span {
+.architectureTable thead {
+  color: tokens.$color-muted;
+  background: tokens.$color-line-soft;
+}
+
+.architectureTable thead th {
   @include mixins.section-label;
-  display: block;
-  margin-bottom: 30px;
+  padding: 16px 18px;
+  text-align: left;
+}
+
+.architectureTable thead th:first-child {
+  width: 88px;
+  text-align: center;
+}
+
+.architectureTable thead th:nth-child(2) {
+  width: 24%;
+}
+
+.architectureTable thead th:nth-child(3) {
+  width: 36%;
+}
+
+.architectureTable tbody tr {
+  border-top: tokens.$line-width solid tokens.$color-line;
+}
+
+.architectureTable tbody th,
+.architectureTable tbody td {
+  padding: 26px 18px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.architectureTable tbody th {
+  font-size: clamp(1rem, 1.35vw, 1.14rem);
+  font-weight: tokens.$font-weight-medium;
+  word-break: keep-all;
+}
+
+.architectureStep {
+  position: relative;
+  text-align: center !important;
+}
+
+.architectureStep span {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  border: tokens.$line-width solid var(--case-accent);
+  border-radius: 50%;
+  place-items: center;
   color: var(--case-accent);
+  background: tokens.$color-white;
+  font-size: 0.75rem;
+  font-weight: tokens.$font-weight-medium;
 }
 
-.architecture li div {
-  display: grid;
-  gap: 7px;
+.architectureTable tbody tr:not(:last-child) .architectureStep::after {
+  position: absolute;
+  top: calc(50% + 19px);
+  bottom: calc(-50% + 19px);
+  left: 50%;
+  width: 1px;
+  background: var(--case-accent);
+  content: "";
 }
 
-.architecture code {
+.architectureFiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+}
+
+.architectureFiles code {
+  position: relative;
   font-family: inherit;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: tokens.$font-weight-medium;
   overflow-wrap: anywhere;
 }
 
-.architecture li p {
-  margin-top: 24px;
+.architectureFiles code:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -9px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: tokens.$color-muted;
+  content: "";
+}
+
+.architectureRole {
   color: tokens.$color-muted;
-  font-size: 0.86rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.65;
   word-break: keep-all;
 }
 
@@ -510,8 +626,13 @@ $control-duration: tokens.$duration-interaction;
 }
 
 @keyframes reveal {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: tokens.$breakpoint-tablet) {
@@ -524,54 +645,19 @@ $control-duration: tokens.$duration-interaction;
     grid-template-columns: 1fr 1fr;
   }
 
-  .viewerControls,
-  .flowCopy {
+  .viewerControls {
     grid-template-columns: 1fr;
   }
 
-  .architecture {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 42px;
+  .videoControls button {
+    width: 32px;
+    min-width: 32px;
+    min-height: 32px;
   }
 
-  .architecture li:nth-child(3) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .architecture li:nth-child(4) {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .architecture li::after {
-    display: none;
-  }
-
-  .architecture li:nth-child(1)::after,
-  .architecture li:nth-child(2)::after,
-  .architecture li:nth-child(3)::after {
-    display: block;
-  }
-
-  .architecture li:nth-child(1)::after {
-    top: 50%;
-    left: calc(100% + 10px);
-    content: "→";
-  }
-
-  .architecture li:nth-child(2)::after {
-    top: calc(100% + 20px);
-    left: 50%;
-    content: "↓";
-    transform: translate(-50%, -50%);
-  }
-
-  .architecture li:nth-child(3)::after {
-    top: 50%;
-    right: calc(100% + 10px);
-    left: auto;
-    content: "←";
+  .architectureTable tbody th,
+  .architectureTable tbody td {
+    padding-inline: 14px;
   }
 }
 
@@ -621,35 +707,83 @@ $control-duration: tokens.$duration-interaction;
     padding: 14px;
   }
 
-  .flowCopy ol {
-    grid-template-columns: repeat(2, 1fr);
+  .videoSteps {
+    margin-bottom: 20px;
   }
 
-  .flowCopy li:nth-child(n + 3) {
-    border-top: 1px solid rgba(255, 255, 255, 0.22);
+  .videoSteps button {
+    min-height: 78px;
+    gap: 5px;
+    padding: 12px 8px;
   }
 
-  .architecture {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .architectureTable {
+    border-radius: 14px;
   }
 
-  .architecture li,
-  .architecture li:nth-child(3),
-  .architecture li:nth-child(4) {
+  .architectureTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .architectureTable table,
+  .architectureTable tbody,
+  .architectureTable tr,
+  .architectureTable tbody th,
+  .architectureTable tbody td {
+    display: block;
+    width: 100%;
+  }
+
+  .architectureTable tbody tr {
+    position: relative;
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    padding: 24px 18px 24px 0;
+  }
+
+  .architectureTable tbody th,
+  .architectureTable tbody td {
+    grid-column: 2;
+    padding: 0;
+  }
+
+  .architectureTable tbody th {
+    margin-bottom: 12px;
+    font-size: 1.08rem;
+  }
+
+  .architectureTable .architectureStep {
+    position: static;
     grid-column: 1;
-    grid-row: auto;
-    min-height: 0;
+    grid-row: 1 / span 3;
+    padding: 0;
   }
 
-  .architecture li:nth-child(1)::after,
-  .architecture li:nth-child(2)::after,
-  .architecture li:nth-child(3)::after {
-    top: calc(100% + 20px);
-    right: auto;
-    left: 50%;
-    content: "↓";
-    transform: translate(-50%, -50%);
+  .architectureStep span {
+    position: absolute;
+    top: 24px;
+    left: 12px;
+  }
+
+  .architectureTable tbody tr:not(:last-child) .architectureStep::after {
+    top: 62px;
+    bottom: -25px;
+    left: 31px;
+  }
+
+  .architectureTable .architectureFiles {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .architectureRole {
+    font-size: 0.86rem;
   }
 
   .outcomeGrid {
