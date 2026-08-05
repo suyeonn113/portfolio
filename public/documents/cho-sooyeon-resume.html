@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>조수연 이력서 및 프로젝트 요약</title>
+<style>
+/* Base / Page */
+:root { 
+  --ink: #151515; 
+  --text: #222; 
+  --muted: #5f5f5f; 
+  --sub: #7a7a7a; 
+  --line: #e5e5e5; 
+  --soft: #f7f7f7; 
+  --paper: #fff; 
+  --panel: #fafafa; 
+  --navy: #1e3048; 
+  --blue: #4d7397; 
+  --blue-soft: #f2f6f9; 
+  --blue-line: #d8e1e9; 
+  --accent-blue: #3f7fa6; 
+  --accent-blue-deep: #2f6c92; 
+  --box: #f2fafc; 
+  --box-line: #dbe9ee; 
+  --portfolio-ink: #09090b;
+  --portfolio-muted: #b9bec7;
+  --portfolio-line: #33363b;
+  --portfolio-focus: #005fcc;
+
+  --fs-display: 40px;
+  --sf-page-hero: 24px;
+  --fs-page-title: 28px;
+  --fs-project-title: 19px;
+  --fs-section-title: 15px;
+  --fs-card-title: 13px;
+  --fs-body-lg: 12px;
+  --fs-body: 11.5px;
+  --fs-label-lg: 11px;
+  --fs-label: 10px;
+  --fs-label-sm: 9px;
+
+  --lh-tight: 1.1;
+  --lh-title: 1.35;
+  --lh-compact: 1.45;
+  --lh-body: 1.6;
+
+  /* Page 06–09 design tokens (derived from page 05) */
+  --space-1: 4px; --space-2: 8px; --space-3: 10px; --space-4: 12px; --space-5: 14px; --space-6: 18px; --space-7: 22px; --space-8: 24px; --space-9: 36px; --space-10: 48px;
+  --surface-default: #fff; --surface-tint: #f2fafc; --surface-soft: #f7f7f7;
+  --border-default: #e5e5e5; --border-tint: #dbe9ee; --border-page: #ededed; --border-connector: #c6c6c6;
+  --text-strong: #151515; --text-body: #444; --text-content: #555; --text-muted: #5f5f5f; --text-subtle: #7a7a7a; --text-faded: #777; --text-soft: #6a6a6a; --text-header: #747474; --text-dark: #333; --text-tertiary: #666;
+  --code-surface: #101826; --code-text: #eaf0ff; --code-kicker: #79d0e8; --code-comment: #8ba2c7; --code-keyword: #8ab4ff; --code-function: #7ee0c0; --code-variable: #ffcb6b; --code-string: #c3e88d;
+  --font-sans: "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--surface-default); color: var(--text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; word-break: keep-all; }
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3, h4, ul { margin: 0; }
+ol { list-style: none; margin: 0; padding: 0; }
+ul { padding-left: var(--space-6); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.print-control { position: fixed; top: var(--space-6); right: var(--space-6); z-index: 20; display: flex; align-items: center; gap: var(--space-4); padding: var(--space-2) var(--space-3) var(--space-2) var(--space-5); border: 1px solid var(--portfolio-line); border-radius: 999px; background: rgba(9, 9, 11, .96); box-shadow: 0 var(--space-2) 30px rgba(9, 9, 11, .18); font-size: var(--fs-body-lg); font-weight: 700; color: var(--portfolio-muted); }
+.print-control button { border: 1px solid var(--surface-default); background: var(--surface-default); color: var(--portfolio-ink); border-radius: 999px; padding: var(--space-2) var(--space-5); font: inherit; cursor: pointer; transition: color 160ms ease, background-color 160ms ease; }
+.print-control button:hover { background: var(--line-soft, #f3f4f5); }
+.print-control button:focus-visible { outline: 3px solid var(--portfolio-focus); outline-offset: 3px; }
+.page { width: 210mm; height: 296mm; margin: var(--space-6) auto; padding: 14mm 14mm 10mm; position: relative; background: var(--surface-default); overflow: hidden; box-shadow: 0 0 0 1px var(--border-page); display: flex; flex-direction: column; padding-bottom: 11mm; }
+.page-header { display: flex; align-items: center; justify-content: space-between; font-size: var(--fs-label-sm); letter-spacing: .11em; text-transform: uppercase; color: var(--sub); font-weight: 700; }
+.page-header { padding-bottom: var(--space-3); border-bottom: 1px solid var(--border-default); flex: 0 0 auto; color: var(--text-header); }
+.section-heading { margin: 19px 0 18px; }
+.section-heading .eyebrow { display: block; margin-bottom: 6px; font-size: var(--fs-label-sm); letter-spacing: .12em; color: var(--text-subtle); font-weight: 700; text-transform: uppercase; }
+.section-heading h1 { font-size: var(--fs-page-title); line-height: 1.08; letter-spacing: -.045em; font-weight: 900; }
+.section-heading p { margin-top: 9px; color: var(--text-muted); font-size: var(--fs-body-lg); line-height: 1.6; }
+.icon { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; vertical-align: -2px; color: var(--accent-blue); }
+.icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.page>main { min-height: 0; }
+.section-heading h1, .content-section-title h2, .label, .hero-label, .principles-head h2, .project-banner h1, .project-copy h2, .panel-title, .card-title b, .impact-title b, .map-row h3, .contact-final h2, .access-subhead h2, .process-title-row h2 { color: var(--text-strong); }
+.section-heading .eyebrow, .project-copy .eyebrow, .meta-label, .panel-sub { color: var(--text-faded); }
+.page-header span:first-child { color: var(--text-muted); font-weight: 800; letter-spacing: .08em; }
+
+/* Cover */
+.cover-main { padding-top: 20mm; padding-bottom: 0; display: flex; flex: 1; flex-direction: column; height: auto; }
+.cover-role { font-size: var(--fs-label); letter-spacing: .16em; text-transform: uppercase; color: var(--text-subtle); font-weight: 700; }
+.cover-title { margin-top: var(--space-4); font-size: var(--fs-display); line-height: 1.2; letter-spacing: -.08em; font-weight: 900; }
+.cover-statement { margin-top: var(--space-6); color: var(--text-soft); font-size: var(--fs-project-title); line-height: var(--lh-body); letter-spacing: -.035em; font-weight: 600; max-width: 610px; }
+.cover-info { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 34px; align-items: end; margin-top: 20mm; }
+.contact-list { border-top: 1px solid var(--line); }
+.contact-row { display: grid; grid-template-columns: 84px 1fr; gap: var(--space-3); padding: 11px 0; border-bottom: 1px solid var(--border-default); }
+.contact-label { font-size: var(--fs-label-sm); letter-spacing: .13em; text-transform: uppercase; color: var(--text-subtle); font-weight: 700; }
+.contact-value { font-size: var(--fs-body-lg); line-height: 1.55; font-weight: 600; overflow-wrap: anywhere; }
+.qr-area { justify-self: end; display: flex; flex-direction: column; align-items: center; text-align: center; width: 132px; }
+.qr-area img { width: 114px; height: 114px; display: block; object-fit: contain; }
+.qr-label { display: block; margin-top: var(--space-2); font-size: var(--fs-label-sm); letter-spacing: .11em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; text-align: center; width: 100%; }
+.cover-index { margin-top: auto; padding-top: 18mm; }
+.index-title { margin-bottom: var(--space-3); font-size: var(--fs-label-sm); letter-spacing: .12em; text-transform: uppercase; color: var(--text-subtle); font-weight: 700; }
+.index-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border-default); }
+.index-item { min-height: 74px; padding: var(--space-5) 0; border-bottom: 1px solid var(--border-default); display: flex; flex-direction: column; justify-content: center; gap: var(--space-2); }
+.index-item + .index-item { padding-left: var(--space-6); margin-left: var(--space-6); border-left: 1px solid var(--border-default); }
+.index-no { font-size: var(--fs-label); font-weight: 800; color: var(--text-strong); }
+.index-name { font-size: var(--fs-body-lg); line-height: 1.5; font-weight: 700; }
+
+/* Basic Info */
+.basic-main { height: auto; min-height: 0; padding-bottom: 0; display: flex; flex: 1; flex-direction: column; }
+.basic-main .section-heading { margin-bottom: 20px; }
+.intro-band { display: grid; grid-template-columns: 1.45fr 1fr; gap: 26px; margin-bottom: var(--space-10); }
+.label { display: block; margin-bottom: 7px; font-size: var(--fs-label-sm); letter-spacing: .13em; text-transform: uppercase; color: var(--text-strong); font-weight: 700; }
+.intro-summary { font-size: var(--fs-card-title); line-height: 1.62; letter-spacing: -.02em; font-weight: 700; }
+.skill-line { font-size: var(--fs-body); line-height: 1.7; color: var(--text-body); font-weight: 550; }
+.basic-stack { display: flex; flex-direction: column; gap: var(--space-9); flex: 1; }
+.content-section-title { margin-bottom: var(--space-2); }
+.content-section-title h2 { font-size: var(--fs-body-lg); letter-spacing: -.01em; font-weight: 800; }
+.records { border-top: 1px solid var(--line); }
+.record { display: grid; grid-template-columns: 132px 186px 1fr; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: 1px solid var(--border-default); }
+.record-date { font-size: var(--fs-body); line-height: 1.55; color: var(--text-muted); font-weight: 600; }
+.record-main strong { display: block; margin-bottom: 3px; font-size: var(--fs-body-lg); line-height: 1.45; font-weight: 800; }
+.record-main span { display: block; font-size: var(--fs-body); line-height: 1.45; color: var(--text-muted); font-weight: 600; }
+.record-desc { font-size: var(--fs-body); line-height: 1.68; color: var(--text-body); }
+.education-records .record { grid-template-columns: 120px 1fr; }
+.education-head { display: flex; justify-content: space-between; gap: var(--space-4); align-items: flex-start; }
+.education-head strong { font-size: var(--fs-body-lg); line-height: 1.45; font-weight: 800; }
+.education-meta { font-size: var(--fs-body); line-height: 1.4; color: var(--text-muted); font-weight: 600; white-space: nowrap; }
+.course-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px var(--space-1); margin-top: var(--space-3); padding: var(--space-3) 0 0 var(--space-4); border-top: 1px solid var(--border-default); list-style: none; }
+.course-details li { position: relative; padding-left: 9px; font-size: var(--fs-body); line-height: 1.55; color: var(--text-content); }
+.course-details li::before { content: ""; position: absolute; left: 0; top: .6em; width: var(--space-1); height: var(--space-1); border-radius: 50%; background: #bbb; }
+.cert-grid { border-top: 1px solid var(--line); }
+.cert-row { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--border-default); }
+.cert-row .year { font-size: var(--fs-body); color: var(--text-muted); font-weight: 600; }
+.cert-row .name { font-size: var(--fs-body-lg); font-weight: 700; line-height: 1.45; }
+.school-name { font-size: var(--fs-body-lg); line-height: 1.45; font-weight: 500; color: var(--text-dark); }
+
+/* Self Introduction */
+.self-main { height: auto; min-height: 0; padding-bottom: 0; display: flex; flex: 1; flex-direction: column; }
+.hero-label { font-size: var(--fs-label-sm); letter-spacing: .13em; text-transform: uppercase; color: var(--text-strong); font-weight: 700; }
+.hero-title { margin-top: var(--space-3); font-size: var(--sf-page-hero); line-height: 1.42; letter-spacing: -.04em; font-weight: 850; max-width: 610px; }
+.hero-copy { margin-top: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+.hero-copy p { font-size: var(--fs-body-lg); line-height: 1.8; color: var(--text-body); }
+.principles-wrap { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-8); flex: 1; min-height: 0; }
+.principles-head h2 { font-size: var(--fs-section-title); line-height: 1.4; letter-spacing: -.02em; font-weight: 850; }
+.principles-head p { margin-top: 7px; font-size: var(--fs-body); line-height: 1.62; color: var(--text-muted); }
+.principle-list { display: grid; flex: 1; grid-template-rows: repeat(3, minmax(0, 1fr)); min-height: 0; border-block: 1px solid var(--box-line);}
+.principle:last-child { border-bottom: 0; }
+.principle { padding: 11px var(--space-5); border-bottom: 1px solid var(--border-tint); background: var(--surface-tint); display: flex; flex-direction: column; justify-content: center; }
+.principle .num { display: block; margin-bottom: 4px; font-size: var(--fs-label); letter-spacing: .1em; color: var(--blue); font-weight: 700; }
+.principle h3 { margin-bottom: 6px; font-size: var(--fs-card-title); line-height: 1.42; font-weight: 850; letter-spacing: -.015em; color: var(--text-strong); }
+.principle p { font-size: var(--fs-body); line-height: 1.62; color: var(--text-body); }
+.principle p + p { margin-top: var(--space-1); }
+.hero-split { display: block; }
+.self-main .section-heading { margin-bottom: 13px; }
+.hero-split>.code-panel, .hero-split>.wire-panel { margin-top: var(--hero-panel-offset, var(--space-4)); }
+
+/* Project Map */
+.map-main { height: auto; min-height: 0; padding-bottom: 0; display: flex; flex: 1; flex-direction: column; }
+.map-main .section-heading { margin-bottom: var(--space-5); }
+.lead-hero { font-size: var(--fs-project-title); line-height: 1.55; letter-spacing: -.03em; font-weight: 800; max-width: 620px; }
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 16px 0 var(--space-6); border-top: 1px solid var(--border-default); border-bottom: 1px solid var(--border-default); }
+.work-step { padding: 16px var(--space-5); border: 0; background: var(--surface-tint); min-height: 128px; }
+.work-step .step-no { display: block; margin-bottom: var(--space-3); font-size: var(--fs-body); font-weight: 800; color: var(--accent-blue); }
+.step-title { font-size: var(--fs-card-title); line-height: 1.45; letter-spacing: -.015em; font-weight: 850; margin-bottom: 6px; color: var(--navy); }
+.work-step p { font-size: var(--fs-body); line-height: 1.65; color: var(--text-content); }
+.project-map { display: grid; flex: 0.65; grid-template-rows: repeat(4, minmax(0, 1fr)); }
+.map-row { display: grid; grid-template-columns: 160px 160px 1fr; gap: var(--space-5); align-items: center; min-height: 0; padding: var(--space-2) 0; border-bottom: 1px solid var(--border-default); }
+.map-row h3 { font-size: var(--fs-body-lg); line-height: 1.4; font-weight: 850; }
+.map-row .sub { font-size: var(--fs-body); color: var(--text-muted); line-height: 1.45; }
+.map-row p { font-size: var(--fs-body); line-height: 1.58; color: var(--text-body); }
+.work-step+.work-step { border-left: 1px solid var(--line); }
+
+/* Project overview — shared by pages 05–08 */
+.project-page { --project-section-gap: var(--space-4); --project-card-padding: 11px 12px; --project-impact-padding: 10px 12px; --project-panel-border: var(--border-default); --project-tint-border: var(--border-tint); --project-surface: var(--surface-default); --project-tint-surface: var(--surface-tint); --project-body-color: var(--text-body); --project-summary-color: var(--text-content); --project-muted-color: var(--text-muted); --project-header-color: var(--text-subtle); --project-subtle-color: var(--text-faded); --project-overview-body-size: var(--fs-body); --project-overview-body-line: 1.55; --project-booking-block-height: 18px; --project-booking-block-gap: 6px; --project-booking-tall-height: 72px; --project-state-padding: 12px; --project-state-line: 1.65; --project-code-min-height: 186px; --project-code-size: 10px; --project-code-line: 1.75; }
+.project-page .page-header { color: var(--project-header-color); }
+.project-banner { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); padding: 13px 0 14px; border-bottom: 1px solid var(--project-panel-border); }
+.project-banner h1 { font-size: var(--fs-card-title); line-height: 1.35; font-weight: 850; letter-spacing: -.01em; }
+.project-banner h1 span { margin-right: 7px; color: var(--project-subtle-color); }
+.project-tag { padding: 5px 10px; border: 1px solid var(--project-panel-border); border-radius: 999px; font-size: var(--fs-label-sm); color: var(--project-muted-color); font-weight: 700; white-space: nowrap; }
+.project-content { height: auto; min-height: 0; padding-top: var(--space-6); padding-bottom: 0; display: flex; flex: 1; flex-direction: column; justify-content: flex-start; gap: var(--space-8); }
+.project-copy .eyebrow { display: block; margin-bottom: var(--space-2); font-size: var(--fs-label-sm); color: var(--project-subtle-color); letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+.project-copy h2 { font-size: var(--fs-project-title); line-height: 1.35; letter-spacing: -.04em; font-weight: 850; margin-bottom: 9px; }
+.project-summary { font-size: var(--fs-body); line-height: 1.72; color: var(--project-summary-color); margin-bottom: var(--space-3); }
+.role-lines { display: grid; gap: 0; margin-bottom: var(--space-4); grid-template-columns: 1fr 1fr; margin: var(--space-3) 0 var(--space-4); padding: 0; border-top: 1px solid var(--project-panel-border); border-bottom: 1px solid var(--project-panel-border); }
+.meta-card { flex: 1; padding: 8px 0; border: 0; background: transparent; }
+.meta-card .meta-label { display: block; margin-bottom: 3px; font-size: var(--fs-label); color: var(--project-subtle-color); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.meta-card b { font-size: var(--fs-body); line-height: 1.55; font-weight: 750; display: block; }
+.overview-grid, .compact-overview { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--project-tint-border); background: var(--project-tint-surface); }
+.overview-card { padding: var(--project-card-padding); border: 0; background: transparent; min-height: 0; }
+.card-title { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+.card-title b { font-size: var(--fs-body-lg); line-height: 1.35; font-weight: 800; }
+.overview-card p { font-size: var(--project-overview-body-size); line-height: var(--project-overview-body-line); color: var(--project-body-color); }
+.impact-box { padding: var(--project-impact-padding); border: 1px solid var(--project-tint-border); background: var(--project-tint-surface); margin-top: var(--space-3); }
+.impact-title { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+.impact-title b { font-size: var(--fs-body-lg); font-weight: 800; }
+.impact-box ul { margin: 0; padding-left: 18px; }
+.impact-box li { font-size: var(--fs-body); line-height: 1.7; color: var(--project-body-color); }
+.code-panel { padding: var(--space-5); background: var(--code-surface); color: var(--code-text); min-height: var(--project-code-min-height); border-radius: 6px;}
+.code-panel .code-kicker { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2); color: var(--code-kicker); font-size: var(--fs-label-lg); font-weight: 700; }
+.code-panel pre { margin: 0; font: 600 var(--project-code-size)/var(--project-code-line) "SFMono-Regular", "Consolas", monospace; white-space: pre-wrap; }
+.code-cmt { color: var(--code-comment); }
+.code-key { color: var(--code-keyword); }
+.code-fn { color: var(--code-function); }
+.code-var { color: var(--code-variable); }
+.code-str { color: var(--code-string); }
+.section-block { display: grid; grid-template-columns: 1fr 0.55fr; gap: var(--space-3); flex: 1; min-height: 0; }
+.section-visual { display: grid; }
+.panel-title { display: flex; flex-direction: column; margin-bottom: 10px; font-size: var(--fs-body-lg); font-weight: 800; }
+.panel-sub { font-size: var(--fs-label); color: var(--text-faded); font-weight: 600; }
+.variant-vertical { display: grid; grid-template-columns: 0.6fr 1fr; grid-template-rows: 1fr 1.1fr; gap: var(--space-2) var(--space-4); flex: 1; min-height: 0; }
+.variant-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-3); background: var(--surface-default); min-width: 0; min-height: 0; }
+.variant-card:first-child { grid-template-columns: 1fr 1.4fr; grid-row: 1 / -1; min-height: 0; height: 100%; }
+.variant-thumb img { padding: 2px; border: 1px solid var(--border-default); width: 100%; height: 100%; display: block; object-fit: contain; object-position: center;  border-radius: 6px; }
+.variant-card b { display: block; margin-bottom: 4px; font-size: var(--fs-label); line-height: 1.45; font-weight: 800; }
+.variant-card span { display: block; font-size: var(--fs-label); line-height: 1.42; color: var(--text-content); }
+.flow-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.flow-step { position: relative; padding: 12px 10px; border: 1px solid var(--line); background: #fff; min-height: 94px; }
+.flow-step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -11.5px; width: 12px; height: 1px; background: var(--border-connector); }
+.flow-step b { display: block; margin-bottom: 9px; font-size: var(--fs-label-sm); color: var(--sub); font-weight: 700; }
+.flow-step strong { display: block; font-size: var(--fs-body); line-height: 1.45; font-weight: 800; }
+.flow-step span { display: block; margin-top: 6px; font-size: var(--fs-label); line-height: 1.55; color: #555; }
+.youth-page .flow-step:first-child { background: var(--soft); color: var(--text-muted); }
+.youth-page .flow-step:first-child strong, .youth-page .flow-step:first-child span { color: var(--text-muted); }
+.youth-page .project-content>.wire-panel { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.youth-evidence { display: flex; flex: 1; flex-direction: column; min-height: 0; margin-top: var(--space-4); }
+.youth-evidence-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.6fr .7fr .7fr; grid-template-rows: minmax(0, 1fr); gap: var(--space-2); align-items: stretch; }
+.youth-evidence-card { display: flex; flex-direction: column; min-width: 0; min-height: 0; margin: 0; }
+.youth-evidence-card img { display: block; width: 100%; height: 0; min-height: 0; flex: 1; background: var(--surface-default); object-fit: contain; object-position: top center; padding: 2px; border: 1px solid var(--border-default); border-radius: 6px; }
+.youth-evidence-stack { display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: var(--space-2); min-height: 0; }
+.youth-evidence-card figcaption { margin-top: var(--space-1); font-size: var(--fs-label); line-height: 1.4; color: var(--text-content); }
+.booking-journey { display: grid; gap: 12px; }
+.booking-screen { position: relative; padding: var(--space-1) var(--space-3); border: 1px solid var(--project-panel-border); background: var(--project-surface); }
+.booking-screen .image-wrap { width: 100%; overflow: hidden; border-radius: 6px; }
+.airseoul-page .booking-screen:first-child .image-wrap { min-height: 141px; }
+.airseoul-page .booking-screen:last-child .image-wrap { min-height: 101px; }
+.booking-screen img { display: block; width: 100%; height: 100%; border-radius: 6px; object-fit: contain; object-position: top; }
+.booking-screen:not(:last-child)::after { content: ""; position: absolute; bottom: -13px; right: 50%; width: 1px; height: 13px; background: var(--border-connector); }
+.booking-screen .num { font-size: 9px; color: var(--sub); font-weight: 700; }
+.booking-screen .title { margin: 6px 0 9px; font-size: var(--fs-label-lg); font-weight: 800; }
+.state-note { grid-column: span 2; padding: 14px var(--project-state-padding); border: 1px solid var(--project-panel-border); background: var(--project-surface); font-size: var(--fs-label); line-height: var(--project-state-line); color: var(--project-body-color); }
+.state-note b { font-weight: 800; }
+.fragfarm-flow { display: grid; flex: 1 1 0; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: var(--space-2); min-height: 0; overflow: hidden; }
+.fragfarm-flow-set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto minmax(0, 1fr); gap: var(--space-3) 0; min-height: 0; overflow: hidden; }
+.fragfarm-flow-set:last-child { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fragfarm-flow-title { grid-column: 1 / -1; }
+.fragfarm-flow-title { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-body-lg); font-weight: 800; }
+.fragfarm-flow-title b { color: var(--accent-blue); }
+.fragfarm-flow-shot { display: grid; grid-template-rows: minmax(0, 1fr) auto; min-width: 0; min-height: 0; margin: 0; }
+.fragfarm-flow-shot img { display: block; width: 100%; height: 100%; min-height: 0; border: 1px solid var(--border-default); border-radius: 6px; background: var(--surface-default); object-fit: contain; object-position: top center; }
+.fragfarm-flow-shot:first-of-type img { border-radius: 6px 0 0 6px; }
+.fragfarm-flow-shot+.fragfarm-flow-shot img { border-left: 0; border-radius: 0; }
+.fragfarm-flow-shot:last-child img { border-radius: 0 6px 6px 0; }
+.fragfarm-flow-shot figcaption { min-block-size: 2lh; margin-top: var(--space-1); font-size: var(--fs-label); line-height: 1.4; color: var(--text-content); }
+.daisomall-content { display: flex; gap: var(--space-6); flex-direction: column; overflow: hidden; }
+.daiso-overview { display: block; }
+.daiso-overview .compact-overview { margin-top: 11px; }
+.daisomall-content>.architecture-panel { flex: 0 0 auto; }
+.daisomall-content .variant-section, .daisomall-content .variant-vertical, .daisomall-content .variant-card, .daisomall-content .variant-thumb { min-height: 0; }
+.daisomall-content .variant-vertical { grid-template-rows: minmax(0, 1fr) minmax(0, 1.1fr); overflow: hidden; }
+.simple-architecture { display: grid; grid-template-columns: .76fr .88fr 1.08fr 1.12fr 1.3fr 1.22fr; gap: 9px; align-items: stretch; }
+.arch-column { position: relative; min-height: 118px; padding: var(--space-3); border: 1px solid var(--border-default); background: var(--surface-default); display: flex; flex-direction: column; gap: var(--space-1); }
+.arch-column:not(:last-child)::after { content: ""; position: absolute; right: -10px; top: 50%; width: 9px; height: 1px; background: #c7ced5; }
+.arch-column>b { font-size: var(--fs-label-sm); letter-spacing: .06em; color: var(--blue); }
+.arch-column strong { font-size: var(--fs-label); line-height: 1.35; font-weight: 700; overflow-wrap: normal; word-break: normal; }
+.arch-column span { font-size: var(--fs-label); line-height: 1.4; color: #626b75; }
+.arch-stack strong+span+strong { margin-top: 5px; padding-top: 5px; border-top: 1px solid var(--border-default); }
+.arch-highlight { background: var(--surface-tint); border-color: var(--blue-line); }
+.ui-files-label { margin: 10px 0 6px; color: var(--navy); font-size: var(--fs-label); font-weight: 800; }
+.ui-files { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-2); }
+.ui-files>div { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-3); border: 1px solid var(--border-default); background: var(--surface-default); }
+.ui-files b { display: block; color: var(--navy); font-size: var(--fs-label); }
+.ui-files span { font-size: var(--fs-label); line-height: 1.4; color: var(--text-tertiary); }
+.variant-section { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.meta-card+.meta-card { padding-left: var(--space-5); border-left: 1px solid var(--project-panel-border); }
+.overview-card+.overview-card { border-left: 1px solid var(--project-tint-border); }
+.project-copy { width: 100%; }
+.project-copy-full { width: 100%; }
+
+/* Project detail pages (06–08): only page-specific token overrides */
+.project-detail-page .project-content>.section-block { margin-top: auto; }
+.project-detail-page.airseoul-page { gap: 9px; --project-section-gap: var(--space-2); --project-impact-padding: 9px 11px; --project-overview-body-size: 10.1px; --project-booking-block-height: 15px; --project-booking-block-gap: 5px; --project-booking-tall-height: 58px; --project-state-padding: 8px 10px; --project-code-min-height: 145px; --project-code-size: 9.5px; --project-code-line: 1.62; --hero-panel-offset: 0; }
+.airseoul-page .section-block { flex: 1 1 0; grid-template-rows: minmax(0, 1fr) minmax(0, .16fr); }
+.airseoul-page .section-block>.code-panel, .airseoul-page .section-visual { min-height: 0; }
+.airseoul-page .state-note { grid-column: 1 / -1; grid-row: 2; height: 100%; }
+
+/* Accessibility / Contact */
+.access-main { height: auto; min-height: 0; padding-bottom: 0; display: flex; flex: 1; flex-direction: column; }
+.audit-table { width: 100%; border-collapse: collapse; font-size: var(--fs-label); border-top: 1px solid var(--line); }
+.audit-table th, .audit-table td { padding: 8px 4px; border-bottom: 1px solid var(--line); text-align: left; }
+.audit-table th { font-weight: 700; color: var(--sub); }
+.pass { font-weight: 800; }
+.remaining { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: var(--fs-label); line-height: 1.65; color: #444; }
+.contact-final { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; margin-top: var(--space-2); padding-top: 18px; border-top: 1px solid var(--line); }
+.contact-final h2 { margin-bottom: 12px; font-size: var(--fs-section-title); line-height: 1.45; letter-spacing: -.04em; font-weight: 850; }
+.selected-list { border-top: 1px solid var(--line); }
+.selected-row { display: grid; grid-template-columns: 106px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.selected-row b { font-size: var(--fs-label-lg); font-weight: 800; }
+.selected-row span { font-size: var(--fs-label-lg); line-height: 1.5; color: #555; }
+.final-links { margin-top: 10px; font-size: var(--fs-label-lg); line-height: 1.75; color: #444; }
+.final-qr { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.final-qr img { width: 145px; height: 145px; object-fit: contain; }
+.final-qr b { margin-top: 8px; font-size: var(--fs-label-sm); letter-spacing: .11em; text-transform: uppercase; }
+.final-qr span { margin-top: 5px; font-size: var(--fs-label-sm); line-height: 1.45; color: var(--sub); }
+.confirmation-final { margin-top: auto; font-size: var(--fs-label-sm); color: var(--sub); text-align: center; }
+.access-main .section-heading { margin-bottom: 17px; }
+.access-process-section { margin-top: 2px; }
+.process-title-row, .access-subhead { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 9px; }
+.process-title-row h2, .access-subhead h2 { font-size: var(--fs-body-lg); line-height: 1.4; font-weight: 850; }
+.process-title-row p, .access-subhead p { font-size: var(--fs-label); line-height: 1.55; color: var(--muted); text-align: right; }
+.process-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.process-step { padding: 12px 12px 13px; min-height: 75px; }
+.process-step+.process-step { border-left: 1px solid var(--line); }
+.process-step b { display: block; margin-bottom: 5px; font-size: var(--fs-label-sm); color: var(--accent-blue); }
+.process-step strong { display: block; margin-bottom: 4px; font-size: var(--fs-label-lg); line-height: 1.4; }
+.process-step span { display: block; font-size: var(--fs-label); line-height: 1.5; color: #555; }
+.access-detail-layout { display: grid; gap: 26px; margin-top: 22px; }
+.practice-list { border-top: 1px solid var(--line); }
+.practice-row { display: grid; grid-template-columns: 72px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.practice-row b { font-size: var(--fs-label-sm); line-height: 1.5; }
+.practice-row span { font-size: var(--fs-label); line-height: 1.62; color: #444; }
+.access-results { padding: 0; border: 0; background: transparent; }
+.access-results .remaining { display: flex; flex-direction: column; gap: 4px; margin-top: 12px; padding: 10px 11px; border: 1px solid var(--box-line); background: var(--box); font-size: var(--fs-label); line-height: 1.55; }
+
+/* Accessibility / contact page (09): same token vocabulary as project details */
+.access-page { --access-border: var(--border-default); --access-tint-border: var(--border-tint); --access-tint-surface: var(--surface-tint); --access-body-color: var(--text-body); --access-muted-color: var(--text-muted); }
+.access-page .section-heading p, .access-page .process-title-row p, .access-page .access-subhead p { color: var(--access-muted-color); }
+.access-page .process-strip, .access-page .practice-list, .access-page .selected-list, .access-page .contact-final, .access-page .audit-table { border-color: var(--access-border); }
+.access-page .process-step + .process-step, .access-page .practice-row, .access-page .selected-row, .access-page .audit-table th, .access-page .audit-table td { border-color: var(--access-border); }
+.access-page .access-results .remaining { border-color: var(--access-tint-border); background: var(--access-tint-surface); }
+.access-page .remaining, .access-page .practice-row span, .access-page .selected-row span, .access-page .final-links { color: var(--access-body-color); }
+
+/* Print / Responsive */
+@media print {
+  html, body { width: 100%; max-width: 100%; margin: 0; padding: 0; }
+  .page {
+    width: 199mm;
+    height: 285mm;
+    min-height: 285mm;
+    max-height: 285mm;
+    margin: 0 auto;
+    padding: 9mm 9.5mm 4mm;
+    overflow: hidden;
+    box-shadow: none;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page:not(:last-of-type) { break-after: page; page-break-after: always; padding-bottom: 0; }
+  .page:last-of-type { break-after: auto !important; page-break-after: auto !important; }
+  .print-control { display: none; }
+  html, body, .page { background: #fff; }
+}
+@page { size: A4 portrait; margin: 5mm; }
+@media (max-width:900px) {
+  .print-control { display: none; }
+  body { overflow-x: auto; }
+  .page { margin: 0 auto 18px; }
+}
+</style>
+</head>
+<body>
+<div class="print-control"><span>A4 · 9 pages</span><button onclick="window.print()" type="button">인쇄 / PDF 저장</button></div>
+<template id="icons">
+</template>
+<section class="page">
+<header class="page-header"><span>01 / 09</span><span>WEB PUBLISHER · RESUME 2026</span></header>
+<main class="cover-main">
+<div class="cover-role">Web Publisher</div>
+<h1 class="cover-title">숨은 요구사항을 발굴하고,<br>문제 해결을 위해 능동적으로 소통합니다.</h1>
+<p class="cover-statement">질문과 관찰로 기획·디자인 이면의 의도를 읽어내고,<br>직관적인 화면 구조와 매끄러운 사용자 흐름을 만듭니다.</p>
+<div class="cover-info">
+<div aria-label="연락처 정보" class="contact-list">
+<div class="contact-row"><span class="contact-label">Name</span><span class="contact-value">조수연</span></div>
+<div class="contact-row"><span class="contact-label">Position</span><span class="contact-value">웹 퍼블리셔</span></div>
+<div class="contact-row"><span class="contact-label">Email</span><a class="contact-value" href="mailto:suyeonn113@naver.com">suyeonn113@naver.com</a></div>
+<div class="contact-row"><span class="contact-label">Phone</span><a class="contact-value" href="tel:01085322068">010-8532-2068</a></div>
+<div class="contact-row"><span class="contact-label">Portfolio</span><a class="contact-value" href="https://suyeonn-portfolio.vercel.app/">suyeonn-portfolio.vercel.app</a></div>
+</div>
+<a aria-label="포트폴리오 사이트 열기" class="qr-area" href="https://suyeonn-portfolio.vercel.app/">
+<img alt="조수연 포트폴리오 QR 코드" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4AQAAAADpqhamAAABhElEQVR4nOWZy47DMAwDOUX+/5dnD37EBRZ7s9VNW7R1xUMoh6YlB/Pn6/U3/O/xOH/VtK8lWs1vN371XEkQSdIiPVrN7wQOZNxygoYZ/QR+Z3BElBD8Bd99/Rr8miNpn7w5YjW/E/n3hA1OCxjRan4n/f/t3aPV/Hbj91InIjGsS6Ca336cQABNmHHSgHp+e3Fa1iP3dQ5MeLz+XyEqJJo+FybRgB/Aby8+/M446r5eAKt+h/9h6PWuQSJNCtbzO5D/rHlG9m3Q1kI1v/36d3Q76qL+ZgePz/+V0BIPtOUwtBDzfP+7QnCWPI4ZGJZQze+M/qfec/9pS6Ka34n9fx59tLno5o/f4P/XFH4IMa4uUM/vgP670895WHrC5+t/7f/6EYjI7Aeq+R3s/6OLDJoRPj7/5fw39FKoFYHJN/R/o9u7OyAXDTz//t84aQZA+k6IX3D+fy3j3gh1+2ulYDW/E/jdAo1dgPE86CP47cSveeDF/dgrmcfg1fzO7f8116/GfwArnOR8gRHNqgAAAABJRU5ErkJggg=="/>
+<span class="qr-label">SCAN THE QR CODE</span>
+</a>
+</div>
+<div class="cover-index">
+<div class="index-title">Contents</div>
+<div class="index-grid">
+<div class="index-item"><span class="index-no">01</span><span class="index-name">기본 이력 및 경력</span></div>
+<div class="index-item"><span class="index-no">02</span><span class="index-name">자기소개서</span></div>
+<div class="index-item"><span class="index-no">03</span><span class="index-name">프로젝트 요약</span></div>
+</div>
+</div>
+</main>
+
+</section>
+<section class="page">
+<header class="page-header"><span>02 / 09</span><span>01. BASIC INFO &amp; EXPERIENCE</span></header>
+<main class="basic-main">
+<div class="section-heading"><span class="eyebrow">01</span><h1>기본 이력 및 경력</h1></div>
+<div class="intro-band">
+<div class="intro-block"><span class="label">Role Summary</span><p class="intro-summary">시맨틱 마크업 · 사용자 흐름 연결 · 웹 접근성 준수 · 직관적 UI</p></div>
+<div class="intro-block"><span class="label">Technical Skills</span><p class="skill-line">HTML5 · CSS3 · SCSS · JavaScript · React · PHP<br/>MySQL · Git · Figma · Vercel · Accessibility</p></div>
+</div>
+<div class="basic-stack">
+<section>
+<div class="content-section-title"><h2>경력</h2></div>
+<div class="records">
+<article class="record"><div class="record-date">2024.05 – 2025.07<br/>(1년 3개월)</div><div class="record-main"><strong>주식회사 언더스타서울 서교점</strong><span>매장 운영 사원</span></div><p class="record-desc">내·외국인 고객 응대와 맞춤 상품 제안, 상품 진열·재고 관리 및 매장 운영을 담당했습니다.</p></article>
+<article class="record"><div class="record-date">2023.12 – 2024.04<br/>(5개월)</div><div class="record-main"><strong>주식회사 아이아이컴바인드</strong><span>면세점 매장 운영 사원</span></div><p class="record-desc">내·외국인 고객 제품 안내와 판매, 상품 진열 및 매장 환경 관리를 담당했습니다.</p></article>
+<article class="record"><div class="record-date">2023.05 – 2023.09<br/>(5개월)</div><div class="record-main"><strong>마포청소년문화의집</strong><span>특화사업팀 사원</span></div><p class="record-desc">학교 연계 과학·창의 진로체험 프로그램 운영, 일정 조율, 현장 안전 관리 및 행정 지원을 수행했습니다.</p></article>
+</div>
+</section>
+<section>
+<div class="content-section-title"><h2>교육</h2></div>
+<div class="records education-records">
+<article class="record">
+<div class="record-date">2025.12 – 2026.06</div>
+<div>
+<div class="education-head"><strong>UI/UX 웹퍼블리셔 · 프론트엔드 실무과정 (950시간)</strong><span class="education-meta">그린컴퓨터아카데미 신촌</span></div>
+<ul class="course-details">
+<li>Figma·Photoshop 기반 UI/UX 기획 및 화면 설계</li>
+<li>HTML5·CSS3·SCSS·JavaScript 기반 반응형 웹 구현</li>
+<li>React와 PHP·MySQL 기반 개인·팀 프로젝트 수행</li>
+<li>시맨틱 마크업, 키보드 조작, 포커스, 대체 텍스트 점검</li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+<section>
+<div class="content-section-title"><h2>학력</h2></div>
+<div class="records education-records">
+<article class="record"><div class="record-date">2019.03 – 2023.02</div><div><div class="education-head"><span class="school-name">명지대학교 청소년지도학과 졸업</span><span class="education-meta">학점 4.29 / 4.5</span></div></div></article>
+</div>
+</section>
+<section>
+<div class="content-section-title"><h2>자격</h2></div>
+<div class="cert-grid">
+<div class="cert-row"><span class="year">2024.03</span><span class="name">GTQ 1급</span></div>
+<div class="cert-row"><span class="year">2023.12</span><span class="name">3급 청소년상담사</span></div>
+<div class="cert-row"><span class="year">2022.12</span><span class="name">2급 청소년지도사</span></div>
+</div>
+</section>
+</div>
+</main>
+
+</section>
+<section class="page">
+<header class="page-header"><span>03 / 09</span><span>02. SELF INTRODUCTION</span></header>
+<main class="self-main">
+<div class="section-heading"><span class="eyebrow">02</span><h1>자기소개서</h1></div>
+<section class="hero-stack">
+<div class="hero-label">INTRODUCTION</div>
+<h2 class="hero-title">기획 이면의 의도를<br>직관적인 화면 구조와 매끄러운 사용 흐름으로 연결합니다.</h2>
+<div class="hero-copy">
+<p>지인들과 소규모 패션 브랜드 론칭을 준비하며 홈페이지 제작을 맡았던 경험이 웹 퍼블리셔를 선택한 계기였습니다. 제품을 소개하는 화면이 단순한 정보 배치를 넘어, 브랜드의 분위기와 정보의 순서, 사용자의 구매 경험을 잇는 가장 중요한 접점임을 배웠습니다.</p>
+<p>그 경험 이후 운영자의 기획 의도를 탄탄한 구조로 정리하고, 사용자가 실제 서비스에서 막힘없이 이용할 수 있는 화면으로 구현하는 것을 목표로 삼았습니다. 950시간의 실무 훈련과정에서는 React와 PHP·MySQL 기반 프로젝트를 수행하며 기획, 마크업, 스타일링, 상호작용, 웹 접근성 점검, 배포까지 퍼블리싱의 전체 흐름을 완결성 있게 경험했습니다.</p>
+<p>전달된 요청에 머무르지 않고 질문과 관찰을 통해 숨은 요구사항과 기준을 찾아내며, 팀 전체가 명확히 이해할 수 있는 시맨틱 구조로 바꿉니다. 운영자에게는 관리하기 쉽고, 사용자에게는 망설임 없는 경험을 제공하는 웹 퍼블리셔로 성장하고 있습니다.</p>
+</div>
+</section>
+<section class="principles-wrap">
+<div class="principles-head"><h2>작업할 때 지키는 3가지 원칙</h2><p>요청을 구현 가능한 기준으로 바꾸고, 오래 사용할 수 있는 구조로 정리하며, 실제 동작까지 끝까지 확인합니다.</p></div>
+<div class="principle-list">
+<article class="principle"><span class="num">01</span><h3>화면을 만들기 전에, 필요한 이유부터 묻습니다.</h3><p>처음 전달받은 요청만으로 답을 정하지 않습니다. 누가 이 화면을 사용하고, 어떤 상황에서 어려움을 느끼며, 운영자는 무엇을 해결하고 싶은지 질문합니다. 매장에서 고객의 시선과 반응을 살피며 말로 표현되지 않은 필요까지 파악했던 경험은 지금도 화면의 기준을 찾는 출발점이 됩니다.</p><p>요청의 배경이 보이면 기능의 우선순위와 정보의 순서도 분명해집니다. 그래서 디자인을 그대로 옮기는 데 머무르지 않고, 사용 목적이 자연스럽게 읽히는 구조로 정리한 뒤 구현을 시작합니다.</p></article>
+<article class="principle"><span class="num">02</span><h3>한 번 보이는 화면보다, 계속 쓰일 구조를 생각합니다.</h3><p>좋은 화면은 특정 해상도에서만 완성되는 결과물이 아니라, 내용이 바뀌고 기능이 늘어나도 같은 기준으로 확장될 수 있어야 한다고 생각합니다. 반복되는 UI는 역할에 맞게 나누고, 시맨틱 마크업과 일관된 스타일 규칙을 사용해 다음 작업에서도 이해하기 쉬운 구조를 만듭니다.</p><p>반응형 레이아웃과 키보드 이동, 포커스 상태, 대체 텍스트 같은 접근성 항목도 마지막 점검이 아니라 설계의 일부로 다룹니다. 작은 기준을 초기에 함께 세우는 것이 수정 비용을 줄이고, 팀이 더 안정적으로 화면을 운영하는 방법이라고 배웠습니다.</p></article>
+<article class="principle"><span class="num">03</span><h3>의도를 실제 동작으로 연결하고, 끝까지 확인합니다.</h3><p>구현의 완성은 코드가 작성된 순간이 아니라 사용자가 흐름을 막힘없이 통과했을 때라고 생각합니다. 링크와 버튼의 상태, 입력과 오류 상황, 모바일에서의 터치 영역처럼 실제 이용 과정에서 만나는 장면을 확인하며 화면의 의도와 동작이 어긋나지 않는지 점검합니다.</p><p>협업할 때는 결정된 기준과 변경 이유를 공유하고, 서로 다른 요구가 생기면 목적을 중심으로 우선순위를 다시 맞춥니다. 운영자에게는 관리하기 쉬운 화면을, 사용자에게는 이해하기 쉬운 경험을 남기는 것이 제가 만들고 싶은 결과입니다.</p></article>
+</div>
+</section>
+</main>
+
+</section>
+<section class="page">
+<header class="page-header"><span>04 / 09</span><span>03. PROJECT MAP</span></header>
+<main class="map-main">
+<div class="section-heading"><span class="eyebrow">03</span><h1>Project Map</h1><p class="lead-hero">프로젝트를 이해할 때는 먼저 의도와 문제를 읽고, 구현할 때는 재사용 가능한 구조를 만들며, 마무리 단계에서는 접근성과 실제 동작을 함께 검증합니다.</p></div>
+<ol class="work-grid">
+  <li class="work-step"><span class="step-no" aria-hidden="true">①</span><h3 class="step-title"><span class="visually-hidden">1단계: </span>목적과 의도 파악</h3><p class="step-desc">브랜드 의도와 사용자 목적 파악</p></li>
+  <li class="work-step"><span class="step-no" aria-hidden="true">②</span><h3 class="step-title"><span class="visually-hidden">2단계: </span>재사용 가능한 구조 설계</h3><p class="step-desc">컴포넌트 분리와 확장 가능한 코드</p></li>
+  <li class="work-step"><span class="step-no" aria-hidden="true">③</span><h3 class="step-title"><span class="visually-hidden">3단계: </span>접근성 검증</h3><p class="step-desc">시맨틱 · 키보드 · 자동/수동 검증</p></li>
+</ol>
+<div class="project-map">
+<article class="map-row"><div><h3>DAISOMALL</h3><div class="sub">Commerce renewal</div></div><div class="sub">팀 프로젝트</div><p>React 구조·컴포넌트 설계·반응형·접근성 개선 주도</p></article>
+<article class="map-row"><div><h3>AIR SEOUL</h3><div class="sub">Airline booking service</div></div><div class="sub">개인 프로젝트</div><p>UI 기획 · 비주얼 방향 · React 예약 상태·컴포넌트 연결</p></article>
+<article class="map-row"><div><h3>시립서울청소년센터</h3><div class="sub">Public service</div></div><div class="sub">개인 프로젝트</div><p>UI 기획 · 정보구조 · 온라인 신청·수정·취소 흐름 · 반응형 구현</p></article>
+<article class="map-row"><div><h3>FRAGFARM</h3><div class="sub">Mobile fashion commerce</div></div><div class="sub">개인 프로젝트</div><p>UI 기획 · 상품 탐색 · 위시·카트 연결 · 상품 문의·마이페이지 흐름 구현</p></article>
+</div>
+</main>
+
+</section>
+<section class="page project-page daisomall-page">
+<header class="page-header"><span>05 / 09</span><span>PROJECT 01 · DAISOMALL</span></header>
+<div class="project-banner"><h1><span>PROJECT 01.</span>DAISOMALL — Reusable Commerce UI</h1><div class="project-tag">TEAM · REACT COMMERCE</div></div>
+<main class="project-content daisomall-content">
+<section class="daiso-overview">
+<div class="project-copy project-copy-full">
+<span class="eyebrow">Project Overview</span>
+<h2>반복 가능한 상품 UI 구조로 정리한 커머스 리뉴얼</h2>
+<p class="project-summary">모바일과 PC 화면이 분리되어 있던 기존 구조를 하나의 React 기반 반응형 구조로 통합하고, 상품 데이터·서비스·Hook·View·UI 역할을 나눠 반복되는 상품 카드를 재사용 가능한 구조로 정리했습니다.</p>
+<div class="role-lines">
+<div class="meta-card"><span class="meta-label">기본 정보</span><b>팀 프로젝트 · React · React Router · SCSS</b></div>
+<div class="meta-card"><span class="meta-label">주도 역할</span><b>React 구조 설계 · ProductCard 공통화 · 접근성 개선</b></div>
+</div>
+</div>
+<div class="overview-grid four compact-overview">
+<div class="overview-card"><div class="card-title"><span class="icon icon-problem"></span><b>문제</b></div><p>모바일·PC 구조가 분리되고 화면별 상품 UI를 반복 작성해 확장성과 유지보수 비용이 컸습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-solution"></span><b>해결</b></div><p>상품 데이터·서비스·Hook·View·UI 책임을 분리하고 공통 ProductCard와 Variant 규칙을 설계했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-build"></span><b>구현</b></div><p>데이터, 조회 로직, 화면 조합, 카드 UI를 역할별 파일로 나누고 하나의 반응형 구조로 연결했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-result"></span><b>결과</b></div><p>추천·랭킹·검색에 동일 상품 데이터를 재사용하고 새로운 탐색 화면을 확장할 기준을 확보했습니다.</p></div>
+</div>
+<div class="impact-box"><div class="impact-title"><span class="icon icon-spark"></span><b>기대 효과 (Expected Impact)</b></div><ul><li>공통 ProductCard 재사용으로 추천·랭킹·검색 화면 구현 속도 향상</li><li>디자인 토큰 중앙 관리로 스타일 일관성 확보 및 수정 범위 축소</li><li>단일 반응형 구조로 모바일·태블릿·데스크톱 유지보수 효율 향상</li></ul></div>
+</section>
+<section class="wire-panel architecture-panel">
+<div class="panel-title"><span>간소화한 구조도</span><span class="panel-sub">DATA → SERVICE → HOOKS → VIEW → LIST → UI</span></div>
+<div class="simple-architecture">
+<div class="arch-column"><b>DATA</b><strong>products.js</strong><span>상품 원본 데이터</span></div>
+<div class="arch-column"><b>SERVICE</b><strong>productService.js</strong><span>상품 조회·가공</span></div>
+<div class="arch-column arch-stack"><b>HOOKS</b><strong>useProducts.js</strong><span>일반 상품 연결</span><strong>useRanking<br>Products.js</strong><span>랭킹 상품 연결</span></div>
+<div class="arch-column arch-stack"><b>VIEW</b><strong>Recommend / Ranking</strong><span>홈 화면 조합</span><strong>SearchResultsView</strong><span>검색 결과 조합</span></div>
+<div class="arch-column"><b>LIST</b><strong>ProductCardList.jsx</strong><span>문맥별 카드 목록 출력</span></div>
+<div class="arch-column arch-highlight"><b>UI</b><strong>ProductCard.jsx</strong><span>상품 카드 조합과 Variant 제어</span></div>
+</div>
+<div class="ui-files-label">ProductCard 내부 구성</div>
+<div class="ui-files">
+<div><b>Image</b><span>상품 이미지</span></div><div><b>Info</b><span>가격·이름·평점</span></div><div><b>Label</b><span>구매량·신상</span></div><div><b>Delivery Badge</b><span>배송 옵션</span></div><div><b>SCSS</b><span>레이아웃·상태</span></div>
+</div>
+</section>
+<section class="variant-section">
+<div class="panel-title"><span>ProductCard Variant 3종</span><span class="panel-sub">하나의 카드 구조를 화면 문맥에 맞게 조합</span></div>
+<div class="variant-vertical">
+<article class="variant-card"><div class="variant-thumb"><img src="resume-assets/daisomall-card-vertical-default.png" alt="추천 카드"> </div><div><b>01 · Recommend Card</b><span>추천 화면 문맥에 맞춘 이미지·가격·프로모션 라벨 조합</span></div></article>
+<article class="variant-card"><div class="variant-thumb"><img src="resume-assets/daisomall-card-horizontal-ranked.png" alt="랭킹 카드"> </div><div><b>02 · Ranking Card</b><span>순위 배지와 핵심 메타 정보를 우선하는 랭킹형 카드</span></div></article>
+<article class="variant-card"><div class="variant-thumb"><img src="resume-assets/daisomall-card-horizontal-search.png" alt="검색 결과 카드"> </div><div><b>03 · Search Result Card</b><span>필터·검색 결과 목록에서 비교하기 쉬운 정보 구조</span></div></article>
+</div>
+</section>
+</main>
+
+</section>
+<section class="page project-page project-detail-page airseoul-page">
+<header class="page-header"><span>06 / 09</span><span>PROJECT 02 · AIR SEOUL</span></header>
+<div class="project-banner"><h1><span>PROJECT 02.</span>AIR SEOUL — Connected Booking State</h1><div class="project-tag">PERSONAL · REACT BOOKING</div></div>
+<main class="project-content">
+<div class="hero-split">
+<div class="project-copy">
+<span class="eyebrow">Project Overview</span>
+<h2>특가 발견부터 예약 확인까지 연결한 항공 예약 흐름</h2>
+<p class="project-summary">특가 콘텐츠와 실제 예약 조건·선택 과정이 분리되어 있던 흐름을 하나의 여정으로 연결했습니다. 홈 검색 조건을 URL 파라미터로 전달하고, 날짜·항공편·운임 선택 상태와 여정 요약을 함께 동기화해 예약 맥락이 끊기지 않도록 구성했습니다.</p>
+<div class="role-lines">
+<div class="meta-card"><span class="meta-label">기본 정보</span><b>개인 프로젝트 · React · React Router · SCSS</b></div>
+<div class="meta-card"><span class="meta-label">주요 역할</span><b>UI 기획 · 비주얼 방향 · 예약 상태·컴포넌트 연결</b></div>
+</div>
+<div class="overview-grid two">
+<div class="overview-card"><div class="card-title"><span class="icon icon-problem"></span><b>문제</b></div><p>특가 콘텐츠를 본 뒤 실제 예약 조건을 선택하는 과정이 끊겨 사용자가 현재 맥락을 잃기 쉬웠습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-solution"></span><b>해결</b></div><p>URL 파라미터와 공통 상태를 통해 특가 발견 → 운임 선택 → 여정 확인 흐름을 하나로 묶었습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-build"></span><b>구현</b></div><p>DateFareBar와 여정 요약, 항공편 선택 정보를 서로 연결하고 단계별 화면에 맞춰 상태를 갱신했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-result"></span><b>결과</b></div><p>특가 발견 → 운임 선택 → 여정 확인을 하나의 예약 흐름으로 연결해 사용자의 선택 맥락을 유지했습니다.</p></div>
+</div>
+<div class="impact-box"><div class="impact-title"><span class="icon icon-spark"></span><b>기대 효과 (Expected Impact)</b></div><ul><li>실시간 요금 합산 피드백으로 예약 이탈률 감소 기대</li><li>선택 조건과 여정 요약 상태 동기화로 사용자가 예약 맥락을 쉽게 파악</li><li>직관적인 화면 흐름 구성으로 운임 비교와 예약 확인 과정의 부담 완화</li></ul></div>
+</div>
+</div>
+<div class="section-block">
+<div class="code-panel">
+<div class="code-kicker"><span class="icon icon-code"></span>REACT STATE · 항공편 선택 및 운임 합계 동기화</div>
+<pre><span class="code-cmt">// React State 기반 항공편 선택 및 운임 합계 동기화</span>
+<span class="code-key">const</span> [<span class="code-var">selectedOutboundFlight</span>, <span class="code-fn">setSelectedOutboundFlight</span>] = <span class="code-fn">useState</span>(<span class="code-key">null</span>);
+<span class="code-key">const</span> [<span class="code-var">selectedInboundFlight</span>, <span class="code-fn">setSelectedInboundFlight</span>] = <span class="code-fn">useState</span>(<span class="code-key">null</span>);
+<span class="code-key">const</span> <span class="code-fn">handleOutboundDateSelect</span> = (<span class="code-var">date</span>) =&gt; {
+  <span class="code-fn">setSelectedOutboundDate</span>(date);
+  <span class="code-fn">setSelectedOutboundFlight</span>(<span class="code-key">null</span>);
+};
+<span class="code-key">const</span> <span class="code-fn">handleInboundDateSelect</span> = (<span class="code-var">date</span>) =&gt; {
+  <span class="code-fn">setSelectedInboundDate</span>(date);
+  <span class="code-fn">setSelectedInboundFlight</span>(<span class="code-key">null</span>);
+};
+<span class="code-key">const</span> <span class="code-var">selectedFares</span> = [selectedOutboundFlight, selectedInboundFlight]
+  .filter(<span class="code-key">Boolean</span>)
+  .map((<span class="code-var">selection</span>) =&gt; selection.flight?.fares?.[selection.fareKey])
+  .filter(<span class="code-key">Boolean</span>);
+<span class="code-key">const</span> <span class="code-var">isSelectionComplete</span> =
+  <span class="code-key">Boolean</span>(selectedOutboundFlight) &amp;&amp;
+  (!isRoundTrip || <span class="code-key">Boolean</span>(selectedInboundFlight));
+<span class="code-key">const</span> <span class="code-var">fareTotal</span> = selectedFares.reduce(
+  (<span class="code-var">total</span>, <span class="code-var">fare</span>) =&gt; total + fare.price,
+  0,
+);
+<span class="code-cmt">// 선택한 운임은 우측 '여정 및 운임' 영역에 즉시 반영</span>
+&lt;<span class="code-key">strong</span>&gt;{isSelectionComplete ? <span class="code-fn">formatKRW</span>(fareTotal) : <span class="code-str">'-'</span>}&lt;/<span class="code-key">strong</span>&gt;
+</pre>
+</div>
+<div class="section-visual">
+<div class="panel-title"><span>예약 흐름 화면</span></div>
+<div class="booking-journey">
+<div class="booking-screen"><div class="card-title"><div class="num">01</div><div class="title">특가 발견</div></div><div class="image-wrap"><img src="resume-assets/airseoul-promotion.png" alt="특가 항공권 발견"></div></div>
+<div class="booking-screen"><div class="card-title"><div class="num">02</div><div class="title">운임 선택 및 여정 확인</div></div><div class="image-wrap"><img src="resume-assets/airseoul-promotion-choose.png" alt="운임 선택"></div></div>
+</div>
+</div>
+<div class="state-note"><b>상태 전달 구조</b><br/>Home Search Conditions → URL Params → Results / DateFareBar → Selected Fare &amp; Journey Summary → Confirmation View</div>
+</div>
+</div>
+</main>
+
+</section>
+<section class="page project-page project-detail-page youth-page">
+<header class="page-header"><span>07 / 09</span><span>PROJECT 03 · 시립서울청소년센터</span></header>
+<div class="project-banner"><h1><span>PROJECT 03.</span>시립서울청소년센터 — Online Application Flow</h1><div class="project-tag">PUBLIC SERVICE · PHP/MYSQL</div></div>
+<main class="project-content">
+<div class="hero-split">
+<div class="project-copy">
+<span class="eyebrow">Project Overview</span>
+<h2>프로그램 탐색부터 신청 관리까지 연결한 공공 청소년 웹 서비스</h2>
+<p class="project-summary">전화·방문에 의존하던 프로그램 신청 과정을 온라인 흐름으로 연결했습니다. 접수 중 프로그램 우선 노출 → 조건별 탐색 → 상세 → 온라인 신청 → 조회·수정·취소까지 홈페이지 안에서 완료 가능한 서비스 흐름을 설계하고, PHP·MySQL·JavaScript·SCSS로 구현했습니다.</p>
+<div class="role-lines">
+<div class="meta-card"><span class="meta-label">기본 정보</span><b>개인 프로젝트 · PHP · MySQL · JavaScript · SCSS</b></div>
+<div class="meta-card"><span class="meta-label">주요 역할</span><b>UI 기획 · 정보구조 · 온라인 신청 흐름 · 반응형 구현</b></div>
+</div>
+<div class="overview-grid two">
+<div class="overview-card"><div class="card-title"><span class="icon icon-problem"></span><b>문제</b></div><p>전화·방문 중심 신청 방식으로 대기 시간이 길고, 사용자별 기기 환경 차이에 대응하기 어려웠습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-solution"></span><b>해결</b></div><p>접수 중 프로그램 우선 노출, 조건별 탐색, 상세, 온라인 신청, 조회·수정·취소로 이어지는 흐름을 설계했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-build"></span><b>구현</b></div><p>PHP·MySQL·JavaScript·<br>SCSS로 프로그램 데이터와 신청 관리 흐름을 연결하고 반응형 화면을 구성했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-result"></span><b>결과</b></div><p>프로그램 탐색부터 신청 관리까지 홈페이지 안에서 완료 가능한 온라인 신청 서비스를 구현했습니다.</p></div>
+</div>
+<div class="impact-box"><div class="impact-title"><span class="icon icon-spark"></span><b>기대 효과 (Expected Impact)</b></div><ul><li>온라인 직접 신청 전환을 통한 전화 문의 대기 시간 감소 기대</li><li>스크린리더 및 키보드 탐색 환경 제공으로 정보 접근성 향상</li><li>모바일 맞춤 레이아웃으로 청소년 모바일 접속자 이용 편의 증대</li></ul></div>
+</div>
+</div>
+<div class="wire-panel">
+<div class="panel-title"><span>서비스 흐름</span></div><div class="flow-strip"><div class="flow-step"><b>01</b><strong>Before</strong><span>전화·방문 의존 접수</span></div><div class="flow-step"><b>02</b><strong>Discover</strong><span>접수 중 프로그램 우선 노출 및 조건 탐색</span></div><div class="flow-step"><b>03</b><strong>Apply</strong><span>상세 확인 후 온라인 신청</span></div><div class="flow-step"><b>04</b><strong>Manage</strong><span>조회 · 수정 · 취소 연결</span></div></div>
+<div class="wire-panel youth-evidence"><div class="panel-title"><span class="panel-sub">DISCOVER → DETAIL → APPLY → MANAGE</span></div><div class="youth-evidence-grid"><figure class="youth-evidence-card"><img src="resume-assets/youth-program-filtered.png" alt="청소년 프로그램 조건별 탐색 화면"><figcaption>조건별 프로그램 탐색</figcaption></figure><figure class="youth-evidence-card"><img src="resume-assets/youth-application-detail.png" alt="청소년 프로그램 상세 화면"><figcaption>프로그램 상세</figcaption></figure><div class="youth-evidence-stack"><figure class="youth-evidence-card"><img src="resume-assets/youth-application-form.png.png" alt="청소년 활동 신청서 화면"><figcaption>온라인 신청</figcaption></figure><figure class="youth-evidence-card"><img src="resume-assets/youth-application-manage.png" alt="청소년 신청 정보 수정 화면"><figcaption>신청 정보 관리</figcaption></figure></div></div></div>
+</div>
+</main>
+
+</section>
+<section class="page project-page project-detail-page fragfarm-page">
+<header class="page-header"><span>08 / 09</span><span>PROJECT 04 · FRAGFARM</span></header>
+<div class="project-banner"><h1><span>PROJECT 04.</span>FRAGFARM — Mobile Fashion Commerce</h1><div class="project-tag">PERSONAL · MOBILE COMMERCE</div></div>
+<main class="project-content">
+<div class="hero-split">
+<div class="project-copy">
+<span class="eyebrow">Project Overview</span>
+<h2>모바일 탐색, 구매, 문의 흐름을 끊기지 않게 정리한 패션 커머스</h2>
+<p class="project-summary">모바일 상품 탐색에서 정보 밀도와 구매·문의 흐름이 분리되지 않도록 URL 규칙, 공통 상품 카드, 위시·장바구니 상태, 상품 문의와 마이페이지 흐름을 함께 정리했습니다. 탐색 방식과 상태가 달라도 사용자가 현재 맥락을 쉽게 파악할 수 있도록 모바일 중심으로 설계했습니다.</p>
+<div class="role-lines">
+<div class="meta-card"><span class="meta-label">기본 정보</span><b>개인 프로젝트 · UI 기획 · 반응형 퍼블리싱</b></div>
+<div class="meta-card"><span class="meta-label">범위</span><b>상품 목록 · 상세 · 위시 · 카트 · 문의 · 마이페이지</b></div>
+</div>
+<div class="overview-grid two">
+<div class="overview-card"><div class="card-title"><span class="icon icon-problem"></span><b>문제</b></div><p>모바일 상품 탐색의 정보 밀도와 구매·문의 흐름이 분리되어 사용자가 이동 맥락을 잃기 쉬웠습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-solution"></span><b>해결</b></div><p>카테고리·정렬·보기 방식·페이지 상태를 URL 규칙으로 정리하고 공통 카드와 상태 연결을 재사용했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-build"></span><b>구현</b></div><p>1열/2열 목록, 상품 상세, 장바구니, 문의와 마이페이지 흐름을 각각 역할에 맞게 구성했습니다.</p></div>
+<div class="overview-card"><div class="card-title"><span class="icon icon-result"></span><b>결과</b></div><p>탐색 → 구매 → 문의 흐름이 자연스럽게 이어지고, 운영자와 사용자 모두 이해하기 쉬운 구조를 확보했습니다.</p></div>
+</div>
+<div class="impact-box"><div class="impact-title"><span class="icon icon-spark"></span><b>기대 효과 (Expected Impact)</b></div><ul><li>URL 기반 탐색 상태 정리로 카테고리·정렬·보기 방식 복원 용이</li><li>위시·카트 상태 연결로 탐색에서 구매까지의 흐름 이해도 향상</li><li>문의·마이페이지 흐름 분리로 사용자 관리와 운영 편의성 강화</li></ul></div>
+</div>
+</div>
+<section aria-label="프래그팜 서비스 흐름" class="fragfarm-flow">
+<div class="fragfarm-flow-set"><div class="fragfarm-flow-title"><b>01</b><span>탐색</span></div><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-product-list-1col.png.png" alt="프래그팜 모바일 상품 1열 목록"><figcaption>상품 1열 목록</figcaption></figure><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-product-list-2col.png.png" alt="프래그팜 모바일 상품 2열 목록"><figcaption>상품 2열 목록</figcaption></figure></div>
+<div class="fragfarm-flow-set"><div class="fragfarm-flow-title"><b>02</b><span>구매</span></div><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-cart.png.png" alt="프래그팜 장바구니 화면"><figcaption>장바구니 화면</figcaption></figure><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-wishlist.png.png" alt="프래그팜 위시리스트 화면"><figcaption>위시리스트 화면</figcaption></figure></div>
+<div class="fragfarm-flow-set"><div class="fragfarm-flow-title"><b>03</b><span>문의</span></div><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-my-page.png" alt="프래그팜 마이페이지 화면"><figcaption>마이페이지 화면</figcaption></figure><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-my-posts-qna.png.png" alt="프래그팜 문의 내역 화면"><figcaption>문의 내역 화면</figcaption></figure><figure class="fragfarm-flow-shot"><img src="resume-assets/fragfarm-my-posts-review.png" alt="프래그팜 리뷰 내역 화면"><figcaption>리뷰 내역 화면</figcaption></figure></div>
+</section>
+</main>
+
+</section>
+<section class="page access-page">
+<header class="page-header"><span>09 / 09</span><span>ACCESSIBILITY IN PRACTICE · CONTACT</span></header>
+<main class="access-main">
+<div class="section-heading"><span class="eyebrow">Accessibility in Practice</span><h1>접근성 적용과 검증 과정</h1><p>화면 구조와 상호작용에 접근성 기준을 반영하고, 자동 검사와 실제 키보드 사용으로 결과를 확인했습니다.</p></div>
+
+
+
+<section aria-label="접근성 검증 프로세스" class="access-process-section">
+<div class="process-title-row"><h2>검증 프로세스</h2><p>구조 설계부터 실제 사용 확인까지 같은 기준으로 반복합니다.</p></div>
+<div class="process-strip">
+<div class="process-step"><b>01</b><strong>Structure</strong><span>시맨틱 구조와 제목 체계</span></div>
+<div class="process-step"><b>02</b><strong>Interaction</strong><span>키보드 조작과 포커스 흐름</span></div>
+<div class="process-step"><b>03</b><strong>Audit</strong><span>Lighthouse·대비·레이블 점검</span></div>
+<div class="process-step"><b>04</b><strong>Verify</strong><span>주요 흐름 수동 재검증</span></div>
+</div>
+</section>
+<section class="access-detail-layout">
+<div class="access-practice">
+<div class="access-subhead"><h2>공통 적용 및 수동 점검</h2><p>3개 프로젝트의 데스크톱·모바일 환경을 총 6회 확인했습니다.</p></div>
+<div class="practice-list">
+<div class="practice-row"><b>구조</b><span>스킵 링크, 명확한 제목 단계, 의미에 맞는 시맨틱 마크업</span></div>
+<div class="practice-row"><b>상호작용</b><span>메뉴·모달·탭·아코디언·폼의 키보드 이동과 포커스 상태</span></div>
+<div class="practice-row"><b>상태 전달</b><span>색상에만 의존하지 않는 텍스트 안내와 오류·선택 상태 표현</span></div>
+<div class="practice-row"><b>콘텐츠</b><span>대체 텍스트, 폼 label, 링크·버튼 명칭, 색 대비 확인</span></div>
+</div>
+</div>
+<div class="access-results">
+<div class="access-subhead"><h2>검증 결과</h2><p>Accessibility 점수와 키보드 주요 흐름을 확인했습니다.</p></div>
+<table class="audit-table"><caption class="visually-hidden">프로젝트별 접근성 검증 결과</caption><thead><tr><th scope="col">프로젝트</th><th scope="col">Accessibility</th><th scope="col">키보드</th></tr></thead><tbody><tr><th scope="row">DAISOMALL</th><td class="pass">97</td><td class="pass">PASS</td></tr><tr><th scope="row">AIR SEOUL</th><td class="pass">97</td><td class="pass">PASS</td></tr><tr><th scope="row">청소년센터</th><td class="pass">93</td><td class="pass">PASS</td></tr></tbody></table>
+<div class="remaining"><b>다음 검증 과제</b><span>iframe title 보완 · 청소년센터 일부 명암비 조정 · 화면낭독기 검증 범위 확대</span></div>
+</div>
+</section>
+<div class="confirmation-final">위의 모든 기재사항은 사실과 다름없음을 확인합니다.</div>
+<div class="contact-final">
+<div>
+<h2> Projects / Contact</h2>
+<div class="selected-list">
+<div class="selected-row"><b>DAISOMALL</b><span>Commerce renewal · Reusable UI</span></div>
+<div class="selected-row"><b>AIR SEOUL</b><span>Airline booking service · Connected state</span></div>
+<div class="selected-row"><b>시립서울청소년센터</b><span>Public service · Online application flow</span></div>
+<div class="selected-row"><b>FRAGFARM</b><span>Mobile fashion commerce · Discovery to inquiry</span></div>
+</div>
+<div class="final-links">Portfolio · suyeonn-portfolio.vercel.app<br/>GitHub · github.com/suyeonn113<br/>Email · suyeonn113@naver.com</div>
+</div>
+<a aria-label="포트폴리오 QR 코드" class="final-qr" href="https://suyeonn-portfolio.vercel.app/"><img alt="조수연 포트폴리오 QR 코드" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4AQAAAADpqhamAAABhElEQVR4nOWZy47DMAwDOUX+/5dnD37EBRZ7s9VNW7R1xUMoh6YlB/Pn6/U3/O/xOH/VtK8lWs1vN371XEkQSdIiPVrN7wQOZNxygoYZ/QR+Z3BElBD8Bd99/Rr8miNpn7w5YjW/E/n3hA1OCxjRan4n/f/t3aPV/Hbj91InIjGsS6Ca336cQABNmHHSgHp+e3Fa1iP3dQ5MeLz+XyEqJJo+FybRgB/Aby8+/M446r5eAKt+h/9h6PWuQSJNCtbzO5D/rHlG9m3Q1kI1v/36d3Q76qL+ZgePz/+V0BIPtOUwtBDzfP+7QnCWPI4ZGJZQze+M/qfec/9pS6Ka34n9fx59tLno5o/f4P/XFH4IMa4uUM/vgP670895WHrC5+t/7f/6EYjI7Aeq+R3s/6OLDJoRPj7/5fw39FKoFYHJN/R/o9u7OyAXDTz//t84aQZA+k6IX3D+fy3j3gh1+2ulYDW/E/jdAo1dgPE86CP47cSveeDF/dgrmcfg1fzO7f8116/GfwArnOR8gRHNqgAAAABJRU5ErkJggg=="/><b>SCAN THE QR CODE</b><span>Portfolio · Case study · Accessibility</span></a>
+</div></main>
+
+</section>
+<script>
+const iconMap = {
+  problem:`<svg viewBox="0 0 24 24"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>`,
+  solution:`<svg viewBox="0 0 24 24"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.75c.63.45 1 1.17 1 1.95V18h6v-1.3c0-.78.37-1.5 1-1.95A7 7 0 0 0 12 2z"></path></svg>`,
+  build:`<svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 1 1.4 1.4l-8 8a1 1 0 0 1-1.4-1.4z"></path><path d="m11 3 4 4"></path><path d="M5 21h4"></path><path d="M19 11v8a2 2 0 0 1-2 2H7"></path></svg>`,
+  result:`<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>`,
+  spark:`<svg viewBox="0 0 24 24"><path d="m12 3 1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4z"></path></svg>`,
+  code:`<svg viewBox="0 0 24 24"><path d="m8 16-4-4 4-4"></path><path d="m16 8 4 4-4 4"></path><path d="m13 4-2 16"></path></svg>`
+};
+document.querySelectorAll('[class*="icon-"]').forEach(el=>{
+  const m=[...el.classList].find(c=>c.startsWith('icon-')&&c!=='icon');
+  if(!m) return; const key=m.replace('icon-',''); if(iconMap[key]) el.innerHTML=iconMap[key];
+})
+</script>
+</body></html>

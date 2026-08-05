@@ -80,31 +80,31 @@ export default function AboutPage() {
             <h2 id="intro-title">
               브랜드의 의도를
               <br />
-              화면과 사용 흐름으로
+              직관적인 화면 구조와 매끄러운 사용 흐름으로
               <br />
-              구현하고 싶습니다.
+              연결하는 웹 퍼블리셔입니다.
             </h2>
           </header>
 
           <div className={styles.introBody} data-aos="fade-up">
             <p>
-              웹퍼블리셔를 선택한 계기는 지인들과 소규모 패션 브랜드 론칭을
-              준비하며 홈페이지 제작을 맡았던 경험이었습니다. 제품을 소개하는
-              화면이 단순한 정보의 나열이 아니라, 브랜드의 분위기와 정보의 순서,
-              사용자의 구매 경험을 연결하는 중요한 접점이라는 사실을 배웠습니다.
+              지인들과 소규모 패션 브랜드 론칭을 준비하며 홈페이지 제작을 맡았던 경험이
+              웹 퍼블리셔를 선택한 계기였습니다. 제품을 소개하는 화면이 단순한 정보 배치를 넘어,
+              브랜드의 분위기와 정보의 순서, 사용자의 구매 경험을 잇는 가장 중요한
+              접점임을 배웠습니다.
             </p>
             <p>
-              그 경험 이후 운영자의 의도를 화면의 구조로 정리하고, 사용자가 실제로
-              이용할 수 있는 형태로 구현하는 일을 목표로 삼았습니다. 950시간의
-              웹퍼블리셔·프론트엔드 실무 훈련과정에서는
-              React와 PHP·MySQL 기반 프로젝트를 진행하며 기획, 마크업, 스타일링,
-              상호작용, 접근성 점검과 배포까지 하나의 흐름으로 경험했습니다.
+              그 경험 이후 운영자의 기획 의도를 탄탄한 구조로 정리하고,
+              사용자가 실제 서비스에서 막힘없이 이용할 수 있는 화면으로 구현하는 것을 목표로 삼았습니다.
+              950시간의 실무 훈련과정에서는 React와 PHP·MySQL 기반 프로젝트를 수행하며
+              기획, 마크업, 스타일링, 상호작용, 웹 접근성 점검, 배포까지
+              퍼블리싱의 전체 흐름을 완결성 있게 경험했습니다.
             </p>
             <p>
-              저는 처음 전달된 요청만으로 이해를 끝내지 않습니다. 질문과 관찰을 통해
-              요청 안에 숨어 있는 기준을 찾고, 팀이 함께 이해할 수 있는 구조로 바꿉니다.
-              운영하기 쉬우면서도 사용자가 망설이지 않는 화면을 만드는 웹퍼블리셔로
-              성장하고 있습니다.
+              전달된 요청서에 머무르지 않고 질문과 관찰을 통해
+              숨은 요구사항과 기준을 찾아내며, 팀 전체가 명확히 이해할 수 있는 시맨틱 구조로 바꿉니다.
+              운영자에게는 관리하기 쉽고, 사용자에게는 망설임 없는 경험을 제공하는
+              웹 퍼블리셔로 성장하고 있습니다.
             </p>
           </div>
         </section>
@@ -114,9 +114,9 @@ export default function AboutPage() {
             <span className={styles.eyebrow}>WORKING NOTES / 03</span>
             <h2 id="notes-title">From intent to interface.</h2>
             <p>
-              홈에서 보여준 강점을,
+              웹 퍼블리셔로서 일할 때
               <br />
-              실제로 일할 때의 생각과 과정으로 풀었습니다.
+              지키는 생각과 과정의 기록입니다.
             </p>
           </header>
 
@@ -155,11 +155,12 @@ export default function AboutPage() {
           </div>
           <a
             className={styles.downloadButton}
-            href="/documents/조수연-이력서-2026.pdf"
-            download="조수연-이력서-2026.pdf"
+            href="/documents/cho-sooyeon-resume.html"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <span>Download resume</span>
-            <span className="srOnly"> (PDF 파일 다운로드)</span>
+            <span className="srOnly"> (새 창에서 웹 이력서 열기)</span>
             <LinkArrowIcon className={styles.downloadIcon} />
           </a>
         </section>
